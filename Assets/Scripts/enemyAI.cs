@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class enemyAI : MonoBehaviour, isDamageable
 {
     [Header("-----Components-----")]
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] UnityEvent<int> takeDamage;
 
     [Header("-----Enemy Stats-----")]
     [SerializeField] Transform headPos;
@@ -52,11 +54,11 @@ public class enemyAI : MonoBehaviour, isDamageable
         }
     }
 
-    public void takeDamage(int dmg)
+    public void TakeDamage(int dmg)
     {
         HP -= dmg;
         agent.SetDestination(gameManager.instance.player.transform.position);
-
+        takeDamage.Invoke(dmg);
         if (HP <= 0)
         {
             gameManager.instance.updateEnemyRemaining(-1);
