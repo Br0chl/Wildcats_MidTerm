@@ -6,6 +6,7 @@ public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
+    [SerializeField] playerActions PlayerActions;
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)] [SerializeField] int HP;
@@ -20,6 +21,7 @@ public class playerController : MonoBehaviour
 
     int jumpedTimes;
 
+    public bool isShooting;
     bool isSprinting;
     bool isJumping;
 
@@ -32,6 +34,11 @@ public class playerController : MonoBehaviour
 
         HandleInputs();
         Movement(delta);
+
+        if (isShooting)
+        {
+            PlayerActions.HandleShoot();
+        }
     }
 
     void Movement(float delta)
@@ -71,24 +78,23 @@ public class playerController : MonoBehaviour
 
     private void HandleInputs()
     {
+        // move vector
         move = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
 
+        // jump
         if (Input.GetButtonDown("Jump") && jumpedTimes < jumpsAllowed)
-        {
-            isJumping = true;
-        }
+        { isJumping = true; }
         else
-        {
-            isJumping = false;
-        }
+        { isJumping = false; }
 
+        // sprinting
         if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isSprinting = true;
-        }
+        { isSprinting = true; }
         else
-        {
-            isSprinting = false;
-        }
+        { isSprinting = false; }
+
+        // shooting
+        if (!isShooting && Input.GetButton("Shoot"))
+        { isShooting = true; }
     }
 }

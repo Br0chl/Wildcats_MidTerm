@@ -18,12 +18,6 @@ public class gameManager : MonoBehaviour
         playerScript = player.GetComponent<playerController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void updateEnemyRemaining(int amount)
     {
         enemiesRemaining += amount;
