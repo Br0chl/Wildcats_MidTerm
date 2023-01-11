@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    [HideInInspector] public int bulletDamage;
+    public int bulletDamage;
     [SerializeField] int timer;
 
     void Start()

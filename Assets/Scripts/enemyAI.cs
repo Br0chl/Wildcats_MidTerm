@@ -47,10 +47,11 @@ public class enemyAI : MonoBehaviour, isDamageable
                 facePlayer();
             }
 
-            //if (!isShooting)
-            //{
-            //    StartCoroutine(shoot());
-            //}
+            // uncommented for shooting
+            if (!isShooting)
+            {
+               StartCoroutine(shoot());
+            }
         }
     }
 
@@ -66,17 +67,18 @@ public class enemyAI : MonoBehaviour, isDamageable
         }
     }
 
-    //IEnumerator shoot()
-    //{
-    //    isShooting = true;
+    // uncommented for shooting
+    IEnumerator shoot()
+    {
+       isShooting = true;
 
-    //    GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-    //    bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
-    //    bulletClone.GetComponent<Bullet>().bulletDamage = shootDamage;
+       GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+       bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+       bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 
-    //    yield return new WaitForSeconds(shootRate);
-    //    isShooting = false;
-    //}
+       yield return new WaitForSeconds(shootRate);
+       isShooting = false;
+    }
 
     void facePlayer()
     {
