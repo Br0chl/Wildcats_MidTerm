@@ -26,7 +26,7 @@ public class playerController : MonoBehaviour
     [SerializeField] private float playerSpeed;
 
     // Current HP for healthbar
-    int currentHP;
+    public int currentHP;
 
     int jumpedTimes;
 

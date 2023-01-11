@@ -155,7 +155,7 @@ MonoBehaviour:
   HP: 10
   playerFaceSpeed: 5
   shootPos: {fileID: 2556026852857956810}
-  bullet: {fileID: 2556026852857956811}
+  bullet: {fileID: 3922132516335272273, guid: e941579c641372c4bb924690c7487e47, type: 3}
   bulletSpeed: 0
   shootRate: 0
   shootDist: 0
@@ -283,7 +283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2556026852857956811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.114, y: 0.759, z: -0.287}
+  m_LocalPosition: {x: 0.114, y: 0.99999994, z: -0.287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -311,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9132405689295615165, guid: 10143636944761745876af569c234b81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9132405689295615165, guid: 10143636944761745876af569c234b81, type: 3}
       propertyPath: m_LocalPosition.z
