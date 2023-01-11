@@ -6,18 +6,27 @@ public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
-    [SerializeField] playerActions PlayerActions;
 
     [Header("----- Player Stats -----")]
-    [Range(1, 10)] [SerializeField] int HP;
+    [Range(1, 10)] [SerializeField] int maxHP;
     [Range(1, 10)] [SerializeField] int walkSpeed;
     [Range(10,40)][SerializeField] int sprintSpeed;
     [Range(5, 20)] [SerializeField] int jumpAmount;
     [Range(5, 50)] [SerializeField] int gravity;
     [Range(1, 5)] [SerializeField] int jumpsAllowed;
 
+    //**** Temporary to check UI conditions ****
+    [Header("--Gun Stats---")]
+    [SerializeField] float shootRate;
+    [SerializeField] int shootDist;
+    [SerializeField] int shootDamage;
+    //****                   *****
+
     [Header("----- Test View -----")]
     [SerializeField] private float playerSpeed;
+
+    // Current HP for healthbar
+    int currentHP;
 
     int jumpedTimes;
 
@@ -28,6 +37,14 @@ public class playerController : MonoBehaviour
     Vector3 move;
     Vector3 playerVelocity;
 
+    private void Start() 
+    {
+        // Set and update player HP for UI purposes
+        currentHP = maxHP;
+        UpdatePlayerHP();
+        RespawnPlayer();
+    }
+
     void Update()
     {
         float delta = Time.deltaTime;
@@ -35,10 +52,9 @@ public class playerController : MonoBehaviour
         HandleInputs();
         Movement(delta);
 
-        if (isShooting)
-        {
-            PlayerActions.HandleShoot();
-        }
+        if (!isShooting && Input.GetButton("Shoot"))
+            StartCoroutine(Shoot());
+
     }
 
     void Movement(float delta)
@@ -71,9 +87,47 @@ public class playerController : MonoBehaviour
         controller.Move(playerVelocity * delta);
     }
 
+    //***** Temp to test UI CONDITIONS
+    IEnumerator Shoot()
+    {
+        isShooting = true;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        {
+            if (hit.collider.GetComponent<isDamageable>() != null)
+            {
+                hit.collider.GetComponent<isDamageable>().TakeDamage(shootDamage);
+            }
+        }
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
+    }
+    //*****      ********
+
+
     public void TakeDamage(int dmg)
     {
-        HP -= dmg;
+        currentHP -= dmg;
+        UpdatePlayerHP();
+
+        if (currentHP <= 0)
+        {
+            gameManager.instance.PlayerDead();
+        }
+    }
+
+    private void UpdatePlayerHP()
+    {
+        gameManager.instance.playerHPBar.fillAmount = (float)currentHP / (float)maxHP;
+    }
+
+    public void RespawnPlayer()
+    {
+        controller.enabled = false;
+        currentHP = maxHP;
+        UpdatePlayerHP();
+        transform.position = gameManager.instance.playerSpawnPos.transform.position;
+        controller.enabled = true;
     }
 
     private void HandleInputs()
@@ -94,7 +148,7 @@ public class playerController : MonoBehaviour
         { isSprinting = false; }
 
         // shooting
-        if (!isShooting && Input.GetButton("Shoot"))
-        { isShooting = true; }
+       // if (!isShooting && Input.GetButton("Shoot"))
+        //{ isShooting = true; }
     }
 }
