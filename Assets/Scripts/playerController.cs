@@ -148,7 +148,7 @@ public class playerController : MonoBehaviour
         { isSprinting = false; }
 
         // shooting
-       // if (!isShooting && Input.GetButton("Shoot"))
-        //{ isShooting = true; }
+        // if (!isShooting && Input.GetButton("Shoot"))
+        // { isShooting = true; }
     }
 }
