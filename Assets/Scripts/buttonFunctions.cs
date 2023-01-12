@@ -27,4 +27,10 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.playerScript.RespawnPlayer();
         gameManager.instance.UnPause();
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
 }
+
