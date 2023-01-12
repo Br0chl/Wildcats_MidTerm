@@ -7,43 +7,60 @@ public class waveSpawner : MonoBehaviour
     [Header("----- Spawner Values -----")]
     [SerializeField] List<Transform> spawnLocations = new List<Transform>(); // stores all the spawn locations
     [SerializeField] List<SpawnableEnemy> enemies = new List<SpawnableEnemy>(); // a list of enemies and their cost
+    [SerializeField] List<SpawnableEnemy> bosses = new List<SpawnableEnemy>(); // a list of bosses
     [SerializeField] int waveValueMultiplier; // the value you multiply the current wave by to get the value of the wave
     [SerializeField] int waveDuration; // the time between waves
+    [SerializeField] int maxWaves; // when waves stop
+    [SerializeField] int bossWaves; // set how often boss waves happen (IE: 10 == every 10 waves, 7 == every 7 waves, etc.) (0 == no bosses)
+    [SerializeField] bool infiniteWaves; // sets wether the waves come infinitely
 
     [Header("----- Test View -----")]
-    List<GameObject> enemiesToSpawn = new List<GameObject>(); // the list of generated enemies to spawn
-    [SerializeField] int currWave;
+    [SerializeField] List<GameObject> enemiesToSpawn = new List<GameObject>(); // the list of generated enemies to spawn
+    [SerializeField] int currWave = 0;
     [SerializeField] int waveValue; // varriable used to buy enemies
     [SerializeField] float waveTimer;
     [SerializeField] float spawnInterval;
     [SerializeField] float spawnTimer;
+    [SerializeField] bool stopWaves;
 
     void Start()
     {
-        currWave = 0;
         GenerateWave();
     }
 
     void FixedUpdate()
     {
-        if (spawnTimer <= 0) // if its time to spawn an enemy
-        { HandleSpawning(); } // spawn the enemy
+        if (!stopWaves) // if we still have waves to spawn
+        {
+            if (spawnTimer <= 0) // if its time to spawn an enemy
+            { HandleSpawning(); } // spawn the enemy
 
-        else // otherwise adjust spawnTimer
-        { spawnTimer -= Time.fixedDeltaTime; }
+            else // otherwise adjust spawnTimer
+            { spawnTimer -= Time.fixedDeltaTime; }
 
-        if (waveTimer <= 0) // if its time for the next wave
-        { GenerateWave(); } // generate the wave
+            if (waveTimer <= 0) // if its time for the next wave
+            { GenerateWave(); } // generate the wave
 
-        else // otherwise adjust waveTimer
-        { waveTimer -= Time.fixedDeltaTime; }
+            else // otherwise adjust waveTimer
+            { waveTimer -= Time.fixedDeltaTime; }
+        }
     }
     
     void GenerateWave()
     {
+        if (currWave == maxWaves && !infiniteWaves) // if we completed the last wave and we aren't playing infinitely
+        {
+            stopWaves = true; // stop spawning waves
+            return; 
+        }
+
         currWave++; // go to the next wave
         waveValue = currWave * waveValueMultiplier; // calculate the cost of the wave
-        GenerateEnemies(); // generate the list of enemies
+
+        if (currWave % bossWaves == 0 && bossWaves != 0)
+        { GenerateBoss(); }
+        else
+        { GenerateEnemies(); } // generate the list of enemies
 
         spawnInterval = waveDuration / enemiesToSpawn.Count; // fixed time between each enemy
         waveTimer = waveDuration; // reset the wave timer
@@ -69,6 +86,20 @@ public class waveSpawner : MonoBehaviour
         }
         enemiesToSpawn.Clear(); // make sure our enemy to spawn list is clear
         enemiesToSpawn = generatedEnemies; // copy the new waves enemies to the to spawn 
+    }
+
+    void GenerateBoss()
+    {
+        // create a temporary list of enemies to generate
+        List<GameObject> generatedEnemies = new List<GameObject>();
+
+        int randEnemyID = Random.Range(0, bosses.Count); // grabbing a random enemy from the list
+        int randEnemyCost = bosses[randEnemyID].cost;   // grabbing the random enemies cost
+        waveValue = 0;
+
+        enemiesToSpawn.Clear(); // make sure our enemy to spawn list is clear
+        enemiesToSpawn = generatedEnemies; // copy the new waves enemies to the to spawn 
+        
     }
 
     void HandleSpawning()
