@@ -4,41 +4,64 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    [Header("----- Components -----")]
+    [Header("---Components---")]
     [SerializeField] CharacterController controller;
+    [SerializeField] AudioSource aud;
 
-    [Header("----- Player Stats -----")]
-    [Range(1, 10)] [SerializeField] int maxHP;
+    [Header("---Player Stats---")]
+    [Range(1, 300)] [SerializeField] int maxHP;
     [Range(1, 10)] [SerializeField] int walkSpeed;
-    [Range(10,40)][SerializeField] int sprintSpeed;
+    [Range(1,20)][SerializeField] int sprintSpeed;
     [Range(5, 20)] [SerializeField] int jumpAmount;
     [Range(5, 50)] [SerializeField] int gravity;
     [Range(1, 5)] [SerializeField] int jumpsAllowed;
 
-    //**** Temporary to check UI conditions ****
-    [Header("--Gun Stats---")]
+    [Header("---Gun Stats---")]
+    [SerializeField] public List<GunStats> gunList = new List<GunStats>(2);
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
     [SerializeField] int shootDamage;
-    //****                   *****
+    [SerializeField] GameObject gunModel;
 
-    [Header("----- Test View -----")]
+    [Header("---Audio---")]
+    [SerializeField] AudioClip[] audPlayerDamage;
+    [Range(0, 1)][SerializeField] float audPlayerDamageVol;
+    [SerializeField] AudioClip[] audPlayerJump;
+    [Range(0, 1)][SerializeField] float audPlayerJumpVol;
+    [SerializeField] AudioClip[] audPlayerSteps;
+    [Range(0, 1)][SerializeField] float audPlayerStepsVol;
+
+    [Header("---Test View---")]
     [SerializeField] private float playerSpeed;
 
     // Current HP for healthbar
     public int currentHP;
 
-    int jumpedTimes;
+    int playerSpeedOriginal;
 
-    public bool isShooting;
-    bool isSprinting;
-    bool isJumping;
+    // int to track selectedGun
+    public int selectedGun;
+
+    int jumpedTimes; // Tracks jumps ex. Double Jump
 
     Vector3 move;
     Vector3 playerVelocity;
 
+    bool isShooting;
+    bool isPlayingSteps;
+    bool isSprinting;
+    bool isReloading;
+    bool isSwapping;
+    bool isJumping;
+
+    // Pushback effect
+    public Vector3 pushBack;
+    [SerializeField] int pushBackTime;
+
     private void Start() 
     {
+        // Cache playerSpeed
+        playerSpeedOriginal = walkSpeed;
         // Set and update player HP for UI purposes
         currentHP = maxHP;
         UpdatePlayerHP();
@@ -47,50 +70,117 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        float delta = Time.deltaTime;
+        if (!gameManager.instance.isPaused)
+        {
+            //pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
+            pushBack.x = Mathf.Lerp(pushBack.x, 0, Time.deltaTime * pushBackTime);
+            pushBack.z = Mathf.Lerp(pushBack.z, 0, Time.deltaTime * pushBackTime);
+            pushBack.y = Mathf.Lerp(pushBack.y, 0, Time.deltaTime * pushBackTime * 3);
 
-        HandleInputs();
-        Movement(delta);
+            if (move.normalized.magnitude > .3f && !isPlayingSteps)
+                StartCoroutine(playSteps());
 
-        if (!isShooting && Input.GetButton("Shoot"))
-            StartCoroutine(Shoot());
+            Movement();
+            Sprint();
+            SelectGun();
 
+            if (gunList.Count > 0)
+            {
+                // Reload
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    if (isReloading || isSwapping)
+                        return;
+
+                    StartCoroutine(Reload());
+                }
+
+                // Shoot
+                if (!isShooting && Input.GetButton("Shoot") && !isReloading && !isSwapping)
+                {
+                    Debug.Log("SHOOT");
+                    StartCoroutine(Shoot());
+                }
+            }
+        }
     }
 
-    void Movement(float delta)
+    void Movement()
     {
-        if (controller.isGrounded && playerVelocity.y < 0)
+        if (controller.isGrounded && playerVelocity.y <= 0)
         {
             playerVelocity.y = 0;
             jumpedTimes = 0;
         }
-       
-        if (isSprinting)
-        {
-            playerSpeed = delta * sprintSpeed;
-        }
-        else
-        {
-            playerSpeed = delta * walkSpeed;
-        }
-        
-        controller.Move(move * playerSpeed);
 
-        if (isJumping)
+        move = (transform.right * Input.GetAxis("Horizontal") +
+               (transform.forward * Input.GetAxis("Vertical")));
+
+        controller.Move(move * Time.deltaTime * playerSpeed);
+
+        if (Input.GetButtonDown("Jump") && jumpedTimes < jumpsAllowed)
         {
             playerVelocity.y = jumpAmount;
             jumpedTimes++;
+            aud.PlayOneShot(audPlayerJump[Random.Range(0, audPlayerJump.Length)], audPlayerJumpVol);
         }
-        
-        
-        playerVelocity.y -= gravity * delta;
-        controller.Move(playerVelocity * delta);
+
+        playerVelocity.y -= gravity * Time.deltaTime;
+        controller.Move((playerVelocity + pushBack) * Time.deltaTime);
     }
 
-    //***** Temp to test UI CONDITIONS
+    void Sprint()
+    {
+        if (Input.GetButtonDown("Sprint"))
+        {
+            isSprinting = true;
+            playerSpeed *= sprintSpeed;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            isSprinting = false;
+            playerSpeed /= sprintSpeed;
+        }
+    }
+
+    IEnumerator playSteps()
+    {
+        if (controller.isGrounded)
+        {
+            isPlayingSteps = true;
+            aud.PlayOneShot(audPlayerSteps[Random.Range(0, audPlayerSteps.Length)], audPlayerStepsVol);
+
+            if (!isSprinting)
+                yield return new WaitForSeconds(0.5f);
+            else
+                yield return new WaitForSeconds(0.3f);
+
+            isPlayingSteps = false;
+        }
+    }
+
     IEnumerator Shoot()
     {
+        if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo == 0)
+        {
+            aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            gameManager.instance.playerAnim.SetTrigger("Reload");
+            yield break;
+        }
+        else if (gunList[selectedGun].currentAmmo == 0)
+        {
+            StartCoroutine(Reload());
+            yield break;
+        }
         isShooting = true;
+
+        aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
+
+        gameManager.instance.playerAnim.SetTrigger("Shoot");
+
+        gunList[selectedGun].currentAmmo--;
+        gameManager.instance.UpdateActiveAmmo();
+
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
@@ -102,18 +192,70 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
-    //*****      ********
+
+    public IEnumerator Reload()
+    {
+        if (gunList[selectedGun].currentAmmo == gunList[selectedGun].magCapacity)
+        {
+            Debug.Log("Ammo Full");
+            yield break;
+        }
+        else if (gunList[selectedGun].currentMaxAmmo == 0 && gunList[selectedGun].currentMaxAmmo == 0)
+        {
+            Debug.Log("Out of Ammo");
+            aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            yield break;
+        }
+        else
+        {
+            Debug.Log("Reloading");
+            isReloading = true;
+
+            gameManager.instance.playerAnim.SetTrigger("Reload");
+            aud.PlayOneShot(gunList[selectedGun].gunReloadAud, gunList[selectedGun].gunReloadAudVol);
+
+            yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
+            // Decrease Current Max ammo by mag capacity-currentAmmo and update UI
+            if (gunList[selectedGun].currentMaxAmmo >= gunList[selectedGun].magCapacity)
+            {
+                gunList[selectedGun].currentMaxAmmo -= gunList[selectedGun].magCapacity - gunList[selectedGun].currentAmmo;
+                gameManager.instance.activeMaxAmmo.text = gunList[selectedGun].currentMaxAmmo.ToString();
+                gunList[selectedGun].currentAmmo = gunList[selectedGun].magCapacity;
+                gameManager.instance.activeCurrentAmmo.text = gunList[selectedGun].magCapacity.ToString();
+                if (gunList[selectedGun].currentMagazines > 0)
+                    gunList[selectedGun].currentMagazines--;
+            }
+            else
+            {
+                gunList[selectedGun].currentAmmo += gunList[selectedGun].currentMaxAmmo;
+                gameManager.instance.activeCurrentAmmo.text = gunList[selectedGun].currentAmmo.ToString();
+                gunList[selectedGun].currentMaxAmmo = 0;
+                gameManager.instance.activeMaxAmmo.text = gunList[selectedGun].currentMaxAmmo.ToString();
+                if (gunList[selectedGun].currentMagazines > 0)
+                    gunList[selectedGun].currentMagazines--;
+            }
+            isReloading = false;
+        }
+    }
 
 
-    public void TakeDamage(int dmg)
+    public void takeDamage(int dmg)
     {
         currentHP -= dmg;
         UpdatePlayerHP();
+        StartCoroutine(gameManager.instance.flashDamage());
+        aud.PlayOneShot(audPlayerDamage[Random.Range(0, audPlayerDamage.Length)], audPlayerDamageVol);
 
         if (currentHP <= 0)
         {
             gameManager.instance.PlayerDead();
         }
+    }
+
+    public void Heal(int healtToRestore)
+    {
+        currentHP += healtToRestore;
+        UpdatePlayerHP();
     }
 
     private void UpdatePlayerHP()
@@ -130,25 +272,74 @@ public class playerController : MonoBehaviour
         controller.enabled = true;
     }
 
-    private void HandleInputs()
+    public void gunPickup(GunStats gunStat)
     {
-        // move vector
-        move = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
+        // if (gunList.Count > 0)
+        // {
+        //     StartCoroutine(ChangeGun());
+        // }
+        // else
+        //     gameManager.instance.playerAnim.SetTrigger("SwapIn");
 
-        // jump
-        if (Input.GetButtonDown("Jump") && jumpedTimes < jumpsAllowed)
-        { isJumping = true; }
-        else
-        { isJumping = false; }
 
-        // sprinting
-        if (Input.GetKey(KeyCode.LeftShift))
-        { isSprinting = true; }
-        else
-        { isSprinting = false; }
+        if (gunList.Count == 2)
+            gunList.Remove(gunList[selectedGun]);
 
-        // shooting
-        // if (!isShooting && Input.GetButton("Shoot"))
-        // { isShooting = true; }
+        gunList.Add(gunStat);
+
+        shootRate = gunStat.shootRate;
+        shootDist = gunStat.shootDist;
+        shootDamage = gunStat.shootDamage;
+
+        gunStat.currentAmmo = gunStat.magCapacity;
+        gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.startingMagazines;
+        gunStat.currentMagazines = gunStat.startingMagazines;
+
+        selectedGun = gunList.Count - 1;
+
+        StartCoroutine(ChangeGun());
+
+        gameManager.instance.UpdateUI();
+    }
+
+    void SelectGun()
+    {
+        if (isReloading || isShooting)
+            return;
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        {
+            selectedGun++;
+            StartCoroutine(ChangeGun());
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            selectedGun--;
+            StartCoroutine(ChangeGun());
+        }
+    }
+
+    IEnumerator ChangeGun()
+    {
+        StartCoroutine(SwapTime());
+        gameManager.instance.playerAnim.SetTrigger("SwapOut");
+        yield return new WaitForSeconds(.5F);
+        shootRate = gunList[selectedGun].shootRate;
+        shootDist = gunList[selectedGun].shootDist;
+        shootDamage = gunList[selectedGun].shootDamage;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
+        gameManager.instance.playerAnim.SetTrigger("SwapIn");
+
+        gameManager.instance.UpdateUI();
+    }
+
+    IEnumerator SwapTime()
+    {
+        isSwapping = true;
+        yield return new WaitForSeconds(gunList[selectedGun].swapSpeed);
+        isSwapping = false;
     }
 }
