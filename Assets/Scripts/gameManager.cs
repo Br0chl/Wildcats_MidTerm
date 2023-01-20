@@ -12,18 +12,35 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public playerController playerScript;
     public GameObject playerSpawnPos;
+    public Animator playerAnim;
+    public AudioSource playerAudio;
 
     [Header("---Game Goal---")]
     public int enemiesRemaining;
+    [SerializeField] TextMeshProUGUI enemiesRemainingText;
 
-    [Header("---UI---")]
+    [Header("------UI------")]
+    [Header("---Menus---")]
     public GameObject activeMenu;
     public GameObject pauseMenu;
     public GameObject winMenu;
     public GameObject playerDeadMenu;
+    [Header("---Player UI---")]
     public Image playerHPBar;
-    [SerializeField] TextMeshProUGUI enemiesRemainingText;
-
+    public GameObject screenFlash;  // ScreenFlash On TakeDamage
+    [Header("---Active Weapon UI---")]
+    public GameObject activeUI;
+    public Image activeWeaponIcon;
+    public TextMeshProUGUI activeCurrentAmmo;
+    public TextMeshProUGUI activeMaxAmmo;
+    public GameObject weaponReticle;
+    public Sprite reticleBorder;
+    [Header("---Inactive Weapon UI---")]
+    public GameObject inactiveUI;
+    public Image inactiveWeaponIcon;
+    public TextMeshProUGUI inactiveCurrentAmmo;
+    public TextMeshProUGUI inactiveMaxAmmo;
+    
     // For Pauseing Game
     public bool isPaused = false;
     float timeScaleOrig;
@@ -32,12 +49,26 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+        playerAnim = player.GetComponent<Animator>();
+        playerAudio = player.GetComponent<AudioSource>();
 
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
 
         timeScaleOrig = Time.timeScale;
+
+        // Set UI Inactive if weapons null
+        if (playerScript.gunList.Count == 1)
+        {
+            inactiveUI.SetActive(false);
+        }
+        if (playerScript.gunList.Count == 0)
+        {
+            activeUI.SetActive(false);
+            inactiveUI.SetActive(false);
+        }
     }
 
     void Update()
@@ -94,5 +125,66 @@ public class gameManager : MonoBehaviour
         Pause();
         activeMenu = playerDeadMenu;
         activeMenu.SetActive(true);
+    }
+
+    public IEnumerator flashDamage()
+    {
+        screenFlash.SetActive(true);
+        yield return new WaitForSeconds(.15f);
+        screenFlash.SetActive(false);
+    }
+
+    public void UpdateUI()
+    {
+        GunStats active;
+        GunStats inactive;
+
+        if (playerScript.selectedGun == 0)
+        {
+            active = playerScript.gunList[0];
+            UpdateActiveUI(active);
+            if (playerScript.gunList.Count > 1)
+            {
+                inactive = playerScript.gunList[1];
+                UpdateInactiveUI(inactive);
+            }
+        }
+        else
+        {
+            active = playerScript.gunList[1];
+            UpdateActiveUI(active);
+            inactive = playerScript.gunList[0];
+            UpdateInactiveUI(inactive);
+        }
+    }
+
+    private void UpdateActiveUI(GunStats active)
+    {
+        // Set Active UI
+        gameManager.instance.activeUI.SetActive(true);
+        activeWeaponIcon.sprite = active.iconUI;
+        if (active.reticle != null)
+            gameManager.instance.weaponReticle.SetActive(true);
+        else
+            gameManager.instance.weaponReticle.SetActive(false);
+        gameManager.instance.reticleBorder = active.reticle;
+
+        activeCurrentAmmo.text = active.currentAmmo.ToString();
+        activeMaxAmmo.text = active.currentMaxAmmo.ToString();
+    }
+
+    private void UpdateInactiveUI(GunStats inactive)
+    {
+        // Set Inactive UI
+        gameManager.instance.inactiveUI.SetActive(true);
+        inactiveWeaponIcon.sprite = inactive.iconUI;
+        inactiveCurrentAmmo.text = inactive.currentAmmo.ToString();
+        inactiveMaxAmmo.text = inactive.currentMaxAmmo.ToString();
+    }
+
+    public void UpdateActiveAmmo()
+    {
+        activeCurrentAmmo.text = playerScript.gunList[playerScript.selectedGun].currentAmmo.ToString();
+        activeMaxAmmo.text = playerScript.gunList[playerScript.selectedGun].currentMaxAmmo.ToString();
     }
 }
