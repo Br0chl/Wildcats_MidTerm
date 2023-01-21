@@ -30,4 +30,6 @@ public class GunStats : ScriptableObject
 
     public Sprite iconUI;
     public Sprite reticle;
+
+    public bool isOutOfAmmo;
 }
