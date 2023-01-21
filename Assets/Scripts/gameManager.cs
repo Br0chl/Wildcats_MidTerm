@@ -167,6 +167,7 @@ public class gameManager : MonoBehaviour
             gameManager.instance.weaponReticle.SetActive(true);
         else
             gameManager.instance.weaponReticle.SetActive(false);
+            
         gameManager.instance.reticleBorder = active.reticle;
 
         activeCurrentAmmo.text = active.currentAmmo.ToString();
@@ -186,5 +187,19 @@ public class gameManager : MonoBehaviour
     {
         activeCurrentAmmo.text = playerScript.gunList[playerScript.selectedGun].currentAmmo.ToString();
         activeMaxAmmo.text = playerScript.gunList[playerScript.selectedGun].currentMaxAmmo.ToString();
+    }
+
+    public void UpdateInactiveAmmo()
+    {
+        if (playerScript.gunList[playerScript.selectedGun] == playerScript.gunList[0] && playerScript.gunList.Count == 2)
+        {
+            inactiveCurrentAmmo.text = playerScript.gunList[1].currentAmmo.ToString();
+            inactiveMaxAmmo.text = playerScript.gunList[1].currentMaxAmmo.ToString();
+        }
+        else
+        {
+            inactiveCurrentAmmo.text = playerScript.gunList[0].currentAmmo.ToString();
+            inactiveMaxAmmo.text = playerScript.gunList[0].currentMaxAmmo.ToString();
+        }
     }
 }
