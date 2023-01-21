@@ -9,7 +9,9 @@ public class playerController : MonoBehaviour
     [SerializeField] AudioSource aud;
 
     [Header("---Player Stats---")]
-    [Range(1, 300)] [SerializeField] int maxHP;
+    [SerializeField] int totalCurrency; //Currency total for if we get shop...
+    public int currentHP;
+    [Range(1, 300)] [SerializeField]public int maxHP;
     [Range(1, 10)] [SerializeField] int walkSpeed;
     [Range(1,20)][SerializeField] int sprintSpeed;
     [Range(5, 20)] [SerializeField] int jumpAmount;
@@ -33,9 +35,6 @@ public class playerController : MonoBehaviour
 
     [Header("---Test View---")]
     [SerializeField] private float playerSpeed;
-
-    // Current HP for healthbar
-    public int currentHP;
 
     int playerSpeedOriginal;
 
@@ -65,6 +64,14 @@ public class playerController : MonoBehaviour
         currentHP = maxHP;
         UpdatePlayerHP();
         RespawnPlayer();
+
+        // if player starts with a weapon
+        if (gunList.Count > 0)
+        {
+            selectedGun = 0;
+            InitialzeGun(gunList[0]);
+            gameManager.instance.UpdateActiveAmmo();
+        }
     }
 
     void Update()
@@ -79,9 +86,10 @@ public class playerController : MonoBehaviour
         if (!gameManager.instance.isPaused)
         {
             //pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
-            pushBack.x = Mathf.Lerp(pushBack.x, 0, Time.deltaTime * pushBackTime);
-            pushBack.z = Mathf.Lerp(pushBack.z, 0, Time.deltaTime * pushBackTime);
-            pushBack.y = Mathf.Lerp(pushBack.y, 0, Time.deltaTime * pushBackTime * 3);
+            
+            // pushBack.x = Mathf.Lerp(pushBack.x, 0, Time.deltaTime * pushBackTime);
+            // pushBack.z = Mathf.Lerp(pushBack.z, 0, Time.deltaTime * pushBackTime);
+            // pushBack.y = Mathf.Lerp(pushBack.y, 0, Time.deltaTime * pushBackTime * 3);
 
             if (move.normalized.magnitude > .3f && !isPlayingSteps)
                 StartCoroutine(playSteps());
@@ -202,6 +210,8 @@ public class playerController : MonoBehaviour
 
     public IEnumerator Reload()
     {
+        isReloading = true;
+
         if (gunList[selectedGun].currentAmmo == gunList[selectedGun].magCapacity)
         {
             Debug.Log("Ammo Full");
@@ -222,7 +232,6 @@ public class playerController : MonoBehaviour
         else
         {
             Debug.Log("Reloading");
-            isReloading = true;
 
             gameManager.instance.playerAnim.SetTrigger("Reload");
             aud.PlayOneShot(gunList[selectedGun].gunReloadAud, gunList[selectedGun].gunReloadAudVol);
@@ -247,8 +256,9 @@ public class playerController : MonoBehaviour
                 if (gunList[selectedGun].currentMagazines > 0)
                     gunList[selectedGun].currentMagazines--;
             }
-            isReloading = false;
         }
+
+        isReloading = false;
     }
 
 
@@ -267,7 +277,10 @@ public class playerController : MonoBehaviour
 
     public void Heal(int healtToRestore)
     {
-        currentHP += healtToRestore;
+        if (maxHP - currentHP > healtToRestore)
+            currentHP += healtToRestore;
+        else
+            currentHP = maxHP;
         UpdatePlayerHP();
     }
 
@@ -287,24 +300,43 @@ public class playerController : MonoBehaviour
 
     public void gunPickup(GunStats gunStat)
     {
+        foreach (GunStats gs in gunList)
+        {
+            if (gs == gunStat)
+            {
+                gs.currentMagazines += 1;
+                gs.currentMaxAmmo = gs.magCapacity * gs.currentMagazines;
+                gameManager.instance.UpdateActiveAmmo();
+                gameManager.instance.UpdateInactiveAmmo();
+                return;
+            }
+        }
+
         if (gunList.Count == 2)
             gunList.Remove(gunList[selectedGun]);
 
         gunList.Add(gunStat);
-
-        shootRate = gunStat.shootRate;
-        shootDist = gunStat.shootDist;
-        shootDamage = gunStat.shootDamage;
-
-        gunStat.currentAmmo = gunStat.magCapacity;
-        gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.startingMagazines;
-        gunStat.currentMagazines = gunStat.startingMagazines;
+        InitialzeGun(gunStat);
 
         selectedGun = gunList.Count - 1;
 
         StartCoroutine(ChangeGun());
 
         gameManager.instance.UpdateUI();
+    }
+
+    private void InitialzeGun(GunStats gunStat)
+    {
+        shootRate = gunStat.shootRate;
+        shootDist = gunStat.shootDist;
+        shootDamage = gunStat.shootDamage;
+
+        gunStat.currentAmmo = gunStat.magCapacity;
+        gunStat.currentMagazines = gunStat.startingMagazines;
+        gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.startingMagazines;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     void SelectGun()
@@ -350,5 +382,10 @@ public class playerController : MonoBehaviour
         isSwapping = true;
         yield return new WaitForSeconds(gunList[selectedGun].swapSpeed);
         isSwapping = false;
+    }
+
+    public void AddCurrency(int amount)
+    {
+        totalCurrency += amount;
     }
 }
