@@ -9,11 +9,14 @@ public class enemyAI : MonoBehaviour, isDamageable
     [Header("-----Components-----")]
     [SerializeField] NavMeshAgent agent;
     [SerializeField] UnityEvent<int> takeDamage;
+    [SerializeField] Animator anim;
 
     [Header("-----Enemy Stats-----")]
     [SerializeField] Transform headPos;
     [Range(0, 200)] [SerializeField] int HP;
     [SerializeField] int playerFaceSpeed;
+    [SerializeField] int viewAngle;
+    [SerializeField] int shootAngle;
 
     [Header("-----Enemy Stats-----")]
     [SerializeField] Transform shootPos;
@@ -22,6 +25,8 @@ public class enemyAI : MonoBehaviour, isDamageable
     [Range(0.1f, 2)] [SerializeField] float shootRate;
     [Range(5, 100)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
+
+    float angleToPlayer;
 
     bool isShooting;
     bool playerInRange;
@@ -36,21 +41,38 @@ public class enemyAI : MonoBehaviour, isDamageable
     // Update is called once per frame
     void Update()
     {
+        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
         if (playerInRange)
         {
-            playerDir = gameManager.instance.player.transform.position - headPos.position;
+            canSeePlayer();
+        }
+    }
 
-            agent.SetDestination(gameManager.instance.player.transform.position);
+    private void canSeePlayer()
+    {
+        //vector3.sinAngle might fix bug
+        playerDir = gameManager.instance.player.transform.position - headPos.position;
+        angleToPlayer = Vector3.Angle(playerDir, transform.forward);
 
-            if (agent.remainingDistance < agent.stoppingDistance)
+        Debug.Log(angleToPlayer);
+        Debug.DrawRay(headPos.position, playerDir);
+
+        RaycastHit hit;
+        if (Physics.Raycast(headPos.position, playerDir, out hit))
+        {
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle)
             {
-                facePlayer();
-            }
+                agent.SetDestination(gameManager.instance.player.transform.position);
 
-            // uncommented for shooting
-            if (!isShooting)
-            {
-               StartCoroutine(shoot());
+                if (agent.remainingDistance < agent.stoppingDistance)
+                {
+                    facePlayer();
+                }
+
+                if (!isShooting && angleToPlayer <= shootAngle)
+                {
+                    StartCoroutine(shoot());
+                }
             }
         }
     }
@@ -72,7 +94,9 @@ public class enemyAI : MonoBehaviour, isDamageable
     {
        isShooting = true;
 
-       GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+        anim.SetTrigger("Shoot");
+
+        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
        bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 

@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013237240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.331, y: -0.435, z: 0.663}
+  m_LocalRotation: {x: -0.021227736, y: -0.020159477, z: -0.0003426828, w: 0.9995714}
+  m_LocalPosition: {x: 0.164, y: -0.322, z: 0.536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6272015390771529515}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.433, y: -2.311, z: 0.0098}
 --- !u!33 &1013237244
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.26228368, y: 0.1993804, z: 0.9512595}
+  m_Center: {x: -0.36886436, y: -0.40031606, z: -0.024371818}
 --- !u!1 &4800765597104923693
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,13 +265,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6272015389978710681}
   aud: {fileID: 1483951538}
-  maxHP: 10
+  totalCurrency: 0
+  currentHP: 0
+  maxHP: 300
   walkSpeed: 8
   sprintSpeed: 2
   jumpAmount: 12
   gravity: 25
   jumpsAllowed: 2
-  gunList: []
+  gunList:
+  - {fileID: 11400000, guid: d509cc948780fbe4d8f04cc6f3b2f3ee, type: 2}
   shootRate: 0
   shootDist: 0
   shootDamage: 0
@@ -301,7 +304,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 346a6aec02e8b2d438981f286d5320b3, type: 3}
   audPlayerStepsVol: 0.5
   playerSpeed: 8
-  currentHP: 0
   selectedGun: 0
   pushBack: {x: 0, y: 0, z: 0}
   pushBackTime: 0
