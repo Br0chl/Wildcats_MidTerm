@@ -227,15 +227,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  anim: {fileID: 0}
   headPos: {fileID: 4226832436569703826}
-  HP: 10
+  HP: 200
   playerFaceSpeed: 5
+  viewAngle: 0
+  shootAngle: 0
   shootPos: {fileID: 4226832436569703826}
   bullet: {fileID: 3922132516335272273, guid: e941579c641372c4bb924690c7487e47, type: 3}
   bulletSpeed: 15
   shootRate: 0.5
   shootDist: 25
-  shootDamage: 1
+  shootDamage: 5
 --- !u!195 &4226832437154029801
 NavMeshAgent:
   m_ObjectHideFlags: 0

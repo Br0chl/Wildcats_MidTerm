@@ -335,6 +335,8 @@ public class playerController : MonoBehaviour
         gunStat.currentMagazines = gunStat.startingMagazines;
         gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.startingMagazines;
 
+        gunStat.isOutOfAmmo = false;
+
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
