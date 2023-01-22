@@ -20,6 +20,7 @@ public class playerController : MonoBehaviour
 
     [Header("---Gun Stats---")]
     [SerializeField] public List<GunStats> gunList = new List<GunStats>(2);
+    public int selectedGun;         // int to track selectedGun
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
     [SerializeField] int shootDamage;
@@ -37,9 +38,6 @@ public class playerController : MonoBehaviour
     [SerializeField] private float playerSpeed;
 
     int playerSpeedOriginal;
-
-    // int to track selectedGun
-    public int selectedGun;
 
     int jumpedTimes; // Tracks jumps ex. Double Jump
 
@@ -76,15 +74,16 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        // Check if Gun has any ammo
-        if (gunList.Count > 0)
-        {
-            if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo == 0)
-                gunList[selectedGun].isOutOfAmmo = true;
-        }
-
         if (!gameManager.instance.isPaused)
         {
+
+            // Check if Gun has any ammo
+            if (gunList.Count > 0)
+            {
+                if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo == 0)
+                    gunList[selectedGun].isOutOfAmmo = true;
+            }
+
             //pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
             
             // pushBack.x = Mathf.Lerp(pushBack.x, 0, Time.deltaTime * pushBackTime);
@@ -216,17 +215,20 @@ public class playerController : MonoBehaviour
         {
             Debug.Log("Ammo Full");
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            isReloading = false;
             yield break;
         }
         else if (gunList[selectedGun].currentAmmo > 0 && gunList[selectedGun].currentMaxAmmo == 0)
         {
             Debug.Log("Out of Magazines");
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            isReloading = false;
         }
         else if (gunList[selectedGun].isOutOfAmmo)
         {
             Debug.Log("Out of Ammo");
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            isReloading = false;
             yield break;
         }
         else
@@ -249,9 +251,10 @@ public class playerController : MonoBehaviour
             }
             else
             {
-                gunList[selectedGun].currentAmmo += gunList[selectedGun].currentMaxAmmo;
+                int temp = gunList[selectedGun].magCapacity - gunList[selectedGun].currentAmmo;
+                gunList[selectedGun].currentAmmo += temp;
                 gameManager.instance.activeCurrentAmmo.text = gunList[selectedGun].currentAmmo.ToString();
-                gunList[selectedGun].currentMaxAmmo = 0;
+                gunList[selectedGun].currentMaxAmmo = gunList[selectedGun].currentMaxAmmo - temp;
                 gameManager.instance.activeMaxAmmo.text = gunList[selectedGun].currentMaxAmmo.ToString();
                 if (gunList[selectedGun].currentMagazines > 0)
                     gunList[selectedGun].currentMagazines--;
@@ -306,8 +309,14 @@ public class playerController : MonoBehaviour
             {
                 gs.currentMagazines += 1;
                 gs.currentMaxAmmo = gs.magCapacity * gs.currentMagazines;
+                
                 gameManager.instance.UpdateActiveAmmo();
                 gameManager.instance.UpdateInactiveAmmo();
+                if (gs.isOutOfAmmo && gs == gunList[selectedGun])
+                {
+                    gs.isOutOfAmmo = false;
+                    StartCoroutine(Reload());
+                }
                 return;
             }
         }
@@ -371,10 +380,18 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
         gameManager.instance.playerAnim.SetTrigger("SwapIn");
+        yield return new WaitForSeconds(0.5f);
 
-        // Reset isOutOfAmmo for gunPickups
-        if (gunList[selectedGun].isOutOfAmmo)
+        // Reset Ammo for gunPickups
+        // if (gunList[selectedGun].isOutOfAmmo)
+        //     gunList[selectedGun].isOutOfAmmo = false;
+
+        // Ammo Check
+        if (gunList[selectedGun].isOutOfAmmo && gunList[selectedGun].currentMaxAmmo !=0)
+        {
             gunList[selectedGun].isOutOfAmmo = false;
+            StartCoroutine(Reload());
+        }
 
         gameManager.instance.UpdateUI();
     }
