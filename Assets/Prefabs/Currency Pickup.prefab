@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7735587999335743386}
   - component: {fileID: 7735587999335743385}
+  - component: {fileID: 9139615897270490401}
   - component: {fileID: 7735587999335743384}
   - component: {fileID: 7735587999335743383}
   - component: {fileID: 7735587999335743382}
@@ -135,6 +136,20 @@ MonoBehaviour:
   healthToRestore: 0
   currencyAmount: 100
   respawnTime: 0
+--- !u!114 &9139615897270490401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7735587999335743380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ccc4602ad9fe534aa8b3b0d966abba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 100
+  itemToInstantiate: {fileID: 7735587999335743380}
 --- !u!33 &7735587999335743384
 MeshFilter:
   m_ObjectHideFlags: 0
