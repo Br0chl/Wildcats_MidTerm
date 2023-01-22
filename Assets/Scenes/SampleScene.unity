@@ -558,6 +558,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 588232927321584618, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 54.05139
+      objectReference: {fileID: 0}
     - target: {fileID: 2187188104873572059, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -645,6 +649,26 @@ PrefabInstance:
     - target: {fileID: 2187188104873572063, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271345157683621093, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 61.65747
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271345157683621093, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 105.51514
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245970226483552773, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245970226483552773, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0aedb9bdf3e461c418aec0164c26be61, type: 3}
+    - target: {fileID: 8245970226483552773, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7058824
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}

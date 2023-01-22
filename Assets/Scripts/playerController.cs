@@ -20,6 +20,7 @@ public class playerController : MonoBehaviour
 
     [Header("---Gun Stats---")]
     [SerializeField] public List<GunStats> gunList = new List<GunStats>(2);
+    public int selectedGun;              // int to track selectedGun
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
     [SerializeField] int shootDamage;
@@ -37,9 +38,6 @@ public class playerController : MonoBehaviour
     [SerializeField] private float playerSpeed;
 
     int playerSpeedOriginal;
-
-    // int to track selectedGun
-    public int selectedGun;
 
     int jumpedTimes; // Tracks jumps ex. Double Jump
 
@@ -76,15 +74,15 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        // Check if Gun has any ammo
-        if (gunList.Count > 0)
-        {
-            if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo == 0)
-                gunList[selectedGun].isOutOfAmmo = true;
-        }
-
         if (!gameManager.instance.isPaused)
         {
+            // Check if Gun has any ammo
+            if (gunList.Count > 0)
+            {
+                if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo == 0)
+                    gunList[selectedGun].isOutOfAmmo = true;
+            }
+
             //pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
             
             // pushBack.x = Mathf.Lerp(pushBack.x, 0, Time.deltaTime * pushBackTime);
@@ -212,21 +210,25 @@ public class playerController : MonoBehaviour
     {
         isReloading = true;
 
+        // Ammo Checks
         if (gunList[selectedGun].currentAmmo == gunList[selectedGun].magCapacity)
         {
             Debug.Log("Ammo Full");
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            isReloading = false;
             yield break;
         }
         else if (gunList[selectedGun].currentAmmo > 0 && gunList[selectedGun].currentMaxAmmo == 0)
         {
             Debug.Log("Out of Magazines");
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            isReloading = false;
         }
         else if (gunList[selectedGun].isOutOfAmmo)
         {
             Debug.Log("Out of Ammo");
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            isReloading = false;
             yield break;
         }
         else
@@ -306,8 +308,11 @@ public class playerController : MonoBehaviour
             {
                 gs.currentMagazines += 1;
                 gs.currentMaxAmmo = gs.magCapacity * gs.currentMagazines;
+                gs.isOutOfAmmo = false;
                 gameManager.instance.UpdateActiveAmmo();
                 gameManager.instance.UpdateInactiveAmmo();
+                if (gs.currentAmmo == 0 && gs == gunList[selectedGun])
+                    StartCoroutine(Reload());
                 return;
             }
         }
@@ -334,6 +339,8 @@ public class playerController : MonoBehaviour
         gunStat.currentAmmo = gunStat.magCapacity;
         gunStat.currentMagazines = gunStat.startingMagazines;
         gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.startingMagazines;
+
+        gunStat.isOutOfAmmo = false;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
@@ -369,10 +376,6 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
         gameManager.instance.playerAnim.SetTrigger("SwapIn");
-
-        // Reset isOutOfAmmo for gunPickups
-        if (gunList[selectedGun].isOutOfAmmo)
-            gunList[selectedGun].isOutOfAmmo = false;
 
         gameManager.instance.UpdateUI();
     }
