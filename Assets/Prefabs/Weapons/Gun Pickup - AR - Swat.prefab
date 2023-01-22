@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9096480581987003515}
   - component: {fileID: 9096480581987003462}
+  - component: {fileID: 4067253758693520595}
   - component: {fileID: 2011717623758717357}
   - component: {fileID: 6117623010012173577}
   - component: {fileID: 9096480581987003461}
@@ -133,6 +134,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 11400000, guid: d509cc948780fbe4d8f04cc6f3b2f3ee, type: 2}
+--- !u!114 &4067253758693520595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464199151564011201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ccc4602ad9fe534aa8b3b0d966abba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 50
+  itemToInstantiate: {fileID: 8464199151564011201}
 --- !u!33 &2011717623758717357
 MeshFilter:
   m_ObjectHideFlags: 0

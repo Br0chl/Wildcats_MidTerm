@@ -26,11 +26,16 @@ public class enemyAI : MonoBehaviour, isDamageable
     [Range(5, 100)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
 
+    [Header("-----Loot Dropper-----")]
+    [SerializeField] LootDropper lootDropper;
+
     float angleToPlayer;
 
     bool isShooting;
     bool playerInRange;
     Vector3 playerDir;
+
+    bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +74,7 @@ public class enemyAI : MonoBehaviour, isDamageable
                     facePlayer();
                 }
 
-                if (!isShooting && angleToPlayer <= shootAngle)
+                if (!isShooting && angleToPlayer <= shootAngle && !isDead)
                 {
                     StartCoroutine(shoot());
                 }
@@ -84,7 +89,13 @@ public class enemyAI : MonoBehaviour, isDamageable
         takeDamage.Invoke(dmg);
         if (HP <= 0)
         {
+            isDead = true;
+
             gameManager.instance.updateEnemyRemaining(-1);
+
+            // Drop Loot
+            lootDropper.DropLoot(transform.position);
+
             Destroy(gameObject);
         }
     }
