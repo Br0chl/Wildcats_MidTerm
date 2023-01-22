@@ -254,7 +254,10 @@ public class playerController : MonoBehaviour
                 int temp = gunList[selectedGun].magCapacity - gunList[selectedGun].currentAmmo;
                 gunList[selectedGun].currentAmmo += temp;
                 gameManager.instance.activeCurrentAmmo.text = gunList[selectedGun].currentAmmo.ToString();
-                gunList[selectedGun].currentMaxAmmo = gunList[selectedGun].currentMaxAmmo - temp;
+                if (gunList[selectedGun].currentMaxAmmo - temp < 0)
+                    gunList[selectedGun].currentMaxAmmo = 0;
+                else
+                    gunList[selectedGun].currentMaxAmmo = gunList[selectedGun].currentMaxAmmo - temp;
                 gameManager.instance.activeMaxAmmo.text = gunList[selectedGun].currentMaxAmmo.ToString();
                 if (gunList[selectedGun].currentMagazines > 0)
                     gunList[selectedGun].currentMagazines--;
