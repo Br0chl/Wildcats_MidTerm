@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4226832437154029806, guid: 6f9876d2242ec944586753d67b1fa51a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f9876d2242ec944586753d67b1fa51a, type: 3}
 --- !u!1001 &591610359
@@ -436,24 +440,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f9876d2242ec944586753d67b1fa51a, type: 3}
---- !u!1 &892401575 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4238509924709601431, guid: f63c07a5cf11fc24ab3fbe7d2b76943e, type: 3}
-  m_PrefabInstance: {fileID: 1791403795}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &892401582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 892401575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a819efe2332a9b44badc3f4aa1729c68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lootList: []
 --- !u!1001 &971440375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -591,21 +577,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1084278131, guid: f63c07a5cf11fc24ab3fbe7d2b76943e, type: 3}
-      propertyPath: HP
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084278131, guid: f63c07a5cf11fc24ab3fbe7d2b76943e, type: 3}
-      propertyPath: lootDropper
-      value: 
-      objectReference: {fileID: 892401582}
     - target: {fileID: 4238509924709601431, guid: f63c07a5cf11fc24ab3fbe7d2b76943e, type: 3}
       propertyPath: m_Name
       value: Blossom
-      objectReference: {fileID: 0}
-    - target: {fileID: 4238509924709601431, guid: f63c07a5cf11fc24ab3fbe7d2b76943e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238509924710026423, guid: f63c07a5cf11fc24ab3fbe7d2b76943e, type: 3}
       propertyPath: m_RootOrder
@@ -830,7 +804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6813437104430104509, guid: 6e66a1e0a020b5e4aa471f17bc8f8acb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.15
+      value: -16.38
       objectReference: {fileID: 0}
     - target: {fileID: 6813437104430104509, guid: 6e66a1e0a020b5e4aa471f17bc8f8acb, type: 3}
       propertyPath: m_LocalPosition.y

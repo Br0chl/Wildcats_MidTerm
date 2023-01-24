@@ -10,8 +10,10 @@ public class enemyAI : MonoBehaviour, isDamageable
     [SerializeField] NavMeshAgent agent;
     [SerializeField] UnityEvent<int> takeDamage;
     [SerializeField] Animator anim;
+    [SerializeField] ParticleSystem part;
 
     [Header("-----Enemy Stats-----")]
+    [SerializeField] Enemies enemyType;
     [SerializeField] Transform headPos;
     [Range(0, 200)] [SerializeField] int HP;
     [SerializeField] int playerFaceSpeed;
@@ -36,6 +38,14 @@ public class enemyAI : MonoBehaviour, isDamageable
     Vector3 playerDir;
 
     bool isDead = false;
+
+    public enum Enemies
+    {
+        Crab,
+        Dragon,
+        Blossom,
+        Bomb
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -107,12 +117,28 @@ public class enemyAI : MonoBehaviour, isDamageable
        isShooting = true;
 
         anim.SetTrigger("Shoot");
-
-        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        bulletClone.GetComponent<Rigidbody>().velocity = playerDir.normalized * bulletSpeed;
-       bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
-
-       yield return new WaitForSeconds(shootRate);
+        switch (enemyType)
+        {
+            case Enemies.Crab:
+                break;
+            case Enemies.Dragon:
+                if (playerInRange)
+                {
+                    part.Play(true);
+                }                        
+                break;
+            case Enemies.Blossom:
+                GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+                bulletClone.GetComponent<Rigidbody>().velocity = playerDir.normalized * bulletSpeed;
+                bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
+                yield return new WaitForSeconds(shootRate);
+                break;
+            case Enemies.Bomb:
+                break;
+            default:
+                break;
+        }
+      
        isShooting = false;
     }
 
@@ -136,6 +162,10 @@ public class enemyAI : MonoBehaviour, isDamageable
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            if (enemyType == Enemies.Dragon)
+            {
+                part.Stop(true);
+            }
         }
     }
 }
