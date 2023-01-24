@@ -55,7 +55,6 @@ public class enemyAI : MonoBehaviour, isDamageable
 
     private void canSeePlayer()
     {
-        //vector3.sinAngle might fix bug
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
 
@@ -85,18 +84,20 @@ public class enemyAI : MonoBehaviour, isDamageable
     public void TakeDamage(int dmg)
     {
         HP -= dmg;
+        anim.SetTrigger("Damage");
         agent.SetDestination(gameManager.instance.player.transform.position);
         takeDamage.Invoke(dmg);
         if (HP <= 0)
         {
-            isDead = true;
-
+            anim.SetTrigger("Die");
+            isDead = true;            
+            agent.baseOffset = 0;
             gameManager.instance.updateEnemyRemaining(-1);
 
             // Drop Loot
             lootDropper.DropLoot(transform.position);
-
             Destroy(gameObject);
+            
         }
     }
 
@@ -108,7 +109,7 @@ public class enemyAI : MonoBehaviour, isDamageable
         anim.SetTrigger("Shoot");
 
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-       bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        bulletClone.GetComponent<Rigidbody>().velocity = playerDir.normalized * bulletSpeed;
        bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 
        yield return new WaitForSeconds(shootRate);
@@ -117,7 +118,7 @@ public class enemyAI : MonoBehaviour, isDamageable
 
     void facePlayer()
     {
-        playerDir.y = 0;
+        //playerDir.y = 0;
         Quaternion rot = Quaternion.LookRotation(playerDir);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
