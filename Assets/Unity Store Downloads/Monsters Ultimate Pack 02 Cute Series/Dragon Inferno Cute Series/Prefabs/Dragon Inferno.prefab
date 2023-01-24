@@ -1128,7 +1128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3319832262098260677
 Transform:
   m_ObjectHideFlags: 0
@@ -1265,9 +1265,9 @@ MonoBehaviour:
   HP: 20
   playerFaceSpeed: 10
   viewAngle: 90
-  shootAngle: 30
+  shootAngle: 90
   shootPos: {fileID: 485084119}
-  bullet: {fileID: 3922132516335272273, guid: e941579c641372c4bb924690c7487e47, type: 3}
+  bullet: {fileID: 3922132516335272273, guid: c6b5df3a31a589d4b91a7dc34f4c14b5, type: 3}
   bulletSpeed: 15
   shootRate: 2
   shootDist: 30
