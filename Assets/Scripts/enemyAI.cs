@@ -7,15 +7,16 @@ using UnityEngine.Events;
 public class enemyAI : MonoBehaviour, isDamageable
 {
     [Header("-----Components-----")]
-    [SerializeField] NavMeshAgent agent;
-    [SerializeField] UnityEvent<int> takeDamage;
-    [SerializeField] Animator anim;
-    [SerializeField] ParticleSystem part;
+    [SerializeField] protected NavMeshAgent agent;
+    [SerializeField] protected Animator anim;
+    [SerializeField] protected ParticleSystem part;
+    [SerializeField] SkinnedMeshRenderer model;
+    [SerializeField] protected UnityEvent<int> takeDamage;
 
     [Header("-----Enemy Stats-----")]
     [SerializeField] Enemies enemyType;
     [SerializeField] Transform headPos;
-    [Range(0, 200)] [SerializeField] int HP;
+    [Range(0, 200)] [SerializeField] protected int HP;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int viewAngle;
     [SerializeField] int shootAngle;
@@ -29,7 +30,7 @@ public class enemyAI : MonoBehaviour, isDamageable
     [Range(1, 10)] [SerializeField] int shootDamage;
 
     [Header("-----Loot Dropper-----")]
-    [SerializeField] LootDropper lootDropper;
+    [SerializeField] protected LootDropper lootDropper;
 
     float angleToPlayer;
 
@@ -37,7 +38,8 @@ public class enemyAI : MonoBehaviour, isDamageable
     bool playerInRange;
     Vector3 playerDir;
 
-    bool isDead = false;
+    protected bool isBoss;
+    protected bool isDead = false;
 
     public enum Enemies
     {
@@ -91,7 +93,7 @@ public class enemyAI : MonoBehaviour, isDamageable
         }
     }
 
-    public void TakeDamage(int dmg)
+    public virtual void TakeDamage(int dmg)
     {
         HP -= dmg;
         anim.SetTrigger("Damage");
@@ -109,6 +111,13 @@ public class enemyAI : MonoBehaviour, isDamageable
             Destroy(gameObject);
             
         }
+    }
+
+    public IEnumerator flashDamage()
+    {
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(0.15f);
+        model.material.color = Color.white;
     }
 
     // uncommented for shooting
@@ -167,5 +176,10 @@ public class enemyAI : MonoBehaviour, isDamageable
                 part.Stop(true);
             }
         }
+    }
+
+    public void Heal(int amountToHeal)
+    {
+        HP += amountToHeal;
     }
 }
