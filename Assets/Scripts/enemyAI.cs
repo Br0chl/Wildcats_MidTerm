@@ -41,6 +41,8 @@ public class enemyAI : MonoBehaviour, isDamageable
     protected bool isBoss;
     protected bool isDead = false;
 
+    GameObject bulletClone;
+
     public enum Enemies
     {
         Crab,
@@ -124,11 +126,16 @@ public class enemyAI : MonoBehaviour, isDamageable
     IEnumerator shoot()
     {
        isShooting = true;
+    
 
         anim.SetTrigger("Shoot");
         switch (enemyType)
         {
             case Enemies.Crab:
+                bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+                bulletClone.GetComponent<Rigidbody>().velocity = playerDir.normalized * bulletSpeed;
+                bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
+                yield return new WaitForSeconds(shootRate);
                 break;
             case Enemies.Dragon:
                 if (playerInRange)
@@ -137,7 +144,7 @@ public class enemyAI : MonoBehaviour, isDamageable
                 }                        
                 break;
             case Enemies.Blossom:
-                GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+                bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
                 bulletClone.GetComponent<Rigidbody>().velocity = playerDir.normalized * bulletSpeed;
                 bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
                 yield return new WaitForSeconds(shootRate);
