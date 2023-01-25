@@ -10,6 +10,7 @@ public class BombExplosion : MonoBehaviour
     [SerializeField] BombType type;
     [SerializeField] ParticleSystem ignitionParticles;
     [SerializeField] ParticleSystem explosionParticles;
+    [SerializeField] Animator anim;
 
     [Header("----- Self Destruct Stats ----")]
     [Range(1, 30)][SerializeField] float explosionRadius;
@@ -44,7 +45,8 @@ public class BombExplosion : MonoBehaviour
 
     IEnumerator SelfDestruct()
     {
-        ignitionParticles.Play();
+        anim.SetTrigger("Exploding");
+        ignitionParticles.Play();       
         yield return new WaitForSeconds(timeTillDetonation);
         ignitionParticles.Stop();
         HandleExplosion();
@@ -52,6 +54,7 @@ public class BombExplosion : MonoBehaviour
 
     void HandleExplosion()
     {
+
         if (explosionParticles != null)
         { explosionParticles.Play(); }
 
