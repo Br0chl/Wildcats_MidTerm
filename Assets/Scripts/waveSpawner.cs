@@ -57,8 +57,11 @@ public class waveSpawner : MonoBehaviour
         currWave++; // go to the next wave
         waveValue = currWave * waveValueMultiplier; // calculate the cost of the wave
 
-        if (currWave % bossWaves == 0 && bossWaves != 0)
-        { GenerateBoss(); }
+        if (bossWaves != 0)
+        {
+            if (currWave % bossWaves == 0)
+            { GenerateBoss(); } 
+        }
         else
         { GenerateEnemies(); } // generate the list of enemies
 

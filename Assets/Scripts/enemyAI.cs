@@ -59,6 +59,7 @@ public class enemyAI : MonoBehaviour, isDamageable
     void Start()
     {
         gameManager.instance.updateEnemyRemaining(1);
+        agent.SetDestination(gameManager.instance.player.transform.position);
     }
 
     // Update is called once per frame
