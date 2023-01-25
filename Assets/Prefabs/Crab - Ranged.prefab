@@ -220,11 +220,13 @@ MonoBehaviour:
   shootAngle: 45
   shootPos: {fileID: 3211498477503416317}
   bullet: {fileID: 9148115988335451032, guid: 98067b88b25c11742a0ec4d0b93d0fe5, type: 3}
-  bulletSpeed: 15
-  shootRate: 0.1
+  bulletSpeed: 30
+  shootRate: 0.4
   shootDist: 50
   shootDamage: 10
   lootDropper: {fileID: 4796295704436874164}
+  bombHandler: {fileID: 0}
+  selfDestructStartRange: 0
 --- !u!114 &4796295704436874164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +312,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 47.66
+  m_Radius: 100
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3099373698594935175
 PrefabInstance:
