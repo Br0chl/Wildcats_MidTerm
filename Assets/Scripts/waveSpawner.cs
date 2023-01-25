@@ -120,4 +120,9 @@ public class waveSpawner : MonoBehaviour
             waveTimer = 0; // end the wave
         }
     }
+
+    public bool WavesStopped()
+    {
+        return stopWaves;
+    }
 }

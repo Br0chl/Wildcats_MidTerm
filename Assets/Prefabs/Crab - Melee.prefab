@@ -87,7 +87,7 @@ MonoBehaviour:
         m_CallState: 2
   enemyType: 0
   headPos: {fileID: 6431429049813673248}
-  HP: 200
+  HP: 120
   playerFaceSpeed: 3
   viewAngle: 90
   shootAngle: 15
@@ -98,6 +98,8 @@ MonoBehaviour:
   shootDist: 0
   shootDamage: 0
   lootDropper: {fileID: 1039836497056831335}
+  bombHandler: {fileID: 0}
+  selfDestructStartRange: 0
   rollDamage: 15
 --- !u!114 &1039836497056831335
 MonoBehaviour:
