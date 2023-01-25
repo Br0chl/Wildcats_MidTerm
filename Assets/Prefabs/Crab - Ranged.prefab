@@ -214,7 +214,7 @@ MonoBehaviour:
         m_CallState: 2
   enemyType: 0
   headPos: {fileID: 3211498477503416259}
-  HP: 200
+  HP: 80
   playerFaceSpeed: 5
   viewAngle: 90
   shootAngle: 45

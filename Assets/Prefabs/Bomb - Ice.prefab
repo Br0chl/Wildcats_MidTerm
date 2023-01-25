@@ -9879,7 +9879,7 @@ GameObject:
   - component: {fileID: 3381122423290246967}
   - component: {fileID: 3381122423290246965}
   m_Layer: 0
-  m_Name: Bomb - Base
+  m_Name: Bomb - Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9944,7 +9944,7 @@ MonoBehaviour:
         m_CallState: 2
   enemyType: 3
   headPos: {fileID: 5649622439664130800}
-  HP: 40
+  HP: 120
   playerFaceSpeed: 5
   viewAngle: 90
   shootAngle: 45
@@ -9970,7 +9970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 3381122423290246975}
-  type: 0
+  type: 2
   ignitionParticles: {fileID: 944407632420148095}
   explosionParticles: {fileID: 0}
   explosionRadius: 15

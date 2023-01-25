@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
     [Header("---Game Goal---")]
     public int enemiesRemaining;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
+    waveSpawner spawner;
 
     [Header("------UI------")]
     [Header("---Menus---")]
@@ -56,6 +57,9 @@ public class gameManager : MonoBehaviour
         playerAudio = player.GetComponent<AudioSource>();
 
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
+
+        GameObject tspawn = GameObject.FindGameObjectWithTag("Spawner");
+        spawner = tspawn.GetComponent<waveSpawner>();
 
         timeScaleOrig = Time.timeScale;
 
@@ -112,7 +116,7 @@ public class gameManager : MonoBehaviour
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
 
         // Check to see if game is over based on enemy count <= 0
-        if (enemiesRemaining <= 0)
+        if (enemiesRemaining <= 0 && spawner.WavesStopped() == true)
         {
             Pause();
             activeMenu = winMenu;

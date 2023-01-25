@@ -681,16 +681,28 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: bossWaves
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: waveDuration
       value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: bosses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: enemies.Array.size
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: waveValueMultiplier
-      value: 100
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: bosses.Array.data[0].cost
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: spawnLocations.Array.size
@@ -703,6 +715,18 @@ PrefabInstance:
     - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: enemies.Array.data[1].cost
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: enemies.Array.data[2].cost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: enemies.Array.data[3].cost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: enemies.Array.data[4].cost
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: spawnLocations.Array.data[1]
@@ -749,6 +773,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 186579440}
     - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: bosses.Array.data[0].enemyPrefab
+      value: 
+      objectReference: {fileID: 6813437104429867933, guid: 6e66a1e0a020b5e4aa471f17bc8f8acb, type: 3}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: enemies.Array.data[0].enemyPrefab
       value: 
       objectReference: {fileID: 139362621989747430, guid: ddf557dd5ef5e5b4f94273c824d73be2, type: 3}
@@ -756,6 +784,18 @@ PrefabInstance:
       propertyPath: enemies.Array.data[1].enemyPrefab
       value: 
       objectReference: {fileID: 8376576474536433721, guid: 289adb970b86c9746a82b516736d642d, type: 3}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: enemies.Array.data[2].enemyPrefab
+      value: 
+      objectReference: {fileID: 3381122423290407698, guid: ef8217b81fdc26547b7af13746e40f56, type: 3}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: enemies.Array.data[3].enemyPrefab
+      value: 
+      objectReference: {fileID: 3381122423290407698, guid: ed77915829302d14a818092b14235367, type: 3}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: enemies.Array.data[4].enemyPrefab
+      value: 
+      objectReference: {fileID: 99507895056518256, guid: 045d0e9c4e909034f9e9edf186f5d4c0, type: 3}
     - target: {fileID: 3599848792014023527, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: m_RootOrder
       value: 5
