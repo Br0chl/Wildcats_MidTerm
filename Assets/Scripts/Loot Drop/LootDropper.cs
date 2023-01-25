@@ -53,9 +53,27 @@ public class LootDropper : MonoBehaviour
             return;
 
         GameObject drop = Instantiate(itemToDrop.gameObject, lootSpawn, Quaternion.identity);
+    }
 
-        float dropForce = 300f;
-        Vector3 dropDirection = new Vector3(Random.Range(-3f, .3f), 0, Random.Range(-3f, .3f));
-        drop.GetComponent<Rigidbody>().AddForce(dropDirection * dropForce, ForceMode.Impulse);
+    public void GetMultipleDrops(Vector3 lootSpawn)
+    {
+        List<Loot> itemsToDrop = GetDrops();
+        if (itemsToDrop.Count == 0)
+            return;
+
+        foreach (Loot lootDrop in itemsToDrop)
+        {
+            Vector3 randomDir = Random.insideUnitSphere;
+            randomDir += new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
+
+            // Check that destination is on the navMesh
+            NavMeshHit hit;
+            NavMesh.SamplePosition(new Vector3(randomDir.x, 0, randomDir.z), out hit, 1, 1);
+
+            if (hit.position != null)
+            {
+                GameObject drop = Instantiate(lootDrop.gameObject, lootSpawn + hit.position, Quaternion.identity);
+            }
+        }
     }
 }
