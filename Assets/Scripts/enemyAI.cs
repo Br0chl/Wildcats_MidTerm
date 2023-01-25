@@ -32,6 +32,10 @@ public class enemyAI : MonoBehaviour, isDamageable
     [Header("-----Loot Dropper-----")]
     [SerializeField] protected LootDropper lootDropper;
 
+    [Header("----- Bomb Only -----")]
+    [SerializeField] BombExplosion bombHandler;
+    [Range(1, 5)][SerializeField] int selfDestructStartRange;
+
     float angleToPlayer;
 
     bool isShooting;
@@ -90,6 +94,11 @@ public class enemyAI : MonoBehaviour, isDamageable
                 if (!isShooting && angleToPlayer <= shootAngle && !isDead)
                 {
                     StartCoroutine(shoot());
+                }
+
+                if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < selfDestructStartRange && enemyType == Enemies.Bomb)
+                {
+                    bombHandler.HandleSelfDesturct(); 
                 }
             }
         }
@@ -150,6 +159,10 @@ public class enemyAI : MonoBehaviour, isDamageable
                 yield return new WaitForSeconds(shootRate);
                 break;
             case Enemies.Bomb:
+                bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+                bulletClone.GetComponent<Rigidbody>().velocity = playerDir.normalized * bulletSpeed;
+                bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
+                yield return new WaitForSeconds(shootRate);
                 break;
             default:
                 break;

@@ -17,6 +17,7 @@ public class playerController : MonoBehaviour
     [Range(5, 20)] [SerializeField] int jumpAmount;
     [Range(5, 50)] [SerializeField] int gravity;
     [Range(1, 5)] [SerializeField] int jumpsAllowed;
+    int overrideWalkSpeed;
 
     [Header("---Gun Stats---")]
     [SerializeField] public List<GunStats> gunList = new List<GunStats>(2);
@@ -49,6 +50,13 @@ public class playerController : MonoBehaviour
     bool isSprinting;
     bool isReloading;
     bool isSwapping;
+
+    bool timerActive;
+    int timersInUse;
+    bool dotActive;
+    int dotDamage;
+    float dotTimer;
+    float dotTick;
 
     // Pushback effect
     public Vector3 pushBack;
@@ -84,11 +92,7 @@ public class playerController : MonoBehaviour
                     gunList[selectedGun].isOutOfAmmo = true;
             }
 
-            //pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
-            
-            // pushBack.x = Mathf.Lerp(pushBack.x, 0, Time.deltaTime * pushBackTime);
-            // pushBack.z = Mathf.Lerp(pushBack.z, 0, Time.deltaTime * pushBackTime);
-            // pushBack.y = Mathf.Lerp(pushBack.y, 0, Time.deltaTime * pushBackTime * 3);
+            pushBack = Vector3.Slerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
 
             if (move.normalized.magnitude > .3f && !isPlayingSteps)
                 StartCoroutine(playSteps());
@@ -115,6 +119,8 @@ public class playerController : MonoBehaviour
                     StartCoroutine(Shoot());
                 }
             }
+            if (timerActive)
+            { HandleTimers(); }
         }
     }
 
@@ -128,6 +134,7 @@ public class playerController : MonoBehaviour
 
         move = (transform.right * Input.GetAxis("Horizontal") +
                (transform.forward * Input.GetAxis("Vertical")));
+
 
         controller.Move(move * Time.deltaTime * playerSpeed);
 
@@ -154,6 +161,39 @@ public class playerController : MonoBehaviour
             isSprinting = false;
             playerSpeed /= sprintSpeed;
         }
+    }
+
+    public void OverrideSpeed(int speed, int duration)
+    {
+        HandleSpeedOverride(speed, duration);
+    }
+
+    IEnumerator HandleSpeedOverride(int speed, int duration)
+    {
+        if (isSprinting)
+        {
+            playerSpeed /= sprintSpeed;
+            playerSpeed = speed;
+            playerSpeed *= sprintSpeed;
+        }
+        else
+        { playerSpeed = speed; }
+
+        yield return new WaitForSeconds(duration);
+
+        if (isSprinting)
+        {
+            playerSpeed /= sprintSpeed;
+            playerSpeed = playerSpeedOriginal;
+            playerSpeed *= sprintSpeed;
+        }
+        else
+        { playerSpeed = playerSpeedOriginal; }
+    }
+
+    public void AssignPushback(Vector3 toAdd)
+    {
+        pushBack = toAdd;
     }
 
     IEnumerator playSteps()
@@ -281,6 +321,21 @@ public class playerController : MonoBehaviour
         }
     }
 
+    public void TakeDamageOverTime(int damage, float time, float tick)
+    {
+        if (!timerActive)
+        {
+            timerActive = true;
+            timersInUse++;
+        }
+        else
+        { timersInUse++; }
+
+        dotDamage = damage;
+        dotTimer = time;
+        dotTick = tick;
+    }
+
     public void Heal(int healtToRestore)
     {
         if (maxHP - currentHP > healtToRestore)
@@ -302,6 +357,32 @@ public class playerController : MonoBehaviour
         UpdatePlayerHP();
         transform.position = gameManager.instance.playerSpawnPos.transform.position;
         controller.enabled = true;
+    }
+
+    void HandleTimers()
+    {
+        if (dotTimer >= 0)
+        {
+            dotTimer -= Time.deltaTime;
+            if (!dotActive)
+            { StartCoroutine(DotTick()); }
+        }
+        else
+        {
+            dotTimer = -1;
+            timersInUse--;
+        }
+
+        if (timersInUse <= 0)
+        { timerActive = false; }
+    }
+
+    IEnumerator DotTick()
+    {
+        dotActive = true;
+        yield return new WaitForSeconds(dotTick);
+        takeDamage(dotDamage);
+        dotActive = false;
     }
 
     public void gunPickup(GunStats gunStat)
