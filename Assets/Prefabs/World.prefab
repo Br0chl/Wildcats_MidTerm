@@ -977,6 +977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 5712033136292181574, guid: 2adb320ee2873fd49a470ba9f0177ec0, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7558751532823774342, guid: 2adb320ee2873fd49a470ba9f0177ec0, type: 3}
       propertyPath: m_RootOrder
       value: 3

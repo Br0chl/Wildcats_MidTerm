@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player Spawn Pos
+  - MiniCrab
+  - Enemy
+  - Spawner
   layers:
   - Default
   - TransparentFX

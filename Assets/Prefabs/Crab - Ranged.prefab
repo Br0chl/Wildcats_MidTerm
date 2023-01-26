@@ -218,7 +218,7 @@ MonoBehaviour:
   playerFaceSpeed: 5
   viewAngle: 90
   shootAngle: 45
-  shootPos: {fileID: 3211498477503416317}
+  shootPos: {fileID: 3211498477503416257}
   bullet: {fileID: 9148115988335451032, guid: 98067b88b25c11742a0ec4d0b93d0fe5, type: 3}
   bulletSpeed: 30
   shootRate: 0.4
@@ -380,6 +380,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 545682315341920650, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
+--- !u!4 &3211498477503416257 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 545682315351430726, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
+  m_PrefabInstance: {fileID: 3099373698594935175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3211498477503416259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 545682315351430724, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
@@ -388,11 +393,6 @@ Transform:
 --- !u!4 &3211498477503416301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 545682315351430762, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
-  m_PrefabInstance: {fileID: 3099373698594935175}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3211498477503416317 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 545682315351430778, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
   m_PrefabInstance: {fileID: 3099373698594935175}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3127493949508755800

@@ -654,6 +654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crab - Melee
       objectReference: {fileID: 0}
+    - target: {fileID: 139362621989747430, guid: ddf557dd5ef5e5b4f94273c824d73be2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 139362621989933100, guid: ddf557dd5ef5e5b4f94273c824d73be2, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -771,6 +775,10 @@ PrefabInstance:
     - target: {fileID: 8376576474536433721, guid: 289adb970b86c9746a82b516736d642d, type: 3}
       propertyPath: m_Name
       value: Crab - Ranged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376576474536433726, guid: 289adb970b86c9746a82b516736d642d, type: 3}
+      propertyPath: m_Direction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8376576474536506099, guid: 289adb970b86c9746a82b516736d642d, type: 3}
       propertyPath: m_RootOrder
@@ -992,7 +1000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6813437104429867933, guid: 6e66a1e0a020b5e4aa471f17bc8f8acb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6813437104430104509, guid: 6e66a1e0a020b5e4aa471f17bc8f8acb, type: 3}
       propertyPath: m_RootOrder
