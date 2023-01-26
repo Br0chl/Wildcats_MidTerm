@@ -236,9 +236,9 @@ GameObject:
   - component: {fileID: 99507895063920560}
   - component: {fileID: 99507895056945237}
   - component: {fileID: 99507895056945239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb - Fire
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,9 +309,9 @@ MonoBehaviour:
   shootPos: {fileID: 7055681170367085970}
   bullet: {fileID: 3922132516335272273, guid: e941579c641372c4bb924690c7487e47, type: 3}
   bulletSpeed: 15
-  shootRate: 0.2
+  shootRate: 2
   shootDist: 50
-  shootDamage: 10
+  shootDamage: 3
   lootDropper: {fileID: 99507895056945241}
   bombHandler: {fileID: 99507895056945247}
   selfDestructStartRange: 2
@@ -426,7 +426,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 300
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &99507895056518258
 GameObject:

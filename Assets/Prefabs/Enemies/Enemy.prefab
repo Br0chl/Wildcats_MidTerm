@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 8362702126270169120}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 4226832437154029801}
+  anim: {fileID: 8362702126270169120}
+  part: {fileID: 0}
+  model: {fileID: 0}
   takeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -248,7 +251,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  anim: {fileID: 8362702126270169120}
+  enemyType: 0
   headPos: {fileID: 4226832436569703826}
   HP: 200
   playerFaceSpeed: 5
@@ -261,6 +264,8 @@ MonoBehaviour:
   shootDist: 25
   shootDamage: 5
   lootDropper: {fileID: 2216964463054024157}
+  bombHandler: {fileID: 0}
+  selfDestructStartRange: 0
 --- !u!195 &4226832437154029801
 NavMeshAgent:
   m_ObjectHideFlags: 0
