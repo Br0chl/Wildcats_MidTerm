@@ -1782,11 +1782,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6813437104430104509}
+  - component: {fileID: 8114458660801561629}
+  - component: {fileID: 8114458660801561628}
   - component: {fileID: 6813437104439382109}
   - component: {fileID: 8114458660801561626}
   - component: {fileID: 8114458660801561627}
-  - component: {fileID: 8114458660801561628}
-  - component: {fileID: 8114458660801561629}
   - component: {fileID: 3319832262477089340}
   m_Layer: 6
   m_Name: Dragon Inferno
@@ -1794,7 +1794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6813437104430104509
 Transform:
   m_ObjectHideFlags: 0
@@ -1842,6 +1842,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8114458660801561629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813437104429867933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14baacf03f831a4aacee8e9a13b1a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 8114458660801561628}
+  anim: {fileID: 6813437104439382109}
+  part: {fileID: 8240664978169952033}
+  model: {fileID: 0}
+  takeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6396542924778273496}
+        m_TargetAssemblyTypeName: DamageTextSpawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  enemyType: 1
+  headPos: {fileID: 6813437104430104501}
+  HP: 200
+  playerFaceSpeed: 15
+  viewAngle: 120
+  shootAngle: 45
+  shootPos: {fileID: 8114458661005551279}
+  bullet: {fileID: 3922132516335272273, guid: c6b5df3a31a589d4b91a7dc34f4c14b5, type: 3}
+  bulletSpeed: 15
+  shootRate: 2
+  shootDist: 30
+  shootDamage: 5
+  lootDropper: {fileID: 3319832262477089340}
+  bombHandler: {fileID: 0}
+  selfDestructStartRange: 0
+--- !u!195 &8114458660801561628
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813437104429867933}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 7
+  m_Acceleration: 40
+  avoidancePriority: 50
+  m_AngularSpeed: 750
+  m_StoppingDistance: 10
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 2
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!95 &6813437104439382109
 Animator:
   serializedVersion: 4
@@ -1887,76 +1955,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 50
   m_Center: {x: 0, y: 1, z: 0}
---- !u!195 &8114458660801561628
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6813437104429867933}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 7
-  m_Acceleration: 40
-  avoidancePriority: 50
-  m_AngularSpeed: 750
-  m_StoppingDistance: 10
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 2
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &8114458660801561629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6813437104429867933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f14baacf03f831a4aacee8e9a13b1a54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 8114458660801561628}
-  anim: {fileID: 6813437104439382109}
-  part: {fileID: 8240664978169952033}
-  model: {fileID: 0}
-  takeDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6396542924778273496}
-        m_TargetAssemblyTypeName: DamageTextSpawner, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  enemyType: 1
-  headPos: {fileID: 6813437104430104501}
-  HP: 200
-  playerFaceSpeed: 15
-  viewAngle: 120
-  shootAngle: 30
-  shootPos: {fileID: 8114458661005551279}
-  bullet: {fileID: 3922132516335272273, guid: c6b5df3a31a589d4b91a7dc34f4c14b5, type: 3}
-  bulletSpeed: 15
-  shootRate: 2
-  shootDist: 30
-  shootDamage: 5
-  lootDropper: {fileID: 3319832262477089340}
-  bombHandler: {fileID: 0}
-  selfDestructStartRange: 0
 --- !u!114 &3319832262477089340
 MonoBehaviour:
   m_ObjectHideFlags: 0
