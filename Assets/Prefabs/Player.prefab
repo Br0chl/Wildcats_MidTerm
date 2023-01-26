@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1013237242}
   m_Layer: 0
   m_Name: Gun Model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,6 +275,7 @@ MonoBehaviour:
   jumpsAllowed: 2
   gunList:
   - {fileID: 11400000, guid: d509cc948780fbe4d8f04cc6f3b2f3ee, type: 2}
+  selectedGun: 0
   shootRate: 0
   shootDist: 0
   shootDamage: 0
@@ -302,11 +303,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5277fc9d998742542b2ab7ace37e3a42, type: 3}
   - {fileID: 8300000, guid: 38d50d23e291b5c429a5239c506c70a6, type: 3}
   - {fileID: 8300000, guid: 346a6aec02e8b2d438981f286d5320b3, type: 3}
-  audPlayerStepsVol: 0.5
+  audPlayerStepsVol: 0.1
   playerSpeed: 8
-  selectedGun: 0
   pushBack: {x: 0, y: 0, z: 0}
-  pushBackTime: 0
+  pushBackTime: 5
 --- !u!143 &6272015389978710681
 CharacterController:
   m_ObjectHideFlags: 0

@@ -2649,7 +2649,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467729187029837669}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.32, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2729,15 +2729,15 @@ MonoBehaviour:
         m_CallState: 2
   enemyType: 2
   headPos: {fileID: 1467729187030006493}
-  HP: 20
+  HP: 60
   playerFaceSpeed: 10
   viewAngle: 90
-  shootAngle: 30
+  shootAngle: 45
   shootPos: {fileID: 3354158878470741414}
-  bullet: {fileID: 4131973653040939668, guid: f655959c5e12e414ab1125ad67385999, type: 3}
-  bulletSpeed: 15
+  bullet: {fileID: 6029060459799580692, guid: 69c0a7f01c6c23441a0c7e5b12fff02d, type: 3}
+  bulletSpeed: 20
   shootRate: 2
-  shootDist: 15
+  shootDist: 30
   shootDamage: 5
   lootDropper: {fileID: 3354158878095474780}
   bombHandler: {fileID: 0}
@@ -2756,7 +2756,7 @@ NavMeshAgent:
   m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 1000
-  m_StoppingDistance: 5
+  m_StoppingDistance: 15
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -2795,7 +2795,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &3354158880032207495
 CapsuleCollider:
