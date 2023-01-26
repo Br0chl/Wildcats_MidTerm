@@ -1885,6 +1885,7 @@ MonoBehaviour:
   shootRate: 2
   shootDist: 30
   shootDamage: 5
+  isBoss: 1
   lootDropper: {fileID: 3319832262477089340}
   bombHandler: {fileID: 0}
   selfDestructStartRange: 0
@@ -1898,7 +1899,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 15
+  m_Speed: 12
   m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 1000
@@ -1955,7 +1956,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 50
+  m_Radius: 100
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3319832262477089340
 MonoBehaviour:
@@ -1969,7 +1970,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a819efe2332a9b44badc3f4aa1729c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootList: []
+  lootList:
+  - {fileID: 8384295781560059274, guid: ed5927074c66ba848809e7ebd079dcf4, type: 3}
+  - {fileID: 8384295781560059274, guid: ed5927074c66ba848809e7ebd079dcf4, type: 3}
+  - {fileID: 4067253758693520595, guid: a62cb7285a1153c479ec9ceafb2bd634, type: 3}
+  - {fileID: 4067253758693520595, guid: a62cb7285a1153c479ec9ceafb2bd634, type: 3}
 --- !u!1 &6813437104429867935
 GameObject:
   m_ObjectHideFlags: 0

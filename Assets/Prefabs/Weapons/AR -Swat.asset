@@ -28,7 +28,7 @@ MonoBehaviour:
   currentMagazines: 0
   magCapacity: 18
   maxMagazines: 10
-  startingMagazines: 0
+  startingMagazines: 1
   swapSpeed: 1.5
   iconUI: {fileID: 21300000, guid: 890542b03189dc843b3957b9181dc7fd, type: 3}
   reticle: {fileID: 21300000, guid: 744a744d863d2f7429c712a8792ccb1e, type: 3}

@@ -21,13 +21,14 @@ public class enemyAI : MonoBehaviour, isDamageable
     [SerializeField] int viewAngle;
     [SerializeField] int shootAngle;
 
-    [Header("-----Enemy Stats-----")]
+    [Header("-----Gun Stats-----")]
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
     [Range(15, 35)] [SerializeField] int bulletSpeed;
     [Range(0.1f, 2)] [SerializeField] float shootRate;
     [Range(5, 100)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
+    [SerializeField] protected bool isBoss;
 
     [Header("-----Loot Dropper-----")]
     [SerializeField] protected LootDropper lootDropper;
@@ -42,7 +43,7 @@ public class enemyAI : MonoBehaviour, isDamageable
     bool playerInRange;
     Vector3 playerDir;
 
-    protected bool isBoss;
+    
     protected bool isDead = false;
 
     GameObject bulletClone;
@@ -121,7 +122,7 @@ public class enemyAI : MonoBehaviour, isDamageable
             // Drop Loot
             if (!isBoss)
                 lootDropper.DropLoot(transform.position + transform.up);
-            else
+            else if(isBoss)
                 lootDropper.GetMultipleDrops(transform.position + transform.up);
 
             Destroy(gameObject);
