@@ -119,9 +119,12 @@ public class enemyAI : MonoBehaviour, isDamageable
             gameManager.instance.updateEnemyRemaining(-1);
 
             // Drop Loot
-            lootDropper.DropLoot(transform.position);
+            if (!isBoss)
+                lootDropper.DropLoot(transform.position + transform.up);
+            else
+                lootDropper.GetMultipleDrops(transform.position + transform.up);
+
             Destroy(gameObject);
-            
         }
     }
 
