@@ -59,7 +59,10 @@ public class gameManager : MonoBehaviour
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
 
         GameObject tspawn = GameObject.FindGameObjectWithTag("Spawner");
-        spawner = tspawn.GetComponent<waveSpawner>();
+        if (GameObject.FindGameObjectsWithTag("Spawner") != null)
+        {
+            spawner = tspawn.GetComponent<waveSpawner>();
+        }
 
         timeScaleOrig = Time.timeScale;
 
