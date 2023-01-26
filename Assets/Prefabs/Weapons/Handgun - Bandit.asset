@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15d6cf92ae64d74a989f4179dc20308, type: 3}
   m_Name: Handgun - Bandit
   m_EditorClassIdentifier: 
-  shootRate: 2
+  shootRate: 0.5
   shootDist: 30
-  shootDamage: 3
+  shootDamage: 10
   reloadSpeed: 2
   gunModel: {fileID: 6955724367414024062, guid: 1db56776f7770524988fd7c926405b1d, type: 3}
   gunShotAud: {fileID: 8300000, guid: 2350afd4122435e45afe05f6861cf876, type: 3}

@@ -9954,6 +9954,7 @@ MonoBehaviour:
   shootRate: 2
   shootDist: 50
   shootDamage: 3
+  isBoss: 0
   lootDropper: {fileID: 3381122423290246971}
   bombHandler: {fileID: 3381122423290246973}
   selfDestructStartRange: 2
@@ -10068,7 +10069,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 100
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3381122423290407700
 GameObject:
