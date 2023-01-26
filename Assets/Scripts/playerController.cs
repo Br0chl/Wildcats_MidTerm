@@ -74,9 +74,15 @@ public class playerController : MonoBehaviour
         // if player starts with a weapon
         if (gunList.Count > 0)
         {
+            // 1 Gun at start
             selectedGun = 0;
             InitialzeGun(gunList[0]);
+            gameManager.instance.UpdateActiveUI(gunList[0]);
             gameManager.instance.UpdateActiveAmmo();
+
+            // 2 Guns at start
+            if (gunList.Count == 2)
+                gameManager.instance.UpdateInactiveAmmo();
         }
     }
 

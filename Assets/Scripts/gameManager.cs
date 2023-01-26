@@ -165,7 +165,7 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    private void UpdateActiveUI(GunStats active)
+    public void UpdateActiveUI(GunStats active)
     {
         // Set Active UI
         gameManager.instance.activeUI.SetActive(true);
@@ -181,7 +181,7 @@ public class gameManager : MonoBehaviour
         activeMaxAmmo.text = active.currentMaxAmmo.ToString();
     }
 
-    private void UpdateInactiveUI(GunStats inactive)
+    public void UpdateInactiveUI(GunStats inactive)
     {
         // Set Inactive UI
         gameManager.instance.inactiveUI.SetActive(true);
