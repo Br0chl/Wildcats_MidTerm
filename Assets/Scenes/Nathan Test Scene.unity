@@ -776,10 +776,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crab - Ranged
       objectReference: {fileID: 0}
-    - target: {fileID: 8376576474536433726, guid: 289adb970b86c9746a82b516736d642d, type: 3}
-      propertyPath: m_Direction
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8376576474536506099, guid: 289adb970b86c9746a82b516736d642d, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -940,6 +936,10 @@ PrefabInstance:
     - target: {fileID: 1467729187029837669, guid: 6e360948edd306645aaec7e842357b50, type: 3}
       propertyPath: m_Name
       value: Blossom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467729187029837669, guid: 6e360948edd306645aaec7e842357b50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1467729187030006597, guid: 6e360948edd306645aaec7e842357b50, type: 3}
       propertyPath: m_RootOrder
