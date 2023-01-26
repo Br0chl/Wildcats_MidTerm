@@ -31,4 +31,5 @@ MonoBehaviour:
   startingMagazines: 10
   swapSpeed: 1.5
   iconUI: {fileID: 21300000, guid: 0bd286faf67a0ff4aad4517013b6719a, type: 3}
-  reticle: {fileID: 0}
+  reticle: {fileID: 21300000, guid: fcd1b8a6bcc868c45b855536f6bc6c2d, type: 3}
+  isOutOfAmmo: 0

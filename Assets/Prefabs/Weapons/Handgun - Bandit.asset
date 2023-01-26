@@ -23,7 +23,7 @@ MonoBehaviour:
   gunReloadAudVol: 0.5
   gunAmmoOutAud: {fileID: 8300000, guid: bdfee84700d6f9446ac498f3443e33dc, type: 3}
   gunAmmoOutAudVol: 0.5
-  currentAmmo: 12
+  currentAmmo: 1
   currentMaxAmmo: 12
   currentMagazines: 1
   magCapacity: 12
@@ -31,4 +31,5 @@ MonoBehaviour:
   startingMagazines: 1
   swapSpeed: 1.8
   iconUI: {fileID: 21300000, guid: c756018099452ee448b12fd9bda8883b, type: 3}
-  reticle: {fileID: 0}
+  reticle: {fileID: 21300000, guid: fcd1b8a6bcc868c45b855536f6bc6c2d, type: 3}
+  isOutOfAmmo: 0
