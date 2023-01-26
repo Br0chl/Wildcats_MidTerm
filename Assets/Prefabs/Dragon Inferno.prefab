@@ -1924,6 +1924,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 8114458660801561628}
+  anim: {fileID: 6813437104439382109}
+  part: {fileID: 8240664978169952033}
+  model: {fileID: 0}
   takeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -1939,11 +1942,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  anim: {fileID: 6813437104439382109}
-  part: {fileID: 8240664978169952033}
   enemyType: 1
   headPos: {fileID: 6813437104430104501}
-  HP: 78
+  HP: 200
   playerFaceSpeed: 15
   viewAngle: 120
   shootAngle: 30
@@ -1954,6 +1955,8 @@ MonoBehaviour:
   shootDist: 30
   shootDamage: 5
   lootDropper: {fileID: 3319832262477089340}
+  bombHandler: {fileID: 0}
+  selfDestructStartRange: 0
 --- !u!114 &3319832262477089340
 MonoBehaviour:
   m_ObjectHideFlags: 0
