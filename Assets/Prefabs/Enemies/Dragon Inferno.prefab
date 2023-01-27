@@ -1969,7 +1969,7 @@ MonoBehaviour:
   shootRate: 2
   shootDist: 30
   shootDamage: 5
-  isBoss: 1
+  isBoss: 0
   lootDropper: {fileID: 3319832262477089340}
   bombHandler: {fileID: 0}
   selfDestructStartRange: 0
