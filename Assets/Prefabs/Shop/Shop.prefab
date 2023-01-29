@@ -35,7 +35,7 @@ RectTransform:
   - {fileID: 80341806}
   - {fileID: 1799626319}
   m_Father: {fileID: 2730369528522040811}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3712,7 +3712,7 @@ Transform:
   - {fileID: 2481063259268087473}
   - {fileID: 2481063260298822895}
   m_Father: {fileID: 2730369528522040811}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &3207932289387392395
 MonoBehaviour:
@@ -3854,7 +3854,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5649144287239002032}
-  - {fileID: 3168214012529990007}
   - {fileID: 5912494943983993718}
   - {fileID: 3207932289387392392}
   - {fileID: 923938915}
@@ -6322,7 +6321,7 @@ Transform:
   m_Children:
   - {fileID: 5913791513012248946}
   m_Father: {fileID: 2730369528522040811}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -128.837, z: 0}
 --- !u!33 &5938772432646343826
 MeshFilter:
@@ -6606,37 +6605,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &8454626837244376919
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3168214012529990007}
-  m_Layer: 0
-  m_Name: 'ShopSign (Missing Prefab with guid: e188e65873b8e774a92425da522a3882)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3168214012529990007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8454626837244376919}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2730369528522040811}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5781560133510430628
 PrefabInstance:
   m_ObjectHideFlags: 0
