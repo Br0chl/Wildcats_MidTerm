@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15d6cf92ae64d74a989f4179dc20308, type: 3}
   m_Name: SMG - Bandit
   m_EditorClassIdentifier: 
+  iName: SMG
+  price: 500
+  costToUpgrade: 200
   shootRate: 0.3
   shootDist: 30
   shootDamage: 8
@@ -23,13 +26,17 @@ MonoBehaviour:
   gunReloadAudVol: 0.5
   gunAmmoOutAud: {fileID: 8300000, guid: bdfee84700d6f9446ac498f3443e33dc, type: 3}
   gunAmmoOutAudVol: 0.5
-  currentAmmo: 0
-  currentMaxAmmo: 0
-  currentMagazines: 0
+  currentAmmo: 30
+  currentMaxAmmo: 30
+  currentMagazines: 1
   magCapacity: 30
   maxMagazines: 10
   startingMagazines: 1
   swapSpeed: 1
+  isOutOfAmmo: 0
   iconUI: {fileID: 21300000, guid: f3e6aa40737b6814f8c9cd259f6711e2, type: 3}
   reticle: {fileID: 21300000, guid: fcd1b8a6bcc868c45b855536f6bc6c2d, type: 3}
-  isOutOfAmmo: 1
+  gunLevel: 0
+  damageUpgradeLevel: 0
+  maxAmmoUpgradeLevel: 0
+  startingMagsUpgradeLevel: 0

@@ -9,9 +9,9 @@ public class playerController : MonoBehaviour
     [SerializeField] AudioSource aud;
 
     [Header("---Player Stats---")]
-    [SerializeField] int totalCurrency; //Currency total for if we get shop...
+    [SerializeField] public int totalCurrency; //Currency total for if we get shop...
     public int currentHP;
-    [Range(1, 300)] [SerializeField]public int maxHP;
+    [Range(1, 300)] [SerializeField] public int maxHP;
     [Range(1, 10)] [SerializeField] int walkSpeed;
     [Range(1,20)][SerializeField] int sprintSpeed;
     [Range(5, 20)] [SerializeField] int jumpAmount;

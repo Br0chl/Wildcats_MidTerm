@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1013237244}
   - component: {fileID: 1013237243}
   - component: {fileID: 1013237242}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gun Model
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.26228368, y: 0.1993804, z: 0.9512595}
-  m_Center: {x: -0.36886436, y: -0.40031606, z: -0.024371818}
+  m_Size: {x: 0.26228443, y: 0.1993806, z: 1.1879848}
+  m_Center: {x: -0.36886933, y: -0.4003216, z: 0.09399247}
 --- !u!1 &4800765597104923693
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,8 +265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6272015389978710681}
   aud: {fileID: 1483951538}
-  totalCurrency: 0
-  currentHP: 0
+  totalCurrency: 20000
+  currentHP: 100
   maxHP: 300
   walkSpeed: 8
   sprintSpeed: 2
