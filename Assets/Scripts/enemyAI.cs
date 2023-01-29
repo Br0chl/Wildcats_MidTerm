@@ -115,6 +115,8 @@ public class enemyAI : MonoBehaviour, isDamageable
         takeDamage.Invoke(dmg);
         if (HP <= 0)
         {
+            if (part !=null)
+                part.Stop();
             agent.SetDestination(transform.position);
             agent.speed = 0;
             anim.SetTrigger("Die");
