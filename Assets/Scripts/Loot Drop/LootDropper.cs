@@ -58,13 +58,14 @@ public class LootDropper : MonoBehaviour
     public void GetMultipleDrops(Vector3 lootSpawn)
     {
         List<Loot> itemsToDrop = GetDrops();
+        if(itemsToDrop == null) return;
         if (itemsToDrop.Count == 0)
             return;
 
         foreach (Loot lootDrop in itemsToDrop)
         {
             Vector3 randomDir = Random.insideUnitSphere;
-            randomDir += new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
+            randomDir += new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
             // Check that destination is on the navMesh
             NavMeshHit hit;
