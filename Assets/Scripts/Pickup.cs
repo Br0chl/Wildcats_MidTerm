@@ -6,6 +6,7 @@ public class Pickup : MonoBehaviour
 {
     [SerializeField] int healthToRestore;
     [SerializeField] int currencyAmount;
+    [SerializeField] int magazineAmount;
 
     [SerializeField] float respawnTime = 0f;
 
@@ -31,6 +32,13 @@ public class Pickup : MonoBehaviour
         if (currencyAmount > 0)
         {
             gameManager.instance.playerScript.AddCurrency(currencyAmount);
+        }
+
+        if (magazineAmount > 0)
+        {
+            //if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].isAmmoFull) return;
+            gameManager.instance.playerScript.gunPickup(gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun]);
+            //gameManager.instance.UpdateUI();
         }
 
         if (respawnTime == 0)
