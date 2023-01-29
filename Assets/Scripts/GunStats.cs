@@ -6,6 +6,7 @@ using UnityEngine;
 public class GunStats : ScriptableObject
 {
     [Header("---Base Stats---")]
+    [SerializeField] public WeaponType type;
     public string iName;
     public int price;
     public int costToUpgrade;
@@ -13,6 +14,9 @@ public class GunStats : ScriptableObject
     public int shootDist;
     public int shootDamage;
     public float reloadSpeed;
+    [Header("-----Shotgun Only-----")]
+    public int shots;
+    public float shotAngle;
 
     [Header("---Components---")]
     public GameObject gunModel;

@@ -3836,7 +3836,7 @@ GameObject:
   - component: {fileID: 2730369528522040811}
   - component: {fileID: 1318396956532566606}
   - component: {fileID: 3868332878920457860}
-  - component: {fileID: 2481063259219303128}
+  - component: {fileID: 8394179600084175090}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -3914,7 +3914,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2481063259219303128
+--- !u!64 &8394179600084175090
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3927,7 +3927,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 6313181070273933531, guid: f4ed6fb2649436447b16eb5fd62d6f53, type: 3}
+  m_Mesh: {fileID: 6313181070273933531, guid: 5c66397b6afad2b4a845715c3497b374, type: 3}
 --- !u!1 &3527980739369990357
 GameObject:
   m_ObjectHideFlags: 0

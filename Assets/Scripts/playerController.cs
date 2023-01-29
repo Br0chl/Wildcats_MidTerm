@@ -26,6 +26,7 @@ public class playerController : MonoBehaviour
     [SerializeField] int shootDist;
     [SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject bullethole;
 
     [Header("---Audio---")]
     [SerializeField] AudioClip[] audPlayerDamage;
@@ -242,11 +243,42 @@ public class playerController : MonoBehaviour
         gameManager.instance.UpdateActiveAmmo();
 
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-        {
-            if (hit.collider.GetComponent<isDamageable>() != null)
+
+        // Shotgun Fire
+        if (gunList[selectedGun].type == WeaponType.Shotgun)
+        {   
+            for (int i = 0; i < gunList[selectedGun].shots; i++)
             {
-                hit.collider.GetComponent<isDamageable>().TakeDamage(shootDamage);
+                Quaternion fireRotation = Quaternion.LookRotation(transform.forward);
+                Quaternion rotationRandom = Random.rotation;
+                fireRotation = Quaternion.RotateTowards(fireRotation, rotationRandom, Random.Range(0.0f, gunList[selectedGun].shotAngle));
+                if (Physics.Raycast(gunModel.transform.position, fireRotation * Vector3.forward, out hit, shootDist))
+                {
+                    if (hit.collider.GetComponent<isDamageable>() != null)
+                    {
+                        hit.collider.GetComponent<isDamageable>().TakeDamage(shootDamage);
+                    }
+                    else //if (hit.collider.CompareTag("Untagged"))
+                    {
+                        if (!gunList[selectedGun].isOutOfAmmo)
+                            Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+            {
+                if (hit.collider.GetComponent<isDamageable>() != null)
+                {
+                    hit.collider.GetComponent<isDamageable>().TakeDamage(shootDamage);
+                }
+                else //if (hit.collider.CompareTag("Untagged"))
+                {
+                    if (!gunList[selectedGun].isOutOfAmmo)
+                        Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                }
             }
         }
         yield return new WaitForSeconds(shootRate);
