@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15d6cf92ae64d74a989f4179dc20308, type: 3}
   m_Name: SMG - Bandit
   m_EditorClassIdentifier: 
+  type: 1
   iName: SMG
   price: 500
   costToUpgrade: 200
@@ -19,6 +20,8 @@ MonoBehaviour:
   shootDist: 30
   shootDamage: 8
   reloadSpeed: 2
+  shots: 0
+  shotAngle: 0
   gunModel: {fileID: 7768504200519866340, guid: 16cd9b9c77a41c24b9376c6b13fa8435, type: 3}
   gunShotAud: {fileID: 8300000, guid: 2350afd4122435e45afe05f6861cf876, type: 3}
   gunShotAudVol: 0.5
