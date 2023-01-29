@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858b0c6fdce44f24b9060c1ae3bef781, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: 
-  iName: 
-  price: 0
-  icon: {fileID: 0}
-  gunStats: {fileID: 0}
+  iName: SMG
+  price: 300
+  icon: {fileID: 21300000, guid: f3e6aa40737b6814f8c9cd259f6711e2, type: 3}
+  gunStats: {fileID: 11400000, guid: 1d970f17628cc344d9a7342f6b1a1df6, type: 2}
   hpToAdd: 0
-  isGun: 0
+  isGun: 1
   isUpgrade: 0
   isHP: 0

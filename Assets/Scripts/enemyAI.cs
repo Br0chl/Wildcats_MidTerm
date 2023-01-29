@@ -108,12 +108,15 @@ public class enemyAI : MonoBehaviour, isDamageable
 
     public virtual void TakeDamage(int dmg)
     {
+        if (isDead) return;
         HP -= dmg;
         anim.SetTrigger("Damage");
         agent.SetDestination(gameManager.instance.player.transform.position);
         takeDamage.Invoke(dmg);
         if (HP <= 0)
         {
+            agent.SetDestination(transform.position);
+            agent.speed = 0;
             anim.SetTrigger("Die");
             isDead = true;            
             agent.baseOffset = 0;
@@ -125,7 +128,7 @@ public class enemyAI : MonoBehaviour, isDamageable
             else if(isBoss)
                 lootDropper.GetMultipleDrops(transform.position + transform.up);
 
-            Destroy(gameObject);
+            Destroy(gameObject, 3);
         }
     }
 

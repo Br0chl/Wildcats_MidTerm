@@ -23,26 +23,26 @@ public class MiniCrab : enemyAI
     }
 
 
-    public override void TakeDamage(int dmg)
-    {
-        HP -= dmg;
-        StartCoroutine(flashDamage());
-        agent.SetDestination(gameManager.instance.player.transform.position);
-        takeDamage.Invoke(dmg);
-        if (HP <= 0)
-        {
-            isDead = true;
-            gameManager.instance.updateEnemyRemaining(-1);
+    // public override void TakeDamage(int dmg)
+    // {
+    //     HP -= dmg;
+    //     StartCoroutine(flashDamage());
+    //     agent.SetDestination(gameManager.instance.player.transform.position);
+    //     takeDamage.Invoke(dmg);
+    //     if (HP <= 0)
+    //     {
+    //         isDead = true;
+    //         gameManager.instance.updateEnemyRemaining(-1);
 
-            if (!isBoss)
-                lootDropper.DropLoot(transform.position + transform.up);
-            else
-                lootDropper.GetMultipleDrops(transform.position + transform.up);
+    //         if (!isBoss)
+    //             lootDropper.DropLoot(transform.position + transform.up);
+    //         else
+    //             lootDropper.GetMultipleDrops(transform.position + transform.up);
 
-            // StartCoroutine(gameManager.instance.playerScript.SwapTime());
-            Destroy(gameObject);
-        }
-    }
+    //         // StartCoroutine(gameManager.instance.playerScript.SwapTime());
+    //         Destroy(gameObject);
+    //     }
+    // }
 
     IEnumerator HealSelf()
     {

@@ -17,7 +17,6 @@ public class Workbench : MonoBehaviour
     [SerializeField] TextMeshProUGUI damageUI;
     [SerializeField] TextMeshProUGUI maxAmmoUI;
     [SerializeField] TextMeshProUGUI startingMagsUI;
-    [SerializeField] TextMeshProUGUI maxMagsUI;
 
     [SerializeField] GameObject upgradeUI;
 
@@ -94,6 +93,7 @@ public class Workbench : MonoBehaviour
     {
         if (isActivated)
         {
+            gameManager.instance.isShopping = true;
             activatePopUp.SetActive(false);
             gunModel.SetActive(true);
             gameManager.instance.playerScript.enabled = false;
@@ -118,6 +118,7 @@ public class Workbench : MonoBehaviour
             statsUI.SetActive(false);
             upgradeUI.SetActive(false);
             activatePopUp.SetActive(true);
+            gameManager.instance.isShopping = false;
         }
     }
 

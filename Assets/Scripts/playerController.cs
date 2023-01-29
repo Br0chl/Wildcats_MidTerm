@@ -351,7 +351,7 @@ public class playerController : MonoBehaviour
         UpdatePlayerHP();
     }
 
-    private void UpdatePlayerHP()
+    public void UpdatePlayerHP()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)currentHP / (float)maxHP;
     }

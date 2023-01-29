@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858b0c6fdce44f24b9060c1ae3bef781, type: 3}
   m_Name: Assault Rifle
   m_EditorClassIdentifier: 
-  iName: 
-  price: 0
-  icon: {fileID: 0}
-  gunStats: {fileID: 0}
+  iName: AR - M4
+  price: 500
+  icon: {fileID: 21300000, guid: 890542b03189dc843b3957b9181dc7fd, type: 3}
+  gunStats: {fileID: 11400000, guid: d509cc948780fbe4d8f04cc6f3b2f3ee, type: 2}
   hpToAdd: 0
-  isGun: 0
+  isGun: 1
   isUpgrade: 0
   isHP: 0
