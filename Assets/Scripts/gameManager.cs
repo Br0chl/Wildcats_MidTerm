@@ -21,6 +21,7 @@ public class gameManager : MonoBehaviour
     waveSpawner spawner;
 
     [Header("------UI------")]
+    public GameObject hudUI;
     [Header("---Menus---")]
     public GameObject activeMenu;
     public GameObject pauseMenu;

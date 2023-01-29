@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15d6cf92ae64d74a989f4179dc20308, type: 3}
   m_Name: AR -Swat
   m_EditorClassIdentifier: 
+  iName: Assault Rifle
+  price: 1000
+  costToUpgrade: 300
   shootRate: 0.4
   shootDist: 50
   shootDamage: 20
@@ -24,12 +27,16 @@ MonoBehaviour:
   gunAmmoOutAud: {fileID: 8300000, guid: bdfee84700d6f9446ac498f3443e33dc, type: 3}
   gunAmmoOutAudVol: 0.5
   currentAmmo: 17
-  currentMaxAmmo: 0
-  currentMagazines: 0
+  currentMaxAmmo: 18
+  currentMagazines: 1
   magCapacity: 18
-  maxMagazines: 10
+  maxMagazines: 4
   startingMagazines: 1
   swapSpeed: 1.5
+  isOutOfAmmo: 0
   iconUI: {fileID: 21300000, guid: 890542b03189dc843b3957b9181dc7fd, type: 3}
   reticle: {fileID: 21300000, guid: 744a744d863d2f7429c712a8792ccb1e, type: 3}
-  isOutOfAmmo: 0
+  gunLevel: 1
+  damageUpgradeLevel: 0
+  maxAmmoUpgradeLevel: 0
+  startingMagsUpgradeLevel: 0
