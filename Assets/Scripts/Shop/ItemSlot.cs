@@ -54,11 +54,16 @@ public class ItemSlot : MonoBehaviour
                 return;
             foreach (GunStats gs in gameManager.instance.playerScript.gunList)
             {
-                if (gs.isAmmoFull) return;
+                if (gs == item.gunStats)
+                {
+                    if (gs.isAmmoFull) return;
 
-                gameManager.instance.playerScript.totalCurrency -= item.price;
+                    gameManager.instance.playerScript.totalCurrency -= item.price;
 
-                gameManager.instance.playerScript.gunPickup(item.gunStats);
+                    gameManager.instance.playerScript.gunPickup(item.gunStats);
+                }
+                else
+                    gameManager.instance.playerScript.gunPickup(item.gunStats);
             }
         }
 
@@ -69,6 +74,10 @@ public class ItemSlot : MonoBehaviour
 
             gameManager.instance.playerScript.totalCurrency -= item.price;
             gameManager.instance.playerScript.maxHP += item.hpToAdd;
+
+            gameManager.instance.playerScript.Heal(item.hpToAdd);
+
+            gameManager.instance.UpdateUI();
         }
 
         if (item.isHP)
@@ -80,9 +89,7 @@ public class ItemSlot : MonoBehaviour
 
             gameManager.instance.playerScript.totalCurrency -= item.price;
 
-            gameManager.instance.playerScript.currentHP += item.hpToAdd;
-            if (gameManager.instance.playerScript.currentHP > gameManager.instance.playerScript.maxHP)
-                gameManager.instance.playerScript.currentHP = gameManager.instance.playerScript.maxHP;
+            gameManager.instance.playerScript.Heal(item.hpToAdd);
         }
 
         gameManager.instance.UpdateUI();

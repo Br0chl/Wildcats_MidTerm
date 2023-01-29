@@ -220,9 +220,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5425447883742133199}
+  - component: {fileID: 5425447883742133200}
   - component: {fileID: 5425447883742133201}
   - component: {fileID: 5425447883742133198}
-  - component: {fileID: 5425447883742133200}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -254,6 +254,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5425447883742133200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5425447883742133196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf833439b6b6a3a4db65ec0002f2e345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  icon: {fileID: 5425447883402849683}
+  iName: {fileID: 5425447883659644988}
+  price: {fileID: 5425447883765658680}
+  buyButton: {fileID: 5425447884032455882}
 --- !u!222 &5425447883742133201
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -292,23 +309,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5425447883742133200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5425447883742133196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf833439b6b6a3a4db65ec0002f2e345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  icon: {fileID: 5425447883402849683}
-  iName: {fileID: 5425447883659644988}
-  price: {fileID: 5425447883765658680}
-  buyButton: {fileID: 5425447884032455882}
 --- !u!1 &5425447883765658678
 GameObject:
   m_ObjectHideFlags: 0

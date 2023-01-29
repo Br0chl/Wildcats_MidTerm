@@ -123,12 +123,12 @@ public class gameManager : MonoBehaviour
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
 
         // Check to see if game is over based on enemy count <= 0
-        if (enemiesRemaining <= 0 && spawner.WavesStopped() == true)
-        {
-            Pause();
-            activeMenu = winMenu;
-            activeMenu.SetActive(true);
-        }
+        // if (enemiesRemaining <= 0 && spawner.WavesStopped() == true)
+        // {
+        //     Pause();
+        //     activeMenu = winMenu;
+        //     activeMenu.SetActive(true);
+        // }
     }
 
     public void PlayerDead()
@@ -167,19 +167,21 @@ public class gameManager : MonoBehaviour
             inactive = playerScript.gunList[0];
             UpdateInactiveUI(inactive);
         }
+
+        playerScript.UpdatePlayerHP();
     }
 
     public void UpdateActiveUI(GunStats active)
     {
         // Set Active UI
-        gameManager.instance.activeUI.SetActive(true);
+        activeUI.SetActive(true);
         activeWeaponIcon.sprite = active.iconUI;
         if (active.reticle != null)
-            gameManager.instance.weaponReticle.SetActive(true);
+            weaponReticle.SetActive(true);
         else
-            gameManager.instance.weaponReticle.SetActive(false);
+            weaponReticle.SetActive(false);
             
-        gameManager.instance.reticleBorder = active.reticle;
+        reticleBorder = active.reticle;
 
         activeCurrentAmmo.text = active.currentAmmo.ToString();
         activeMaxAmmo.text = active.currentMaxAmmo.ToString();
@@ -188,7 +190,7 @@ public class gameManager : MonoBehaviour
     public void UpdateInactiveUI(GunStats inactive)
     {
         // Set Inactive UI
-        gameManager.instance.inactiveUI.SetActive(true);
+        inactiveUI.SetActive(true);
         inactiveWeaponIcon.sprite = inactive.iconUI;
         inactiveCurrentAmmo.text = inactive.currentAmmo.ToString();
         inactiveMaxAmmo.text = inactive.currentMaxAmmo.ToString();

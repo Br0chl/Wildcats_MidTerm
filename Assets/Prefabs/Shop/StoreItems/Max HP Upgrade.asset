@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858b0c6fdce44f24b9060c1ae3bef781, type: 3}
   m_Name: Max HP Upgrade
   m_EditorClassIdentifier: 
-  iName: 
-  price: 0
-  icon: {fileID: 0}
+  iName: MaxHP Upgrade
+  price: 100
+  icon: {fileID: 21300000, guid: 390c0e8953d3bd542b5563b6f00ec9e6, type: 3}
   gunStats: {fileID: 0}
-  hpToAdd: 0
+  hpToAdd: 5
   isGun: 0
-  isUpgrade: 0
+  isUpgrade: 1
   isHP: 0
