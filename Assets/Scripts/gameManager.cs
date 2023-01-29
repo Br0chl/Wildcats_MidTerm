@@ -47,6 +47,9 @@ public class gameManager : MonoBehaviour
     public bool isPaused = false;
     float timeScaleOrig;
 
+    // Keep pause menu from activating in shop
+    public bool isShopping = false;
+
 
     void Awake()
     {
@@ -81,7 +84,7 @@ public class gameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && activeMenu == null)
+        if (Input.GetButtonDown("Cancel") && activeMenu == null && !isShopping)
         {
             isPaused = !isPaused;
             activeMenu = pauseMenu;

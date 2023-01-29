@@ -9,7 +9,7 @@ public class playerController : MonoBehaviour
     [SerializeField] AudioSource aud;
 
     [Header("---Player Stats---")]
-    [SerializeField] public int totalCurrency; //Currency total for if we get shop...
+    [SerializeField] public int totalCurrency;
     public int currentHP;
     [Range(1, 300)] [SerializeField] public int maxHP;
     [Range(1, 10)] [SerializeField] int walkSpeed;
@@ -397,9 +397,17 @@ public class playerController : MonoBehaviour
         {
             if (gs == gunStat)
             {
-                gs.currentMagazines += 1;
-                gs.currentMaxAmmo = gs.magCapacity * gs.currentMagazines;
-                
+                if (!gs.isAmmoFull)
+                {
+                    gs.currentMagazines += 1;
+                    gs.currentMaxAmmo = gs.magCapacity * gs.currentMagazines;
+                }
+
+                if (gs.currentMagazines == gs.maxMagazines)
+                    gs.isAmmoFull = true;
+                else
+                    gs.isAmmoFull = false;
+
                 gameManager.instance.UpdateActiveAmmo();
                 gameManager.instance.UpdateInactiveAmmo();
                 if (gs.isOutOfAmmo && gs == gunList[selectedGun])
@@ -435,6 +443,10 @@ public class playerController : MonoBehaviour
         gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.startingMagazines;
 
         gunStat.isOutOfAmmo = false;
+        if (gunStat.currentMagazines == gunStat.maxMagazines)
+            gunStat.isAmmoFull = true;
+        else
+            gunStat.isAmmoFull = false;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
@@ -471,10 +483,6 @@ public class playerController : MonoBehaviour
 
         gameManager.instance.playerAnim.SetTrigger("SwapIn");
         yield return new WaitForSeconds(0.5f);
-
-        // Reset Ammo for gunPickups
-        // if (gunList[selectedGun].isOutOfAmmo)
-        //     gunList[selectedGun].isOutOfAmmo = false;
 
         // Ammo Check
         if (gunList[selectedGun].isOutOfAmmo && gunList[selectedGun].currentMaxAmmo !=0)

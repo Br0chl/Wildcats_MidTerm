@@ -31,7 +31,8 @@ public class GunStats : ScriptableObject
     public int maxMagazines;
     public int startingMagazines;
     public float swapSpeed = 1f;
-    public bool isOutOfAmmo;
+    public bool isOutOfAmmo = false;
+    public bool isAmmoFull = false;
 
     [Header("---UI---")]
     public Sprite iconUI;
