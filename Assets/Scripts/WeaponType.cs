@@ -3,5 +3,6 @@ public enum WeaponType
     Handgun,
     SMG,
     AssaultRifle,
-    Shotgun
+    Shotgun,
+    LMG
 }

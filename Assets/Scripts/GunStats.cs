@@ -17,6 +17,9 @@ public class GunStats : ScriptableObject
     [Header("-----Shotgun Only-----")]
     public int shots;
     public float shotAngle;
+    [Header("-----Bullet Spread Option-----")]
+    public float maxBulletSpread;
+    public float timeToMaxSpread;
 
     [Header("---Components---")]
     public GameObject gunModel;
@@ -47,4 +50,5 @@ public class GunStats : ScriptableObject
     public int damageUpgradeLevel;
     public int maxAmmoUpgradeLevel;
     public int startingMagsUpgradeLevel;
+    public bool isUnlocked;
 }
