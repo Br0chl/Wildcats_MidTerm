@@ -477,7 +477,7 @@ public class playerController : MonoBehaviour
 
         selectedGun = gunList.Count - 1;
 
-        StartCoroutine(ChangeGun());
+        //StartCoroutine(ChangeGun());
 
         gameManager.instance.UpdateUI();
     }
@@ -490,7 +490,7 @@ public class playerController : MonoBehaviour
 
         gunStat.currentAmmo = gunStat.magCapacity;
         gunStat.currentMagazines = gunStat.startingMagazines;
-        gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.startingMagazines;
+        gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.currentMagazines;
 
         gunStat.isOutOfAmmo = false;
         if (gunStat.currentMagazines == gunStat.maxMagazines)
