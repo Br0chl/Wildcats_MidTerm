@@ -118,6 +118,7 @@ public class Workbench : MonoBehaviour
             statsUI.SetActive(false);
             upgradeUI.SetActive(false);
             activatePopUp.SetActive(true);
+            gameManager.instance.playerScript.UpdateShootDamage();
             gameManager.instance.isShopping = false;
         }
     }
