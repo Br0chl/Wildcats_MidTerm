@@ -27,6 +27,9 @@ public class playerController : MonoBehaviour
     [SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject bullethole;
+    //Bullet Spread
+    public float maxBulletSpread = 12f;
+    public float timeToMaxSpread = 2f;
 
     [Header("---Audio---")]
     [SerializeField] AudioClip[] audPlayerDamage;
@@ -251,9 +254,9 @@ public class playerController : MonoBehaviour
             {
                 Vector3 direction = Camera.main.transform.forward;
                 Vector3 spread = Vector3.zero;
-                spread += Camera.main.transform.up * Random.Range(-.5f, .5f);
-                spread += Camera.main.transform.right * Random.Range(-.5f, .5f);
-                direction += spread.normalized * Random.Range(0f, .2f);
+                spread += Camera.main.transform.up * Random.Range(-.1f, .1f);
+                spread += Camera.main.transform.right * Random.Range(-.1f, .1f);
+                direction += spread.normalized * Random.Range(0f, gunList[selectedGun].shotAngle);
                 if (Physics.Raycast(Camera.main.transform.position, direction, out hit, shootDist))
                 {
                     if (hit.collider.GetComponent<isDamageable>() != null)
@@ -280,7 +283,13 @@ public class playerController : MonoBehaviour
         }
         else
         {
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+            // Bullet Spread
+            Quaternion shotRotation = Quaternion.LookRotation(Camera.main.transform.forward);
+            Quaternion randRotation = Random.rotation;
+            float currentSpread = Mathf.Lerp(0.0f, maxBulletSpread, shootRate / timeToMaxSpread);
+            shotRotation = Quaternion.RotateTowards(shotRotation, randRotation, Random.Range(0.0f, currentSpread));
+           // if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+            if (Physics.Raycast(Camera.main.transform.position, shotRotation * Vector3.forward, out hit, shootDist))
             {
                 if (hit.collider.GetComponent<isDamageable>() != null)
                 {
@@ -548,5 +557,10 @@ public class playerController : MonoBehaviour
     public void AddCurrency(int amount)
     {
         totalCurrency += amount;
+    }
+
+    public void UpdateShootDamage()
+    {
+        shootDamage = gunList[selectedGun].shootDamage;
     }
 }
