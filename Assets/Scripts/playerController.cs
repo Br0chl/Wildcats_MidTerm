@@ -249,20 +249,32 @@ public class playerController : MonoBehaviour
         {   
             for (int i = 0; i < gunList[selectedGun].shots; i++)
             {
-                Quaternion fireRotation = Quaternion.LookRotation(transform.forward);
-                Quaternion rotationRandom = Random.rotation;
-                fireRotation = Quaternion.RotateTowards(fireRotation, rotationRandom, Random.Range(0.0f, gunList[selectedGun].shotAngle));
-                if (Physics.Raycast(gunModel.transform.position, fireRotation * Vector3.forward, out hit, shootDist))
+                Vector3 direction = Camera.main.transform.forward;
+                Vector3 spread = Vector3.zero;
+                spread += Camera.main.transform.up * Random.Range(-.5f, .5f);
+                spread += Camera.main.transform.right * Random.Range(-.5f, .5f);
+                direction += spread.normalized * Random.Range(0f, .2f);
+                if (Physics.Raycast(Camera.main.transform.position, direction, out hit, shootDist))
                 {
                     if (hit.collider.GetComponent<isDamageable>() != null)
                     {
                         hit.collider.GetComponent<isDamageable>().TakeDamage(shootDamage);
                     }
-                    else //if (hit.collider.CompareTag("Untagged"))
+                    else
                     {
                         if (!gunList[selectedGun].isOutOfAmmo)
                             Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                     }
+                }
+
+                // Debug Draw Rays
+                if (Physics.Raycast(Camera.main.transform.position, direction, out hit, shootDist))
+                {
+                    Debug.DrawLine(Camera.main.transform.position, hit.point, Color.green, 1f);
+                }
+                else
+                {
+                    Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.position + direction * shootDist, Color.red, 1f);
                 }
             }
         }
