@@ -959,6 +959,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1483951538, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6272015389978710679, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1007,6 +1011,10 @@ PrefabInstance:
       propertyPath: bullethole
       value: 
       objectReference: {fileID: 559456509421732596, guid: bf6f8c053fac82f46b9ece312bffb6a0, type: 3}
+    - target: {fileID: 6272015389978710680, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
+      propertyPath: totalCurrency
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6272015389978710684, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
       propertyPath: m_Name
       value: Player

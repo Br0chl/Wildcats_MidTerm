@@ -27,9 +27,6 @@ public class playerController : MonoBehaviour
     [SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject bullethole;
-    //Bullet Spread
-    public float maxBulletSpread = 12f;
-    public float timeToMaxSpread = 2f;
 
     [Header("---Audio---")]
     [SerializeField] AudioClip[] audPlayerDamage;
@@ -286,7 +283,7 @@ public class playerController : MonoBehaviour
             // Bullet Spread
             Quaternion shotRotation = Quaternion.LookRotation(Camera.main.transform.forward);
             Quaternion randRotation = Random.rotation;
-            float currentSpread = Mathf.Lerp(0.0f, maxBulletSpread, shootRate / timeToMaxSpread);
+            float currentSpread = Mathf.Lerp(0.0f, gunList[selectedGun].maxBulletSpread, shootRate / gunList[selectedGun].timeToMaxSpread);
             shotRotation = Quaternion.RotateTowards(shotRotation, randRotation, Random.Range(0.0f, currentSpread));
            // if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
             if (Physics.Raycast(Camera.main.transform.position, shotRotation * Vector3.forward, out hit, shootDist))

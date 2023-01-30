@@ -1969,7 +1969,7 @@ MonoBehaviour:
   shootRate: 2
   shootDist: 30
   shootDamage: 5
-  isBoss: 0
+  isBoss: 1
   lootDropper: {fileID: 3319832262477089340}
   bombHandler: {fileID: 0}
   selfDestructStartRange: 0
@@ -2059,6 +2059,11 @@ MonoBehaviour:
   - {fileID: 8384295781560059274, guid: ed5927074c66ba848809e7ebd079dcf4, type: 3}
   - {fileID: 4067253758693520595, guid: a62cb7285a1153c479ec9ceafb2bd634, type: 3}
   - {fileID: 4067253758693520595, guid: a62cb7285a1153c479ec9ceafb2bd634, type: 3}
+  - {fileID: 6763614599651540900, guid: 703da7688b78f1a4fb36a0d20217f83b, type: 3}
+  - {fileID: 2149377966008345986, guid: c8d4d6db99ece8545b4972c667a3446b, type: 3}
+  - {fileID: 2149377966008345986, guid: c8d4d6db99ece8545b4972c667a3446b, type: 3}
+  - {fileID: 9139615897270490401, guid: dc988f58fefde4f4dbc6eeae4c315e6c, type: 3}
+  - {fileID: 9139615897270490401, guid: dc988f58fefde4f4dbc6eeae4c315e6c, type: 3}
 --- !u!1 &6813437104429867935
 GameObject:
   m_ObjectHideFlags: 0
