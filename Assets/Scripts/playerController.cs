@@ -225,7 +225,9 @@ public class playerController : MonoBehaviour
 
         // Play sound based on ammo
         if (gunList[selectedGun].isOutOfAmmo)
+        {
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+        }
         else
             aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
 
@@ -238,64 +240,68 @@ public class playerController : MonoBehaviour
             StartCoroutine(Reload());
         }
         else if (!gunList[selectedGun].isOutOfAmmo)
+        {
             gunList[selectedGun].currentAmmo--;
+        }
 
         gameManager.instance.UpdateActiveAmmo();
 
         RaycastHit hit;
-
-        // Shotgun Fire
-        if (gunList[selectedGun].type == WeaponType.Shotgun)
-        {   
-            for (int i = 0; i < gunList[selectedGun].shots; i++)
+        if (!gunList[selectedGun].isOutOfAmmo)
+        {
+            // Shotgun Fire
+            if (gunList[selectedGun].type == WeaponType.Shotgun)
             {
-                Vector3 direction = Camera.main.transform.forward;
-                Vector3 spread = Vector3.zero;
-                spread += Camera.main.transform.up * Random.Range(-.1f, .1f);
-                spread += Camera.main.transform.right * Random.Range(-.1f, .1f);
-                direction += spread.normalized * Random.Range(0f, gunList[selectedGun].shotAngle);
-                if (Physics.Raycast(Camera.main.transform.position, direction, out hit, shootDist))
+                for (int i = 0; i < gunList[selectedGun].shots; i++)
+                {
+                    Vector3 direction = Camera.main.transform.forward;
+                    Vector3 spread = Vector3.zero;
+                    spread += Camera.main.transform.up * Random.Range(-.1f, .1f);
+                    spread += Camera.main.transform.right * Random.Range(-.1f, .1f);
+                    direction += spread.normalized * Random.Range(0f, gunList[selectedGun].shotAngle);
+                    if (Physics.Raycast(Camera.main.transform.position, direction, out hit, shootDist))
+                    {
+                        if (hit.collider.GetComponent<isDamageable>() != null)
+                        {
+                            hit.collider.GetComponent<isDamageable>().TakeDamage(shootDamage);
+                        }
+                        else
+                        {
+                            if (!gunList[selectedGun].isOutOfAmmo)
+                                Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                        }
+                    }
+
+                    // Debug Draw Rays
+                    if (Physics.Raycast(Camera.main.transform.position, direction, out hit, shootDist))
+                    {
+                        Debug.DrawLine(Camera.main.transform.position, hit.point, Color.green, 1f);
+                    }
+                    else
+                    {
+                        Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.position + direction * shootDist, Color.red, 1f);
+                    }
+                }
+            }
+            else
+            {
+                // Bullet Spread
+                Quaternion shotRotation = Quaternion.LookRotation(Camera.main.transform.forward);
+                Quaternion randRotation = Random.rotation;
+                float currentSpread = Mathf.Lerp(0.0f, gunList[selectedGun].maxBulletSpread, shootRate / gunList[selectedGun].timeToMaxSpread);
+                shotRotation = Quaternion.RotateTowards(shotRotation, randRotation, Random.Range(0.0f, currentSpread));
+                // if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+                if (Physics.Raycast(Camera.main.transform.position, shotRotation * Vector3.forward, out hit, shootDist))
                 {
                     if (hit.collider.GetComponent<isDamageable>() != null)
                     {
                         hit.collider.GetComponent<isDamageable>().TakeDamage(shootDamage);
                     }
-                    else
+                    else //if (hit.collider.CompareTag("Untagged"))
                     {
                         if (!gunList[selectedGun].isOutOfAmmo)
                             Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                     }
-                }
-
-                // Debug Draw Rays
-                if (Physics.Raycast(Camera.main.transform.position, direction, out hit, shootDist))
-                {
-                    Debug.DrawLine(Camera.main.transform.position, hit.point, Color.green, 1f);
-                }
-                else
-                {
-                    Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.position + direction * shootDist, Color.red, 1f);
-                }
-            }
-        }
-        else
-        {
-            // Bullet Spread
-            Quaternion shotRotation = Quaternion.LookRotation(Camera.main.transform.forward);
-            Quaternion randRotation = Random.rotation;
-            float currentSpread = Mathf.Lerp(0.0f, gunList[selectedGun].maxBulletSpread, shootRate / gunList[selectedGun].timeToMaxSpread);
-            shotRotation = Quaternion.RotateTowards(shotRotation, randRotation, Random.Range(0.0f, currentSpread));
-           // if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-            if (Physics.Raycast(Camera.main.transform.position, shotRotation * Vector3.forward, out hit, shootDist))
-            {
-                if (hit.collider.GetComponent<isDamageable>() != null)
-                {
-                    hit.collider.GetComponent<isDamageable>().TakeDamage(shootDamage);
-                }
-                else //if (hit.collider.CompareTag("Untagged"))
-                {
-                    if (!gunList[selectedGun].isOutOfAmmo)
-                        Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 }
             }
         }
@@ -359,6 +365,10 @@ public class playerController : MonoBehaviour
                     gunList[selectedGun].currentMagazines--;
             }
         }
+        if (gunList[selectedGun].currentMagazines == gunList[selectedGun].maxMagazines)
+            gunList[selectedGun].isAmmoFull = true;
+        else
+            gunList[selectedGun].isAmmoFull = false;
 
         isReloading = false;
     }
@@ -477,7 +487,7 @@ public class playerController : MonoBehaviour
 
         selectedGun = gunList.Count - 1;
 
-        //StartCoroutine(ChangeGun());
+        StartCoroutine(ChangeGun());
 
         gameManager.instance.UpdateUI();
     }
@@ -490,7 +500,7 @@ public class playerController : MonoBehaviour
 
         gunStat.currentAmmo = gunStat.magCapacity;
         gunStat.currentMagazines = gunStat.startingMagazines;
-        gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.currentMagazines;
+        gunStat.currentMaxAmmo = gunStat.magCapacity * gunStat.startingMagazines;
 
         gunStat.isOutOfAmmo = false;
         if (gunStat.currentMagazines == gunStat.maxMagazines)
@@ -535,7 +545,7 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // Ammo Check
-        if (gunList[selectedGun].isOutOfAmmo && gunList[selectedGun].currentMaxAmmo !=0)
+        if (gunList[selectedGun].isOutOfAmmo && gunList[selectedGun].currentAmmo != 0)
         {
             gunList[selectedGun].isOutOfAmmo = false;
             StartCoroutine(Reload());
