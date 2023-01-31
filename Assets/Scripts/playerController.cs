@@ -492,7 +492,7 @@ public class playerController : MonoBehaviour
         gameManager.instance.UpdateUI();
     }
 
-    private void InitialzeGun(GunStats gunStat)
+    public void InitialzeGun(GunStats gunStat)
     {
         shootRate = gunStat.shootRate;
         shootDist = gunStat.shootDist;

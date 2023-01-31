@@ -52,8 +52,12 @@ public class ItemSlot : MonoBehaviour
         {
             if (item.price > gameManager.instance.playerScript.totalCurrency)
                 return;
-            if (gameManager.instance.playerScript.gunList.Count > 1)
-                return;
+            // if (gameManager.instance.playerScript.gunList.Count > 1)
+            // {
+            //     gameManager.instance.playerScript.gunList.Add(item.gunStats);
+            //     gameManager.instance.playerScript.InitialzeGun(gameManager.instance.playerScript.gunList[1]);
+            //     return;
+            // }
             foreach (GunStats gs in gameManager.instance.playerScript.gunList)
             {
                 if (gs == item.gunStats)
@@ -64,8 +68,13 @@ public class ItemSlot : MonoBehaviour
 
                     gameManager.instance.playerScript.gunPickup(item.gunStats);
                 }
-                else
-                    gameManager.instance.playerScript.gunList.Add(item.gunStats);
+                else if (gameManager.instance.playerScript.gunList.Count < 2 && gs != item.gunStats)
+                {
+                    //gameManager.instance.playerScript.gunList.Add(item.gunStats);
+                    gameManager.instance.playerScript.gunPickup(item.gunStats);
+                   // gameManager.instance.playerScript.InitialzeGun(gameManager.instance.playerScript.gunList[1]);
+                    break;
+                }
             }
         }
 

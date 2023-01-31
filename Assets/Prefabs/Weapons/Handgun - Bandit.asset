@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15d6cf92ae64d74a989f4179dc20308, type: 3}
   m_Name: Handgun - Bandit
   m_EditorClassIdentifier: 
+  type: 0
   iName: Handgun
   price: 100
   costToUpgrade: 100
@@ -19,6 +20,10 @@ MonoBehaviour:
   shootDist: 30
   shootDamage: 10
   reloadSpeed: 2
+  shots: 0
+  shotAngle: 0
+  maxBulletSpread: 0
+  timeToMaxSpread: 0
   gunModel: {fileID: 6955724367414024062, guid: 1db56776f7770524988fd7c926405b1d, type: 3}
   gunShotAud: {fileID: 8300000, guid: 2350afd4122435e45afe05f6861cf876, type: 3}
   gunShotAudVol: 0.5
@@ -41,3 +46,4 @@ MonoBehaviour:
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
+  isUnlocked: 0
