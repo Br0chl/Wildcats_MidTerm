@@ -171,6 +171,7 @@ public class Workbench : MonoBehaviour
             guns[gunToShow].damageUpgradeLevel += 1;
             UpdateUpgradePanel();
             UpdateStatsPanel();
+            gameManager.instance.UpdateCurrencyUI();
         }
     }
 
@@ -208,6 +209,7 @@ public class Workbench : MonoBehaviour
             guns[gunToShow].maxAmmoUpgradeLevel += 1;
             UpdateUpgradePanel();
             UpdateStatsPanel();
+            gameManager.instance.UpdateCurrencyUI();
         }
     }
 
@@ -245,6 +247,7 @@ public class Workbench : MonoBehaviour
             guns[gunToShow].startingMagsUpgradeLevel += 1;
             UpdateUpgradePanel();
             UpdateStatsPanel();
+            gameManager.instance.UpdateCurrencyUI();
         }
     }
 

@@ -29,6 +29,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerDeadMenu;
     [Header("---Player UI---")]
     public Image playerHPBar;
+    [SerializeField] TextMeshProUGUI currencyTextUI;
     public GameObject screenFlash;  // ScreenFlash On TakeDamage
     [Header("---Active Weapon UI---")]
     public GameObject activeUI;
@@ -80,6 +81,7 @@ public class gameManager : MonoBehaviour
             activeUI.SetActive(false);
             inactiveUI.SetActive(false);
        }
+       UpdateCurrencyUI();
     }
 
     void Update()
@@ -169,6 +171,7 @@ public class gameManager : MonoBehaviour
         }
 
         playerScript.UpdatePlayerHP();
+        UpdateCurrencyUI();
     }
 
     public void UpdateActiveUI(GunStats active)
@@ -214,5 +217,10 @@ public class gameManager : MonoBehaviour
             inactiveCurrentAmmo.text = playerScript.gunList[0].currentAmmo.ToString();
             inactiveMaxAmmo.text = playerScript.gunList[0].currentMaxAmmo.ToString();
         }
+    }
+
+    public void UpdateCurrencyUI()
+    {
+        currencyTextUI.text = playerScript.totalCurrency.ToString();
     }
 }

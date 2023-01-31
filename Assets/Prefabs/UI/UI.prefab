@@ -180,6 +180,7 @@ MonoBehaviour:
   inactiveCurrentAmmo: {fileID: 5271345157683621090}
   inactiveMaxAmmo: {fileID: 5532485469490205673}
   isPaused: 0
+  isShopping: 0
 --- !u!1 &1219858258927349438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,7 +3019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5271345156320277757
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4857,7 +4858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5271345157572690484
 RectTransform:
   m_ObjectHideFlags: 0
