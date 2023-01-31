@@ -36,7 +36,7 @@ public class Pickup : MonoBehaviour
 
         if (magazineAmount > 0)
         {
-            //if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].isAmmoFull) return;
+            if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].isAmmoFull) return;
             gameManager.instance.playerScript.gunPickup(gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun]);
             //gameManager.instance.UpdateUI();
         }
