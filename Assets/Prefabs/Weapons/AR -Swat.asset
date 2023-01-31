@@ -31,7 +31,7 @@ MonoBehaviour:
   gunReloadAudVol: 0.5
   gunAmmoOutAud: {fileID: 8300000, guid: bdfee84700d6f9446ac498f3443e33dc, type: 3}
   gunAmmoOutAudVol: 0.5
-  currentAmmo: 18
+  currentAmmo: 17
   currentMaxAmmo: 18
   currentMagazines: 1
   magCapacity: 18
