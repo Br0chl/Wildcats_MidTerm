@@ -520,11 +520,13 @@ public class playerController : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
         {
             selectedGun++;
+
             StartCoroutine(ChangeGun());
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
         {
             selectedGun--;
+
             StartCoroutine(ChangeGun());
         }
     }
@@ -564,6 +566,7 @@ public class playerController : MonoBehaviour
     public void AddCurrency(int amount)
     {
         totalCurrency += amount;
+        gameManager.instance.UpdateCurrencyUI();
     }
 
     public void UpdateShootDamage()
