@@ -547,10 +547,13 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // Ammo Check
-        if (gunList[selectedGun].isOutOfAmmo && gunList[selectedGun].currentAmmo != 0)
+        if (gunList[selectedGun].isOutOfAmmo)
         {
-            gunList[selectedGun].isOutOfAmmo = false;
-            StartCoroutine(Reload());
+            if (gunList[selectedGun].currentAmmo != 0 || gunList[selectedGun].currentMagazines != 0)
+            {
+                gunList[selectedGun].isOutOfAmmo = false;
+                StartCoroutine(Reload());
+            }
         }
 
         gameManager.instance.UpdateUI();

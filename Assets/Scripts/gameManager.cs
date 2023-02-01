@@ -43,6 +43,9 @@ public class gameManager : MonoBehaviour
     public Image inactiveWeaponIcon;
     public TextMeshProUGUI inactiveCurrentAmmo;
     public TextMeshProUGUI inactiveMaxAmmo;
+    [Header("---Shop Currency UI---")]
+    public TextMeshProUGUI currencyShop;
+    public TextMeshProUGUI currencyWBench;
     
     // For Pauseing Game
     public bool isPaused = false;
@@ -222,5 +225,10 @@ public class gameManager : MonoBehaviour
     public void UpdateCurrencyUI()
     {
         currencyTextUI.text = playerScript.totalCurrency.ToString();
+        if (isShopping)
+        {
+            currencyShop.text = playerScript.totalCurrency.ToString();
+            currencyWBench.text = playerScript.totalCurrency.ToString();
+        }
     }
 }

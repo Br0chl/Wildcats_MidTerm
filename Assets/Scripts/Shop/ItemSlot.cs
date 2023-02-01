@@ -33,9 +33,15 @@ public class ItemSlot : MonoBehaviour
     {
         if (item == null) return;
         if (item.price > gameManager.instance.playerScript.totalCurrency)
+        {
+            buyButton.SetActive(false);
             price.faceColor = Color.red;
+        }
         else
+        {
+            buyButton.SetActive(true);
             price.faceColor = Color.white;
+        }
     }
 
     public void ClearSlot()

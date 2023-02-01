@@ -25,10 +25,13 @@ public class Workbench : MonoBehaviour
     [SerializeField] TextMeshProUGUI gunLevelUI;
     [SerializeField] TextMeshProUGUI damageLevelUI;
     [SerializeField] TextMeshProUGUI damagePriceUI;
+    [SerializeField] GameObject damageButton;
     [SerializeField] TextMeshProUGUI maxAmmoLevelUI;
     [SerializeField] TextMeshProUGUI maxAmmoPriceUI;
+    [SerializeField] GameObject maxAmmoButton;
     [SerializeField] TextMeshProUGUI startingMagsLevelUI;
     [SerializeField] TextMeshProUGUI startingMagsPriceUI;
+    [SerializeField] GameObject startingMagsButton;
 
     int gunToShow = 0;
 
@@ -42,6 +45,10 @@ public class Workbench : MonoBehaviour
     int startingMagsBuyUpgradeLevel;
     int startingMagsUpgradePrice;
 
+    private void Start() 
+    {
+        gameManager.instance.currencyWBench.text = gameManager.instance.playerScript.totalCurrency.ToString();
+    }
 
     void Update()
     {
@@ -147,17 +154,25 @@ public class Workbench : MonoBehaviour
             damageLevelUI.faceColor = Color.red;
             damageLevelUI.text = "Max";
             damagePriceUI.text = "---";
+            damageButton.SetActive(false);
             return;
         }
         else
         {
             damageLevelUI.faceColor = Color.white;
+            damageButton.SetActive(true);
             damageLevelUI.text = damageBuyUpgradeLevel.ToString();
         }
         if (damageUpgradePrice > gameManager.instance.playerScript.totalCurrency)
+        {
             damagePriceUI.faceColor = Color.red;
+            damageButton.SetActive(false);
+        }
         else
+        {
             damagePriceUI.faceColor = Color.white;
+            damageButton.SetActive(true);
+        }
 
         damagePriceUI.text = damageUpgradePrice.ToString();
     }
@@ -185,17 +200,25 @@ public class Workbench : MonoBehaviour
             maxAmmoLevelUI.faceColor = Color.red;
             maxAmmoLevelUI.text = "Max";
             maxAmmoPriceUI.text = "---";
+            maxAmmoButton.SetActive(false);
             return;
         }
         else
         {
             maxAmmoLevelUI.faceColor = Color.white;
+            maxAmmoButton.SetActive(true);
             maxAmmoLevelUI.text = maxAmmoBuyUpgradeLevel.ToString();
         }
         if (maxAmmoUpgradePrice > gameManager.instance.playerScript.totalCurrency)
+        {
             maxAmmoPriceUI.faceColor = Color.red;
+            maxAmmoButton.SetActive(false);
+        }
         else
+        {
             maxAmmoPriceUI.faceColor = Color.white;
+            damageButton.SetActive(true);
+        }
 
         maxAmmoPriceUI.text = maxAmmoUpgradePrice.ToString();
     }
@@ -221,6 +244,7 @@ public class Workbench : MonoBehaviour
         if (guns[gunToShow].startingMagsUpgradeLevel == 10)
         {
             startingMagsLevelUI.faceColor = Color.red;
+            startingMagsButton.SetActive(false);
             startingMagsLevelUI.text = "Max";
             startingMagsPriceUI.text = "---";
             return;
@@ -228,12 +252,19 @@ public class Workbench : MonoBehaviour
         else
         {
             startingMagsLevelUI.faceColor = Color.white;
+            startingMagsButton.SetActive(true);
             startingMagsLevelUI.text = startingMagsBuyUpgradeLevel.ToString();
         }
         if (startingMagsUpgradePrice > gameManager.instance.playerScript.totalCurrency)
+        {
             startingMagsPriceUI.faceColor = Color.red;
+            startingMagsButton.SetActive(false);
+        }
         else
+        {
             startingMagsPriceUI.faceColor = Color.white;
+            startingMagsButton.SetActive(true);
+        }
 
         startingMagsPriceUI.text = startingMagsUpgradePrice.ToString();
     }

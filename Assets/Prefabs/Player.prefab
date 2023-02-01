@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 988f9766c3fec594f83d7e64b4b5a620, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6272015389978710681}
   aud: {fileID: 1483951538}
-  totalCurrency: 20000
+  totalCurrency: 0
   currentHP: 100
   maxHP: 300
   walkSpeed: 8
@@ -280,6 +280,7 @@ MonoBehaviour:
   shootDist: 0
   shootDamage: 0
   gunModel: {fileID: 1013237240}
+  bullethole: {fileID: 559456509421732596, guid: bf6f8c053fac82f46b9ece312bffb6a0, type: 3}
   audPlayerDamage:
   - {fileID: 8300000, guid: 408114c470f752649866ea4d9780229a, type: 3}
   - {fileID: 8300000, guid: 952a1bf787477dc4ca46dd6e6510dd01, type: 3}
@@ -431,7 +432,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
