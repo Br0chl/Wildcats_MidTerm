@@ -67,10 +67,9 @@ public class enemyAI : MonoBehaviour, isDamageable
     void Update()
     {
         anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
-        if (playerInRange)
-        {
-            canSeePlayer();
-        }
+        
+        canSeePlayer();
+        
     }
 
     private void canSeePlayer()
@@ -81,13 +80,13 @@ public class enemyAI : MonoBehaviour, isDamageable
         Debug.Log(angleToPlayer);
         Debug.DrawRay(headPos.position, playerDir);
 
+        agent.SetDestination(gameManager.instance.player.transform.position);
+
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle)
+            if (hit.collider.CompareTag("Player"))
             {
-                agent.SetDestination(gameManager.instance.player.transform.position);
-
                 if (agent.remainingDistance < agent.stoppingDistance)
                 {
                     facePlayer();
@@ -97,6 +96,7 @@ public class enemyAI : MonoBehaviour, isDamageable
                 {
                     StartCoroutine(shoot());
                 }
+                
 
                 if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < selfDestructStartRange && enemyType == Enemies.Bomb)
                 {
@@ -156,24 +156,28 @@ public class enemyAI : MonoBehaviour, isDamageable
                 bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
                 yield return new WaitForSeconds(shootRate);
                 break;
+
             case Enemies.Dragon:
                 if (playerInRange)
                 {
                     part.Play(true);
-                }                        
+                }                     
                 break;
+
             case Enemies.Blossom:
                 bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
                 bulletClone.GetComponent<Rigidbody>().velocity = playerDir.normalized * bulletSpeed;
                 bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
                 yield return new WaitForSeconds(shootRate);
                 break;
+
             case Enemies.Bomb:
                 bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
                 bulletClone.GetComponent<Rigidbody>().velocity = playerDir.normalized * bulletSpeed;
                 bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
                 yield return new WaitForSeconds(shootRate);
                 break;
+
             default:
                 break;
         }
@@ -188,25 +192,24 @@ public class enemyAI : MonoBehaviour, isDamageable
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
+    // public void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         playerInRange = true;
+    //     }
+    // }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-            if (enemyType == Enemies.Dragon)
-            {
-                part.Stop(true);
-            }
-        }
-    }
+    // public void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         if (enemyType == Enemies.Dragon)
+    //         {
+    //             part.Stop(true);
+    //         }
+    //     }
+    // }
 
     public void Heal(int amountToHeal)
     {
