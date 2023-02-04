@@ -45,11 +45,6 @@ public class Workbench : MonoBehaviour
     int startingMagsBuyUpgradeLevel;
     int startingMagsUpgradePrice;
 
-    private void Start() 
-    {
-        gameManager.instance.currencyWBench.text = gameManager.instance.playerScript.totalCurrency.ToString();
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && playerInTrigger)
@@ -102,6 +97,7 @@ public class Workbench : MonoBehaviour
         {
             gameManager.instance.isShopping = true;
             activatePopUp.SetActive(false);
+            gameManager.instance.currencyWBench.text = gameManager.instance.playerScript.totalCurrency.ToString();
             gunModel.SetActive(true);
             gameManager.instance.playerScript.enabled = false;
             gameManager.instance.hudUI.SetActive(false);

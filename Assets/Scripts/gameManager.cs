@@ -127,13 +127,13 @@ public class gameManager : MonoBehaviour
         enemiesRemaining += amount;
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
 
-        // Check to see if game is over based on enemy count <= 0
-        // if (enemiesRemaining <= 0 && spawner.WavesStopped() == true)
-        // {
-        //     Pause();
-        //     activeMenu = winMenu;
-        //     activeMenu.SetActive(true);
-        // }
+        //Check to see if game is over based on enemy count <= 0
+        if (enemiesRemaining <= 0 && spawner.WavesStopped() == true)
+        {
+            Pause();
+            activeMenu = winMenu;
+            activeMenu.SetActive(true);
+        }
     }
 
     public void PlayerDead()
