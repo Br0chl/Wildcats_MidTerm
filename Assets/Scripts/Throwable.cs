@@ -27,8 +27,8 @@ public class Throwable : MonoBehaviour
     {
         if (type == ThrowType.Grenade)
             StartCoroutine(Explode());
-        // else if (type == ThrowType.Knife)
-        //     StartCoroutine(Throw());
+        if (type == ThrowType.Knife)
+            Destroy(gameObject, 3f);
     }
 
     IEnumerator Explode()
@@ -42,7 +42,7 @@ public class Throwable : MonoBehaviour
 
         foreach (Collider hit in hits)
         {
-            if (hit.CompareTag("Enemy"))
+            if (hit.CompareTag("Enemy") && hit.GetType() == typeof(CapsuleCollider))
             {
                 hit.GetComponent<enemyAI>().TakeDamage(damage);
             }
@@ -53,5 +53,15 @@ public class Throwable : MonoBehaviour
         }
 
         Destroy(gameObject, 5f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.CompareTag("Enemy") && other.GetType() == typeof(CapsuleCollider))
+        {
+            other.GetComponent<enemyAI>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

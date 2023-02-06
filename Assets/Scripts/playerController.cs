@@ -96,10 +96,10 @@ public class playerController : MonoBehaviour
     {
         if (!gameManager.instance.isPaused)
         {
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyUp(KeyCode.G))
             {
-                if (equipment.type == ThrowType.Grenade)
-                    Throw();
+                //if (equipment.type == ThrowType.Grenade)
+                Throw();
                 
             }
             // Check if Gun has any ammo
