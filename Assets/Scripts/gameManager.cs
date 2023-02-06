@@ -43,6 +43,10 @@ public class gameManager : MonoBehaviour
     public Image inactiveWeaponIcon;
     public TextMeshProUGUI inactiveCurrentAmmo;
     public TextMeshProUGUI inactiveMaxAmmo;
+    [Header("---Equipment UI---")]
+    public GameObject equipmentUI;
+    public Image equipmentIcon;
+    public TextMeshProUGUI currentEquipmentAmmo;
     [Header("---Shop Currency UI---")]
     public TextMeshProUGUI currencyShop;
     public TextMeshProUGUI currencyWBench;
