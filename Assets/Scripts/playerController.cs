@@ -20,13 +20,14 @@ public class playerController : MonoBehaviour
     int overrideWalkSpeed;
 
     [Header("---Gun Stats---")]
-    [SerializeField] public List<GunStats> gunList = new List<GunStats>(2);
+    [SerializeField] public List<GunStats> gunList = new List<GunStats>();
     public int selectedGun;         // int to track selectedGun
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
     [SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject bullethole;
+    public GameObject shootPos;
 
     [Header("---Equipment---")]
     [SerializeField] public Throwable equipment;
@@ -292,6 +293,11 @@ public class playerController : MonoBehaviour
                         Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.position + direction * shootDist, Color.red, 1f);
                     }
                 }
+            }
+            if (gunList[selectedGun].type == WeaponType.GrenadeLauncher)
+            {
+                if (!gunList[selectedGun].isOutOfAmmo)
+                    Instantiate(gunList[selectedGun].ammoToInstantiate, shootPos.transform);
             }
             else
             {

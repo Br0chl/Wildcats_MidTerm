@@ -27,10 +27,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013237240}
   m_LocalRotation: {x: -0.021227736, y: -0.020159477, z: -0.0003426828, w: 0.9995714}
-  m_LocalPosition: {x: 0.164, y: -0.322, z: 0.536}
+  m_LocalPosition: {x: 0.164, y: -0.32200003, z: 0.536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1683741608}
   m_Father: {fileID: 6272015390771529515}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -2.433, y: -2.311, z: 0.0098}
@@ -95,8 +96,39 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.26228443, y: 0.1993806, z: 1.1879848}
-  m_Center: {x: -0.36886933, y: -0.4003216, z: 0.09399247}
+  m_Size: {x: 0.26228452, y: 0.19938052, z: 0.8447878}
+  m_Center: {x: -0.36887193, y: -0.40032497, z: -0.077607185}
+--- !u!1 &1683741607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683741608}
+  m_Layer: 0
+  m_Name: GLshootPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1683741608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683741607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.161, y: -1.301, z: -0.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1013237241}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3482799971558066801
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3482799971558066801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.37, y: 0.48099995, z: 0}
+  m_LocalPosition: {x: 1.469, y: 0.526, z: -0.543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,8 +345,9 @@ MonoBehaviour:
   shootDamage: 0
   gunModel: {fileID: 1013237240}
   bullethole: {fileID: 559456509421732596, guid: bf6f8c053fac82f46b9ece312bffb6a0, type: 3}
-  equipment: {fileID: 6639413895912508307, guid: 39d1bccfdff612e4d80ea65e204b635e, type: 3}
-  throwPos: {fileID: 6217955032323182330}
+  shootPos: {fileID: 1683741607}
+  equipment: {fileID: 7429940161669882947, guid: c4ba2d2e174d10c499288ccf05cb9ae2, type: 3}
+  throwPos: {fileID: 3482799971558066801}
   audPlayerDamage:
   - {fileID: 8300000, guid: 408114c470f752649866ea4d9780229a, type: 3}
   - {fileID: 8300000, guid: 952a1bf787477dc4ca46dd6e6510dd01, type: 3}

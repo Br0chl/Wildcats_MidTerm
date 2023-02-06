@@ -4,5 +4,6 @@ public enum WeaponType
     SMG,
     AssaultRifle,
     Shotgun,
-    LMG
+    LMG,
+    GrenadeLauncher
 }
