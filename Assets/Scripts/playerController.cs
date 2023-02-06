@@ -28,6 +28,10 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject bullethole;
 
+    [Header("---Equipment---")]
+    [SerializeField] public Throwable equipment;
+    [SerializeField] GameObject throwPos;
+
     [Header("---Audio---")]
     [SerializeField] AudioClip[] audPlayerDamage;
     [Range(0, 1)][SerializeField] float audPlayerDamageVol;
@@ -51,6 +55,7 @@ public class playerController : MonoBehaviour
     bool isSprinting;
     bool isReloading;
     bool isSwapping;
+    bool readyToThrow = true;
 
     bool timerActive;
     int timersInUse;
@@ -91,7 +96,12 @@ public class playerController : MonoBehaviour
     {
         if (!gameManager.instance.isPaused)
         {
-
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                if (equipment.type == ThrowType.Grenade)
+                    Throw();
+                
+            }
             // Check if Gun has any ammo
             if (gunList.Count > 0)
             {
@@ -557,6 +567,37 @@ public class playerController : MonoBehaviour
         }
 
         gameManager.instance.UpdateUI();
+    }
+
+    void Throw()
+    {
+        readyToThrow = false;
+
+        // Instantiate Object to be thrown
+        GameObject projectile = Instantiate(equipment.gameObject, throwPos.transform.position, Camera.main.transform.rotation);
+
+        // Calculate the direction from throw position to aim position
+        Vector3 forceDirection = Camera.main.transform.forward;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 500f))
+        {
+            forceDirection = (hit.point - throwPos.transform.position).normalized;
+        }
+
+        Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+        // Add force
+        Vector3 forceToAdd = forceDirection * equipment.throwForce + transform.up * equipment.throwUpwardForce;
+
+        projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
+
+        equipment.currentAmount--;
+
+        Invoke(nameof(ResetThrow), equipment.throwCooldown);
+    }
+
+    private void ResetThrow()
+    {
+        readyToThrow = true;
     }
 
     IEnumerator SwapTime()

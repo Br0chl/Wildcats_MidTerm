@@ -8,6 +8,8 @@ public class Pickup : MonoBehaviour
     [SerializeField] int currencyAmount;
     [SerializeField] int magazineAmount;
 
+    [SerializeField] Throwable throwable;
+
     [SerializeField] float respawnTime = 0f;
 
     private void OnTriggerEnter(Collider other)
@@ -39,6 +41,11 @@ public class Pickup : MonoBehaviour
             if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].isAmmoFull) return;
             gameManager.instance.playerScript.gunPickup(gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun]);
             //gameManager.instance.UpdateUI();
+        }
+
+        if (throwable != null)
+        {
+            gameManager.instance.playerScript.equipment = throwable;
         }
 
         if (respawnTime == 0)

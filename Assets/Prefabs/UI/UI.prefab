@@ -451,6 +451,9 @@ MonoBehaviour:
   inactiveWeaponIcon: {fileID: 5271345157043765148}
   inactiveCurrentAmmo: {fileID: 5271345157683621090}
   inactiveMaxAmmo: {fileID: 5532485469490205673}
+  equipmentUI: {fileID: 5271345156320277756}
+  equipmentIcon: {fileID: 5271345156828429871}
+  currentEquipmentAmmo: {fileID: 5271345155895660005}
   currencyShop: {fileID: 0}
   currencyWBench: {fileID: 0}
   isPaused: 0
@@ -3294,7 +3297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5271345156320277757
 RectTransform:
   m_ObjectHideFlags: 0

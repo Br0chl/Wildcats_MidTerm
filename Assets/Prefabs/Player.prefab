@@ -97,6 +97,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.26228443, y: 0.1993806, z: 1.1879848}
   m_Center: {x: -0.36886933, y: -0.4003216, z: 0.09399247}
+--- !u!1 &3482799971558066801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6885253384021934844}
+  m_Layer: 0
+  m_Name: throwPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6885253384021934844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3482799971558066801}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.37, y: 0.48099995, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6272015389978710679}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4800765597104923693
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +159,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6272015389978710679}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3042222943126280003
 MeshFilter:
@@ -209,7 +240,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6272015389978710679}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6272015389978710684
 GameObject:
@@ -246,6 +277,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6272015390771529515}
+  - {fileID: 6885253384021934844}
   - {fileID: 912524434843608065}
   - {fileID: 842269228432089414}
   m_Father: {fileID: 0}
@@ -281,6 +313,8 @@ MonoBehaviour:
   shootDamage: 0
   gunModel: {fileID: 1013237240}
   bullethole: {fileID: 559456509421732596, guid: bf6f8c053fac82f46b9ece312bffb6a0, type: 3}
+  equipment: {fileID: 6639413895912508307, guid: 39d1bccfdff612e4d80ea65e204b635e, type: 3}
+  throwPos: {fileID: 6217955032323182330}
   audPlayerDamage:
   - {fileID: 8300000, guid: 408114c470f752649866ea4d9780229a, type: 3}
   - {fileID: 8300000, guid: 952a1bf787477dc4ca46dd6e6510dd01, type: 3}
