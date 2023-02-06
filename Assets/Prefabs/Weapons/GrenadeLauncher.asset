@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a15d6cf92ae64d74a989f4179dc20308, type: 3}
+  m_Name: GrenadeLauncher
+  m_EditorClassIdentifier: 
+  type: 5
+  iName: Bomb's Away
+  price: 5000
+  costToUpgrade: 1000
+  shootRate: 0.5
+  shootDist: 20
+  shootDamage: 25
+  reloadSpeed: 3
+  shots: 0
+  shotAngle: 0
+  ammoToInstantiate: {fileID: 3993834669635103773, guid: 392cda01b7e0d5e4ea6e24c33e98a3fe, type: 3}
+  maxBulletSpread: 0
+  timeToMaxSpread: 0
+  gunModel: {fileID: 6501464746158120640, guid: a0ec5f7be6a93384b88665449894ca8e, type: 3}
+  gunShotAud: {fileID: 0}
+  gunShotAudVol: 0
+  gunReloadAud: {fileID: 0}
+  gunReloadAudVol: 0
+  gunAmmoOutAud: {fileID: 0}
+  gunAmmoOutAudVol: 0
+  currentAmmo: 0
+  currentMaxAmmo: 0
+  currentMagazines: 0
+  magCapacity: 6
+  maxMagazines: 1
+  startingMagazines: 1
+  swapSpeed: 1
+  isOutOfAmmo: 0
+  isAmmoFull: 0
+  iconUI: {fileID: 0}
+  reticle: {fileID: 0}
+  gunLevel: 1
+  damageUpgradeLevel: 0
+  maxAmmoUpgradeLevel: 0
+  startingMagsUpgradeLevel: 0
+  isUnlocked: 0

@@ -17,12 +17,15 @@ public class GunStats : ScriptableObject
     [Header("-----Shotgun Only-----")]
     public int shots;
     public float shotAngle;
+    [Header("-----GrenadeLauncher Only-----")]
+    public GameObject ammoToInstantiate;
     [Header("-----Bullet Spread Option-----")]
     public float maxBulletSpread;
     public float timeToMaxSpread;
 
     [Header("---Components---")]
     public GameObject gunModel;
+    [SerializeField] public GameObject shootPos;
     public AudioClip gunShotAud;
     [Range(0, 1)] public float gunShotAudVol;
     public AudioClip gunReloadAud;
