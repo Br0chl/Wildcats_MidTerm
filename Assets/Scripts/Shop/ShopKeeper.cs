@@ -46,6 +46,7 @@ public class ShopKeeper : MonoBehaviour
             gameManager.instance.isShopping = true;
             //gameManager.instance.playerScript.enabled = false;
             shopCam.SetActive(true);
+            gameManager.instance.playerScript.enabled = false;
             gameManager.instance.currencyShop.text = gameManager.instance.playerScript.totalCurrency.ToString();
             gameManager.instance.hudUI.SetActive(false);
             Time.timeScale = 0f;
@@ -60,6 +61,7 @@ public class ShopKeeper : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             shopCam.SetActive(false);
+            gameManager.instance.playerScript.enabled = true;
             //gameManager.instance.playerScript.enabled = true;
             gameManager.instance.hudUI.SetActive(true);
             shopUI.SetActive(false);

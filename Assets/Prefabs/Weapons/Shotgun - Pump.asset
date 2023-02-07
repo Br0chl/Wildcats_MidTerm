@@ -22,6 +22,7 @@ MonoBehaviour:
   reloadSpeed: 3
   shots: 12
   shotAngle: 0.09
+  ammoToInstantiate: {fileID: 0}
   maxBulletSpread: 0
   timeToMaxSpread: 0
   gunModel: {fileID: 6585716302517592328, guid: 47f66c24ec5aa8847b90a864db773f43, type: 3}
@@ -42,7 +43,7 @@ MonoBehaviour:
   isAmmoFull: 0
   iconUI: {fileID: 21300000, guid: 0bd286faf67a0ff4aad4517013b6719a, type: 3}
   reticle: {fileID: 21300000, guid: fcd1b8a6bcc868c45b855536f6bc6c2d, type: 3}
-  gunLevel: 1
+  gunLevel: 0
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0

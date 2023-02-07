@@ -43,7 +43,7 @@ MonoBehaviour:
   isAmmoFull: 0
   iconUI: {fileID: 0}
   reticle: {fileID: 0}
-  gunLevel: 1
+  gunLevel: 0
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0

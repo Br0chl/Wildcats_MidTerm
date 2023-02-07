@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class gunPickup : MonoBehaviour
 {
-    [SerializeField] GunStats gun;
+    [SerializeField] public GunStats gun;
     [SerializeField] GameObject equipPopUp;
 
     bool popUpActive = false;
