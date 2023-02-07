@@ -55,6 +55,7 @@ public class waveSpawner : MonoBehaviour
         }
 
         currWave++; // go to the next wave
+        gameManager.instance.updateWaves(currWave);
         waveValue = currWave * waveValueMultiplier; // calculate the cost of the wave
 
         if (bossWaves != 0)
@@ -125,4 +126,7 @@ public class waveSpawner : MonoBehaviour
     {
         return stopWaves;
     }
+
+    public int GetMaxWave()
+    { return maxWaves; }
 }

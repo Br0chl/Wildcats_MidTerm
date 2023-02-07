@@ -17,7 +17,10 @@ public class gameManager : MonoBehaviour
 
     [Header("---Game Goal---")]
     public int enemiesRemaining;
+    public int maxWaves;
+    public int currWave;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
+    [SerializeField] TextMeshProUGUI wavesRemainingText;
     waveSpawner spawner;
 
     [Header("------UI------")]
@@ -75,11 +78,8 @@ public class gameManager : MonoBehaviour
 
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
 
-        GameObject tspawn = GameObject.FindGameObjectWithTag("Spawner");
-        if (GameObject.FindGameObjectWithTag("Spawner") != null)
-        {
-            spawner = tspawn.GetComponent<waveSpawner>();
-        }
+        spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<waveSpawner>();
+        maxWaves = spawner.GetMaxWave();
 
         timeScaleOrig = Time.timeScale;
 
@@ -109,6 +109,13 @@ public class gameManager : MonoBehaviour
             else
                 UnPause();
         }
+
+        if (maxWaves == currWave && enemiesRemaining <= 0)
+        {
+            Pause();
+            activeMenu = winMenu;
+            activeMenu.SetActive(true);
+        }
     }
 
     // Pause Game - Bring up Pause menu UI
@@ -135,14 +142,13 @@ public class gameManager : MonoBehaviour
     {
         enemiesRemaining += amount;
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+    }
 
-        //Check to see if game is over based on enemy count <= 0
-        if (enemiesRemaining <= 0 && spawner.WavesStopped() == true)
-        {
-            Pause();
-            activeMenu = winMenu;
-            activeMenu.SetActive(true);
-        }
+    public void updateWaves(int Wave)
+    {
+        currWave = Wave;
+        wavesRemainingText.text = currWave.ToString("F0") + '/' + maxWaves.ToString("F0");
+
     }
 
     public void PlayerDead()
