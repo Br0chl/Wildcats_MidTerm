@@ -35,7 +35,7 @@ public class enemyAI : MonoBehaviour, isDamageable
 
     [Header("----- Bomb Only -----")]
     [SerializeField] BombExplosion bombHandler;
-    [Range(1, 5)][SerializeField] int selfDestructStartRange;
+    [Range(1, 5)] [SerializeField] int selfDestructStartRange;
 
     float angleToPlayer;
 
@@ -43,7 +43,7 @@ public class enemyAI : MonoBehaviour, isDamageable
     bool playerInRange;
     Vector3 playerDir;
 
-    
+
     protected bool isDead = false;
 
     GameObject bulletClone;
@@ -53,7 +53,8 @@ public class enemyAI : MonoBehaviour, isDamageable
         Crab,
         Dragon,
         Blossom,
-        Bomb
+        Bomb,
+        Snake
     }
 
     // Start is called before the first frame update
@@ -67,9 +68,9 @@ public class enemyAI : MonoBehaviour, isDamageable
     void Update()
     {
         anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
-        
+
         canSeePlayer();
-        
+
     }
 
     private void canSeePlayer()
@@ -96,11 +97,11 @@ public class enemyAI : MonoBehaviour, isDamageable
                 {
                     StartCoroutine(shoot());
                 }
-                
+
 
                 if (Vector3.Distance(transform.position, gameManager.instance.player.transform.position) < selfDestructStartRange && enemyType == Enemies.Bomb)
                 {
-                    bombHandler.HandleSelfDesturct(); 
+                    bombHandler.HandleSelfDesturct();
                 }
             }
         }
@@ -120,19 +121,19 @@ public class enemyAI : MonoBehaviour, isDamageable
         takeDamage.Invoke(dmg);
         if (HP <= 0)
         {
-            if (part !=null)
+            if (part != null)
                 part.Stop();
             agent.SetDestination(transform.position);
             agent.speed = 0;
             anim.SetTrigger("Die");
-            isDead = true;            
+            isDead = true;
             agent.baseOffset = 0;
             gameManager.instance.updateEnemyRemaining(-1);
 
             // Drop Loot
             if (!isBoss)
                 lootDropper.DropLoot(transform.position + transform.up);
-            else if(isBoss)
+            else if (isBoss)
                 lootDropper.GetMultipleDrops(transform.position + transform.up);
 
             Destroy(gameObject, 3);
@@ -149,8 +150,8 @@ public class enemyAI : MonoBehaviour, isDamageable
     // uncommented for shooting
     IEnumerator shoot()
     {
-       isShooting = true;
-    
+        isShooting = true;
+
 
         anim.SetTrigger("Shoot");
         switch (enemyType)
@@ -166,7 +167,7 @@ public class enemyAI : MonoBehaviour, isDamageable
                 if (playerInRange)
                 {
                     part.Play(true);
-                }                     
+                }
                 break;
 
             case Enemies.Blossom:
@@ -182,12 +183,17 @@ public class enemyAI : MonoBehaviour, isDamageable
                 bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
                 yield return new WaitForSeconds(shootRate);
                 break;
-
+            case Enemies.Snake:
+                bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+                bulletClone.GetComponent<Rigidbody>().velocity = playerDir.normalized * bulletSpeed;
+                bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
+                yield return new WaitForSeconds(shootRate);
+                break;
             default:
                 break;
         }
-      
-       isShooting = false;
+
+        isShooting = false;
     }
 
     void facePlayer()
