@@ -52,6 +52,7 @@ public class LootDropper : MonoBehaviour
         if (itemToDrop == null)
             return;
 
+
         GameObject drop = Instantiate(itemToDrop.gameObject, lootSpawn, Quaternion.identity);
     }
 

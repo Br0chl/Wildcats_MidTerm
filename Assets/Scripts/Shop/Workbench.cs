@@ -13,6 +13,7 @@ public class Workbench : MonoBehaviour
 
     [SerializeField] GameObject activatePopUp;
     [SerializeField] GameObject statsUI;
+    [SerializeField] GameObject lockedUI;
 
     [SerializeField] TextMeshProUGUI damageUI;
     [SerializeField] TextMeshProUGUI maxAmmoUI;
@@ -23,6 +24,7 @@ public class Workbench : MonoBehaviour
     [SerializeField] GameObject wbCamera;
 
     [SerializeField] TextMeshProUGUI gunLevelUI;
+    [SerializeField] TextMeshProUGUI gunNameUI;
     [SerializeField] TextMeshProUGUI damageLevelUI;
     [SerializeField] TextMeshProUGUI damagePriceUI;
     [SerializeField] GameObject damageButton;
@@ -70,6 +72,7 @@ public class Workbench : MonoBehaviour
 
     private void UpdateStatsPanel()
     {
+        gunNameUI.text = guns[gunToShow].iName;
         gunLevelUI.text = guns[gunToShow].gunLevel.ToString();
         damageUI.text = guns[gunToShow].shootDamage.ToString();
         int maxAmmo = guns[gunToShow].magCapacity * guns[gunToShow].maxMagazines;
@@ -82,11 +85,25 @@ public class Workbench : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && gunToShow < guns.Count - 1)
         {
             gunToShow++;
+
+            // Show Locked Status
+            if (!guns[gunToShow].isUnlocked)
+                lockedUI.SetActive(true);
+            else
+                lockedUI.SetActive(false);
+
             ShowGun();
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && gunToShow > 0)
         {
             gunToShow--;
+
+            // Show Locked Status
+            if (!guns[gunToShow].isUnlocked)
+                lockedUI.SetActive(true);
+            else
+                lockedUI.SetActive(false);
+
             ShowGun();
         }
     }

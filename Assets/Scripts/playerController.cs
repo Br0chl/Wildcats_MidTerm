@@ -483,6 +483,13 @@ public class playerController : MonoBehaviour
 
     public void gunPickup(GunStats gunStat)
     {
+        // Unlock gun
+        if (!gunStat.isUnlocked)
+        {
+            gunStat.isUnlocked = true;
+            gunStat.gunLevel++;
+        }
+
         foreach (GunStats gs in gunList)
         {
             if (gs == gunStat)

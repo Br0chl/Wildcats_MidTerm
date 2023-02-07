@@ -22,6 +22,7 @@ MonoBehaviour:
   reloadSpeed: 2
   shots: 0
   shotAngle: 0
+  ammoToInstantiate: {fileID: 0}
   maxBulletSpread: 0
   timeToMaxSpread: 0
   gunModel: {fileID: 1417596521099799276, guid: 9ae9d1d8236f9c249906196e83b85892, type: 3}
@@ -46,4 +47,4 @@ MonoBehaviour:
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 0
+  isUnlocked: 1

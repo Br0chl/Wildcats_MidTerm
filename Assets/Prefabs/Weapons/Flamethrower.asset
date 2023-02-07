@@ -32,15 +32,15 @@ MonoBehaviour:
   gunReloadAudVol: 0
   gunAmmoOutAud: {fileID: 0}
   gunAmmoOutAudVol: 0
-  currentAmmo: 13
-  currentMaxAmmo: 200
-  currentMagazines: 2
+  currentAmmo: 100
+  currentMaxAmmo: 100
+  currentMagazines: 1
   magCapacity: 100
   maxMagazines: 2
   startingMagazines: 1
   swapSpeed: 1
   isOutOfAmmo: 0
-  isAmmoFull: 1
+  isAmmoFull: 0
   iconUI: {fileID: 0}
   reticle: {fileID: 0}
   gunLevel: 0
