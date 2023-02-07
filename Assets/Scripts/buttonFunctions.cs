@@ -28,6 +28,11 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.UnPause();
     }
 
+    public void ReturnToMain()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
+
     public void StartGame()
     {
         SceneManager.LoadSceneAsync(1);
