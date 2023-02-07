@@ -12,7 +12,7 @@ public class playerController : MonoBehaviour
     [SerializeField] public int totalCurrency;
     public int currentHP;
     [Range(1, 300)] [SerializeField] public int maxHP;
-    [Range(1, 10)] [SerializeField] int walkSpeed;
+    [Range(1, 10)] [SerializeField] public int walkSpeed;
     [Range(1,20)][SerializeField] int sprintSpeed;
     [Range(5, 20)] [SerializeField] int jumpAmount;
     [Range(5, 50)] [SerializeField] int gravity;
@@ -98,7 +98,7 @@ public class playerController : MonoBehaviour
     {
         if (!gameManager.instance.isPaused)
         {
-            if (Input.GetKeyUp(KeyCode.G))
+            if (Input.GetKeyUp(KeyCode.G) && readyToThrow)
             {
                 //if (equipment.type == ThrowType.Grenade)
                 Throw();
@@ -154,8 +154,10 @@ public class playerController : MonoBehaviour
         move = (transform.right * Input.GetAxis("Horizontal") +
                (transform.forward * Input.GetAxis("Vertical")));
 
-
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        if (gameManager.instance.isSpeedUp)
+            controller.Move(move * Time.deltaTime * playerSpeed * 2);
+        else
+            controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (Input.GetButtonDown("Jump") && jumpedTimes < jumpsAllowed)
         {
@@ -262,6 +264,7 @@ public class playerController : MonoBehaviour
         RaycastHit hit;
         if (!gunList[selectedGun].isOutOfAmmo)
         {
+
             // Shotgun Fire
             if (gunList[selectedGun].type == WeaponType.Shotgun)
             {
@@ -400,6 +403,9 @@ public class playerController : MonoBehaviour
 
     public void takeDamage(int dmg)
     {
+        // If invincible powerup is active
+        if (gameManager.instance.isInvinvcible)
+            dmg = 0;
         currentHP -= dmg;
         UpdatePlayerHP();
         StartCoroutine(gameManager.instance.flashDamage());
@@ -623,7 +629,12 @@ public class playerController : MonoBehaviour
 
     public void AddCurrency(int amount)
     {
-        totalCurrency += amount;
+        // If currency powerup is active
+        if (gameManager.instance.isDoubleCurrency)
+            totalCurrency += amount * 2;
+        else
+            totalCurrency += amount;
+
         gameManager.instance.UpdateCurrencyUI();
     }
 

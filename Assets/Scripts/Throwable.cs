@@ -57,7 +57,7 @@ public class Throwable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        // If damage powerup is active
         if (other.CompareTag("Enemy") && other.GetType() == typeof(CapsuleCollider))
         {
             other.GetComponent<enemyAI>().TakeDamage(damage);
