@@ -50,6 +50,11 @@ public class gameManager : MonoBehaviour
     [Header("---Shop Currency UI---")]
     public TextMeshProUGUI currencyShop;
     public TextMeshProUGUI currencyWBench;
+    [Header("---PowerUps---")]
+    public bool isInvinvcible;
+    public bool isDoubleCurrency;
+    public bool isDamageUp;
+    public bool isSpeedUp;
     
     // For Pauseing Game
     public bool isPaused = false;

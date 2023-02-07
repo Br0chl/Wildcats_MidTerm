@@ -109,6 +109,11 @@ public class enemyAI : MonoBehaviour, isDamageable
     public virtual void TakeDamage(int dmg)
     {
         if (isDead) return;
+        
+        // If damage powerup is active
+        if (gameManager.instance.isDamageUp)
+            dmg = dmg * 2;
+
         HP -= dmg;
         anim.SetTrigger("Damage");
         agent.SetDestination(gameManager.instance.player.transform.position);

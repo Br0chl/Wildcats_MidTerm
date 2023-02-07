@@ -24,7 +24,7 @@ public class Flamethrower : MonoBehaviour
 
         while (i < numCollisionEvents)
         {
-            if (dmg != null)
+            if (dmg != null && canAttack)
             {
                 dmg.TakeDamage(gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].shootDamage);
                 StartCoroutine(FlameAttack());
@@ -36,7 +36,7 @@ public class Flamethrower : MonoBehaviour
     IEnumerator FlameAttack()
     {
         canAttack = false;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(.5f);
         canAttack = true;
     }
 }
