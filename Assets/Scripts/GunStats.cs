@@ -25,7 +25,6 @@ public class GunStats : ScriptableObject
 
     [Header("---Components---")]
     public GameObject gunModel;
-    [SerializeField] public GameObject shootPos;
     public AudioClip gunShotAud;
     [Range(0, 1)] public float gunShotAudVol;
     public AudioClip gunReloadAud;

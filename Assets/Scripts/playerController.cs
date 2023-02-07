@@ -28,6 +28,7 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject bullethole;
     public GameObject shootPos;
+    public ParticleSystem flameThrowerPart;
 
     [Header("---Equipment---")]
     [SerializeField] public Throwable equipment;
@@ -242,7 +243,8 @@ public class playerController : MonoBehaviour
         else
             aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
 
-        gameManager.instance.playerAnim.SetTrigger("Shoot");
+        if (gunList[selectedGun].type != WeaponType.Flamethrower)
+            gameManager.instance.playerAnim.SetTrigger("Shoot");
 
         // Update current ammo or reload if needed
         if (gunList[selectedGun].currentAmmo == 1 && gunList[selectedGun].currentMaxAmmo != 0)
@@ -296,8 +298,13 @@ public class playerController : MonoBehaviour
             }
             if (gunList[selectedGun].type == WeaponType.GrenadeLauncher)
             {
-                if (!gunList[selectedGun].isOutOfAmmo)
+                //if (!gunList[selectedGun].isOutOfAmmo)
                     Instantiate(gunList[selectedGun].ammoToInstantiate, shootPos.transform);
+            }
+            if (gunList[selectedGun].type == WeaponType.Flamethrower)
+            {
+                if (isShooting)
+                    flameThrowerPart.Play();
             }
             else
             {
@@ -322,6 +329,7 @@ public class playerController : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(shootRate);
+        flameThrowerPart.Stop();
         isShooting = false;
     }
 
