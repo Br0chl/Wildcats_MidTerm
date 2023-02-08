@@ -619,7 +619,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -837,6 +837,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 225441056586627447, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_text
+      value: Return to Main Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 2187188104873572059, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -925,9 +929,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 4386000850818179031, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 956.6
+    - target: {fileID: 5271345156729168138, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_text
+      value: Return to Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143718960946920152, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_text
+      value: Return to Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyShop
@@ -946,6 +954,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1483951538, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -9007812540405413372, guid: 99ec728adf59583409c6199d1a01a07f, type: 2}
     - target: {fileID: 6182230221804082508, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 2

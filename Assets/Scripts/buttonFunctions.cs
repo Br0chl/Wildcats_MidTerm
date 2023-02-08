@@ -30,6 +30,9 @@ public class buttonFunctions : MonoBehaviour
 
     public void ReturnToMain()
     {
+        gameManager.instance.UnPause();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         SceneManager.LoadSceneAsync(0);
     }
 
