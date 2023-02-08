@@ -456,14 +456,16 @@ MonoBehaviour:
     cost: 2
   bosses: []
   waveValueMultiplier: 25
-  waveDuration: 120
+  waveDuration: 60
   maxWaves: 10
   bossWaves: 0
   infiniteWaves: 0
   enemiesToSpawn: []
+  enemiesRemaining: 0
   currWave: 0
   waveValue: 0
   waveTimer: 0
   spawnInterval: 0
   spawnTimer: 0
   stopWaves: 0
+  spawnerEmpty: 0
