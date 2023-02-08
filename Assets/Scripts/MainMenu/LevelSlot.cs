@@ -26,6 +26,8 @@ public class LevelSlot : MonoBehaviour
             lockedPanel.SetActive(true);
         else
             lockedPanel.SetActive(false);
+
+        CheckUnlock(newLevel);
     }
 
     public void ClearSlot()
@@ -33,5 +35,13 @@ public class LevelSlot : MonoBehaviour
         levelImage.enabled = false;
         strName.text = "";
         wavesCompleted.text = "";
+    }
+
+    void CheckUnlock(LevelData level)
+    {
+        if (level.highestWaveCompleted >= 10)
+        {
+            level.levelToUnlock.isUnlocked = true;
+        }
     }
 }

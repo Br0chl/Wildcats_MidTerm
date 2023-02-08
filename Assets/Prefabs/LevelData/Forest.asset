@@ -15,6 +15,7 @@ MonoBehaviour:
   levelName: 2
   strName: Forest Level
   buildIndex: 1
+  levelToUnlock: {fileID: 11400000, guid: f79a05a4531930546844698fa074c374, type: 2}
   levelImage: {fileID: 21300000, guid: 350b2e03df92c3648ab6b45306ac76fe, type: 3}
   highestWaveCompleted: 0
   isUnlocked: 1
