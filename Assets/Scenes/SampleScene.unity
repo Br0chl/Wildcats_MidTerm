@@ -520,6 +520,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: waveDuration
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: enemies.Array.size
       value: 7
       objectReference: {fileID: 0}

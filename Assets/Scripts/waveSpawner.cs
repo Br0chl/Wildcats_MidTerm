@@ -16,6 +16,7 @@ public class waveSpawner : MonoBehaviour
 
     [Header("----- Test View -----")]
     [SerializeField] List<GameObject> enemiesToSpawn = new List<GameObject>(); // the list of generated enemies to spawn
+    [SerializeField] int enemiesRemaining = 0;
     [SerializeField] int currWave = 0;
     [SerializeField] int waveValue; // varriable used to buy enemies
     [SerializeField] float waveTimer;
@@ -48,8 +49,8 @@ public class waveSpawner : MonoBehaviour
         }
         else
         {
-            if (enemiesToSpawn.Count == 0 && !spawnerEmpty)
-            { spawnerEmpty = true; }
+            if (enemiesToSpawn.Count == 0 && enemiesRemaining <= 0)
+            { gameManager.instance.PlayerWin(); }
         }
     }
     
@@ -121,6 +122,8 @@ public class waveSpawner : MonoBehaviour
 
             Instantiate(enemiesToSpawn[0], spawnLocations[randEnemySpawn].position, Quaternion.identity); // spawn the enemy
             enemiesToSpawn.RemoveAt(0); // remove the enemy from the list
+            enemiesRemaining++;
+            gameManager.instance.enemiesRemainingText.text = enemiesRemaining.ToString("F0");
             spawnTimer = spawnInterval; // reset the spawnTimer
         }
         else // otherwise
@@ -137,5 +140,11 @@ public class waveSpawner : MonoBehaviour
         stopWaves = false;
         gameManager.instance.UnPause();
         GenerateWave();
+    }
+
+    public void updateEnemyReamining(int amount)
+    {
+        enemiesRemaining += amount;
+        gameManager.instance.enemiesRemainingText.text = enemiesRemaining.ToString("F0");
     }
 }

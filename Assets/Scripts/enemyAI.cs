@@ -60,7 +60,6 @@ public class enemyAI : MonoBehaviour, isDamageable
     // Start is called before the first frame update
     void Start()
     {
-        gameManager.instance.updateEnemyRemaining(1);
         agent.SetDestination(gameManager.instance.player.transform.position);
     }
 
@@ -128,7 +127,7 @@ public class enemyAI : MonoBehaviour, isDamageable
             anim.SetTrigger("Die");
             isDead = true;
             agent.baseOffset = 0;
-            gameManager.instance.updateEnemyRemaining(-1);
+            gameManager.instance.spawner.updateEnemyReamining(-1); 
 
             // Drop Loot
             if (!isBoss)
