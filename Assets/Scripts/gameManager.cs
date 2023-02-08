@@ -21,7 +21,8 @@ public class gameManager : MonoBehaviour
     public int currWave;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
     [SerializeField] TextMeshProUGUI wavesRemainingText;
-    waveSpawner spawner;
+    public waveSpawner spawner;
+    bool GameWon() => currWave >= maxWaves && enemiesRemaining <= 0 && spawner.spawnerEmpty;
 
     [Header("------UI------")]
     public GameObject hudUI;
@@ -30,6 +31,7 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject winMenu;
     public GameObject playerDeadMenu;
+    public GameObject difficultyMenu;
     [Header("---Player UI---")]
     public Image playerHPBar;
     [SerializeField] TextMeshProUGUI currencyTextUI;
@@ -66,7 +68,6 @@ public class gameManager : MonoBehaviour
     // Keep pause menu from activating in shop
     public bool isShopping = false;
 
-
     void Awake()
     {
         instance = this;
@@ -79,7 +80,6 @@ public class gameManager : MonoBehaviour
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
 
         spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<waveSpawner>();
-        maxWaves = spawner.GetMaxWave();
 
         timeScaleOrig = Time.timeScale;
 
@@ -110,7 +110,7 @@ public class gameManager : MonoBehaviour
                 UnPause();
         }
 
-        if (maxWaves == currWave && enemiesRemaining <= 0)
+        if (GameWon())
         {
             Pause();
             activeMenu = winMenu;
@@ -245,5 +245,12 @@ public class gameManager : MonoBehaviour
             currencyShop.text = playerScript.totalCurrency.ToString();
             currencyWBench.text = playerScript.totalCurrency.ToString();
         }
+    }
+
+    public void SelectDifficutly()
+    {
+        Pause();
+        activeMenu = difficultyMenu;
+        activeMenu.SetActive(true);
     }
 }

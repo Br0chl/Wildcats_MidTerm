@@ -21,11 +21,13 @@ public class waveSpawner : MonoBehaviour
     [SerializeField] float waveTimer;
     [SerializeField] float spawnInterval;
     [SerializeField] float spawnTimer;
-    [SerializeField] bool stopWaves;
+    [SerializeField] bool stopWaves = true;
+
+    public bool spawnerEmpty = false;
 
     void Start()
     {
-        GenerateWave();
+        gameManager.instance.SelectDifficutly();
     }
 
     void FixedUpdate()
@@ -43,6 +45,11 @@ public class waveSpawner : MonoBehaviour
 
             else // otherwise adjust waveTimer
             { waveTimer -= Time.fixedDeltaTime; }
+        }
+        else
+        {
+            if (enemiesToSpawn.Count == 0 && !spawnerEmpty)
+            { spawnerEmpty = true; }
         }
     }
     
@@ -122,11 +129,13 @@ public class waveSpawner : MonoBehaviour
         }
     }
 
-    public bool WavesStopped()
+    public void StartSpawner(int wavesAmount, int wavesMultiplier)
     {
-        return stopWaves;
+        maxWaves = wavesAmount;
+        gameManager.instance.maxWaves = wavesAmount;
+        waveValueMultiplier = wavesMultiplier;
+        stopWaves = false;
+        gameManager.instance.UnPause();
+        GenerateWave();
     }
-
-    public int GetMaxWave()
-    { return maxWaves; }
 }
