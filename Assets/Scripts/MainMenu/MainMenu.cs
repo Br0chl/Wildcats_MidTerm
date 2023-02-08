@@ -11,6 +11,9 @@ public class MainMenu : MonoBehaviour
 
     private void Start() 
     {
+        optionsMenu.SetActive(false);
+        creditsPanel.SetActive(false);
+        levelSelectMenu.SetActive(false);
         mainMenuDisplay.SetActive(true);
     }
 
