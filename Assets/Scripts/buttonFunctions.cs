@@ -40,5 +40,20 @@ public class buttonFunctions : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(1);
     }
+
+    public void EasyMode()
+    {
+        gameManager.instance.spawner.StartSpawner(5, 12);
+    }
+
+    public void MediumMode()
+    {
+        gameManager.instance.spawner.StartSpawner(7, 18);
+    }
+
+    public void HardMode()
+    {
+        gameManager.instance.spawner.StartSpawner(10, 24);
+    }
 }
 
