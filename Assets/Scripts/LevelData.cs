@@ -16,7 +16,7 @@ public class LevelData : ScriptableObject
 {
     [SerializeField] LevelName levelName;
     [SerializeField] public string strName;
-    [SerializeField] int buildIndex;
+    [SerializeField] public int buildIndex;
 
     [SerializeField] public LevelData levelToUnlock;
 

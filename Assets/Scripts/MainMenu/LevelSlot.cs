@@ -12,13 +12,23 @@ public class LevelSlot : MonoBehaviour
     [SerializeField] TextMeshProUGUI strName;
     [SerializeField] TextMeshProUGUI wavesCompleted;
     [SerializeField] GameObject lockedPanel;
+    [SerializeField] public GameObject selectedPopUp;
+    [SerializeField] Button levelButton;
+
+    public bool isSelected = false;
+
+    private void Start() 
+    {
+        selectedPopUp.SetActive(false);
+    }
 
     public void AddItem(LevelData newLevel)
     {
         level = newLevel;
 
-        levelImage.sprite = newLevel.levelImage;
-        levelImage.enabled = true;
+        //levelImage.sprite = newLevel.levelImage;
+        //levelImage.enabled = true;
+        levelButton.image.sprite = newLevel.levelImage;
         strName.text = newLevel.strName;
         wavesCompleted.text = newLevel.highestWaveCompleted.ToString();
 
@@ -43,5 +53,10 @@ public class LevelSlot : MonoBehaviour
         {
             level.levelToUnlock.isUnlocked = true;
         }
+    }
+
+    public void SelectLevel()
+    {
+        isSelected = true;
     }
 }
