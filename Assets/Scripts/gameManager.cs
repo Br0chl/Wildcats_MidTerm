@@ -23,6 +23,10 @@ public class gameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI wavesRemainingText;
     public waveSpawner spawner;
     bool GameWon() => currWave >= maxWaves && enemiesRemaining <= 0 && spawner.spawnerEmpty;
+    [Header("---Level Unlocking---")]
+    // Used to track level unlocks
+    [SerializeField] GameObject levelUnlockUI;
+    public LevelData currentLevel;
 
     [Header("------UI------")]
     public GameObject hudUI;
@@ -147,6 +151,17 @@ public class gameManager : MonoBehaviour
     public void updateWaves(int Wave)
     {
         currWave = Wave;
+
+        // Update highestwaveCompleted for level unlocking
+        if (currentLevel.highestWaveCompleted < currWave - 1)
+            currentLevel.highestWaveCompleted = currWave - 1;
+        // Show level unlock if not unlocked
+        if (currentLevel.highestWaveCompleted == currentLevel.wavesToUnlock && !currentLevel.levelToUnlock.isUnlocked)
+        {
+            currentLevel.levelToUnlock.isUnlocked = true;
+            StartCoroutine(ShowLevelUnlock());
+        }
+
         wavesRemainingText.text = currWave.ToString("F0") + '/' + maxWaves.ToString("F0");
 
     }
@@ -252,5 +267,12 @@ public class gameManager : MonoBehaviour
         Pause();
         activeMenu = difficultyMenu;
         activeMenu.SetActive(true);
+    }
+
+    IEnumerator ShowLevelUnlock()
+    {
+        levelUnlockUI.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        levelUnlockUI.SetActive(false);
     }
 }

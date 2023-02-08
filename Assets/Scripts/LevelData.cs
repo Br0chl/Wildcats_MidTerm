@@ -19,6 +19,7 @@ public class LevelData : ScriptableObject
     [SerializeField] public int buildIndex;
 
     [SerializeField] public LevelData levelToUnlock;
+    public int wavesToUnlock;
 
     public Sprite levelImage;
 
