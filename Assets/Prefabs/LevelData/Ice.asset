@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: 3
   strName: Ice Level
-  buildIndex: 0
+  buildIndex: 2
   levelToUnlock: {fileID: 11400000, guid: d69ca1ff99a26df4f9e1deecc800c791, type: 2}
-  levelImage: {fileID: 21300000, guid: de9145930e82e2d4c8bcb5ef4651ea64, type: 3}
-  highestWaveCompleted: 13
-  isUnlocked: 1
+  levelImage: {fileID: 21300000, guid: 3d1ea09d39c14df45b3702a168f2aae8, type: 3}
+  highestWaveCompleted: 0
+  isUnlocked: 0
