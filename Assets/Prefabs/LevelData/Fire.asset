@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: 0
   strName: Fire Level
-  buildIndex: 3
+  buildIndex: 4
   levelToUnlock: {fileID: 0}
   levelImage: {fileID: 21300000, guid: d3df5b2eb2c9d274997e210d43673098, type: 3}
   highestWaveCompleted: 0
-  isUnlocked: 1
+  isUnlocked: 0
