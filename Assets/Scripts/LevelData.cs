@@ -18,6 +18,8 @@ public class LevelData : ScriptableObject
     [SerializeField] public string strName;
     [SerializeField] int buildIndex;
 
+    [SerializeField] public LevelData levelToUnlock;
+
     public Sprite levelImage;
 
     public int highestWaveCompleted;
