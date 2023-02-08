@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7851672128820681124}
   - component: {fileID: 7851672128820681127}
   m_Layer: 0
-  m_Name: World2
+  m_Name: TemplateWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
