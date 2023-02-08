@@ -21,11 +21,11 @@ public class waveSpawner : MonoBehaviour
     [SerializeField] float waveTimer;
     [SerializeField] float spawnInterval;
     [SerializeField] float spawnTimer;
-    [SerializeField] bool stopWaves;
+    [SerializeField] bool stopWaves = true;
 
     void Start()
     {
-        GenerateWave();
+        gameManager.instance.SelectDifficulty();
     }
 
     void FixedUpdate()
@@ -122,11 +122,17 @@ public class waveSpawner : MonoBehaviour
         }
     }
 
-    public bool WavesStopped()
-    {
-        return stopWaves;
-    }
-
     public int GetMaxWave()
     { return maxWaves; }
+
+    public void StartSpawner(int wavesAmount, int wavesMultiplier)
+    {
+        maxWaves = wavesAmount;
+        waveValueMultiplier = wavesMultiplier;
+        gameManager.instance.maxWaves = maxWaves;
+        stopWaves = false;
+        gameManager.instance.spawnerActive = true;
+        gameManager.instance.UnPause();
+        GenerateWave();
+    }
 }

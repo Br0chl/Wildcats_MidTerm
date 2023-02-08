@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -925,9 +925,53 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 4386000850818179031, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+    - target: {fileID: 4291658244675321500, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291658244675321500, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291658244675321500, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291658244675321500, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 956.6
+      value: -243.36214
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119657949446448414, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119657949446448414, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119657949446448414, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119657949446448414, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60.125927
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461394305145204474, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461394305145204474, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461394305145204474, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461394305145204474, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -147.95528
       objectReference: {fileID: 0}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyShop
@@ -937,6 +981,26 @@ PrefabInstance:
       propertyPath: currencyWBench
       value: 
       objectReference: {fileID: 374170938}
+    - target: {fileID: 7988101176585791229, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988101176585791229, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988101176585791229, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988101176585791229, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -338.76898
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786121271640886967, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
 --- !u!1001 &6272015390118865503
