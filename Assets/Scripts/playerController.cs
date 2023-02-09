@@ -598,6 +598,7 @@ public class playerController : MonoBehaviour
 
     void Throw()
     {
+        if (equipment == null) return;
         readyToThrow = false;
 
         // Instantiate Object to be thrown
@@ -617,7 +618,18 @@ public class playerController : MonoBehaviour
 
         projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
 
-        equipment.currentAmount--;
+        if (equipment.currentAmount > 1)
+        {
+            equipment.currentAmount--;
+            gameManager.instance.UpdateEquipmentUI();
+        }
+        else
+        {
+            gameManager.instance.equipmentUI.SetActive(false);
+            equipment = null;
+            readyToThrow = true;
+            return;
+        }
 
         Invoke(nameof(ResetThrow), equipment.throwCooldown);
     }

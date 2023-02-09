@@ -53,6 +53,7 @@ MonoBehaviour:
   currencyAmount: 0
   magazineAmount: 0
   throwable: {fileID: 7429940161669882947, guid: c4ba2d2e174d10c499288ccf05cb9ae2, type: 3}
+  equipPopUp: {fileID: 3654640262128815051, guid: 14aec0de92fea8746ab63c99f31b79a9, type: 3}
   respawnTime: 0
 --- !u!33 &8369647261108250394
 MeshFilter:

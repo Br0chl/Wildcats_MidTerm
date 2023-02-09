@@ -94,7 +94,10 @@ public class gameManager : MonoBehaviour
         {
             activeUI.SetActive(false);
             inactiveUI.SetActive(false);
-       }
+        }
+        if (playerScript.equipment == null)
+            equipmentUI.SetActive(false);
+
        UpdateCurrencyUI();
     }
 
@@ -252,6 +255,13 @@ public class gameManager : MonoBehaviour
             currencyShop.text = playerScript.totalCurrency.ToString();
             currencyWBench.text = playerScript.totalCurrency.ToString();
         }
+    }
+
+    public void UpdateEquipmentUI()
+    {
+        equipmentUI.SetActive(true);
+        equipmentIcon.sprite = playerScript.equipment.icon;
+        currentEquipmentAmmo.text = playerScript.equipment.currentAmount.ToString();
     }
 
     public void SelectDifficutly()
