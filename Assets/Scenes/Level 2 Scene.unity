@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.09672492, g: 0.21784534, b: 0.3685978, a: 1}
+  m_IndirectSpecularColor: {r: 0.09671548, g: 0.21786425, b: 0.36861145, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -180,6 +180,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+--- !u!114 &69455452 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 374170938, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 69455451}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &69455453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 637942087988762029, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 69455451}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &299231021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,6 +297,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: currencyShop
+      value: 
+      objectReference: {fileID: 69455453}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: currencyWBench
+      value: 
+      objectReference: {fileID: 69455452}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
 --- !u!1001 &705930203
