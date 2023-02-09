@@ -714,13 +714,12 @@ MonoBehaviour:
   playerSpawnPos: {fileID: 0}
   playerAnim: {fileID: 0}
   playerAudio: {fileID: 0}
-  enemiesRemaining: 0
   maxWaves: 0
   currWave: 0
   enemiesRemainingText: {fileID: 5271345156498914433}
   wavesRemainingText: {fileID: 102362676182398697}
   spawner: {fileID: 0}
-  levelUnlockUI: {fileID: 0}
+  levelUnlockUI: {fileID: 3780428416400932574}
   currentLevel: {fileID: 0}
   hudUI: {fileID: 4727760245532150676}
   activeMenu: {fileID: 0}

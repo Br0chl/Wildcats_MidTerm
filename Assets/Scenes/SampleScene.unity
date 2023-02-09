@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -451,90 +451,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 24728633, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -21.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 24728633, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -22
-      objectReference: {fileID: 0}
-    - target: {fileID: 186579440, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -59
-      objectReference: {fileID: 0}
-    - target: {fileID: 310619866, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 310619866, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 169
-      objectReference: {fileID: 0}
-    - target: {fileID: 761777819, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 775239853, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 33.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035281055, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -46.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1377937150, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 66.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1377937150, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 105.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727305627, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 40.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1924044925, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -54.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2111050874, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 111
-      objectReference: {fileID: 0}
     - target: {fileID: 3599848792014023525, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: m_Name
       value: Wave Spawners
       objectReference: {fileID: 0}
-    - target: {fileID: 3599848792014023525, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: maxWaves
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: stopWaves
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: waveDuration
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: enemies.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: enemies.Array.data[6].cost
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: enemies.Array.data[6].enemyPrefab
-      value: 
-      objectReference: {fileID: 6813437104429867933, guid: 6e66a1e0a020b5e4aa471f17bc8f8acb, type: 3}
     - target: {fileID: 3599848792014023527, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -578,10 +498,6 @@ PrefabInstance:
     - target: {fileID: 3599848792014023527, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8961436371834443493, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -121.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
@@ -781,11 +697,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e01095ec9d30d441bf10732d5d637c5, type: 3}
---- !u!1 &1736440430 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3780428416400932574, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-  m_PrefabInstance: {fileID: 5271345157281350944}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1918124405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1004,10 +915,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1374716453}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: levelUnlockUI
-      value: 
-      objectReference: {fileID: 1736440430}
-    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyWBench
       value: 
       objectReference: {fileID: 374170938}
@@ -1020,14 +927,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1483951538, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -9007812540405413372, guid: 99ec728adf59583409c6199d1a01a07f, type: 2}
-    - target: {fileID: 6182230221804082508, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6272015389978710679, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
       propertyPath: m_RootOrder
       value: 2
