@@ -80,7 +80,7 @@ public class BombExplosion : MonoBehaviour
                 }
             }
         }
-
+        gameManager.instance.spawner.updateEnemyReamining(-1);
         Destroy(gameObject);
     }
 
