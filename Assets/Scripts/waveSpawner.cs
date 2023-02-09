@@ -49,7 +49,7 @@ public class waveSpawner : MonoBehaviour
         }
         else
         {
-            if (enemiesToSpawn.Count == 0 && enemiesRemaining <= 0)
+            if (enemiesToSpawn.Count == 0 && enemiesRemaining <= 0 && currWave > 1)
             { gameManager.instance.PlayerWin(); }
         }
     }
