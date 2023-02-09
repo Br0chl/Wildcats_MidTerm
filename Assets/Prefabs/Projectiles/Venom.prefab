@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 997560050365891189}
   - component: {fileID: 3538808477946143823}
   - component: {fileID: 4865788954061679003}
+  - component: {fileID: 432066468650249064}
   m_Layer: 7
   m_Name: Venom
   m_TagString: Untagged
@@ -127,8 +128,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf07239ead5294243869d3161282f62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 0
+  bulletDamage: 5
   timer: 3
   tickDamage: 10
   burnTick: 0.5
   burnTime: 3
+--- !u!114 &432066468650249064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6029060459799580692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ade853965674e45b58ff9cb511ae04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDamage: 5
+  timer: 3

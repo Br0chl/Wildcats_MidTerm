@@ -655,14 +655,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3554961536228399511, guid: 323c2ea282c8a8840a4f902e46e663b6, type: 3}
-      propertyPath: viewAngle
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3554961536228399511, guid: 323c2ea282c8a8840a4f902e46e663b6, type: 3}
-      propertyPath: shootAngle
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 4454115966102687085, guid: 323c2ea282c8a8840a4f902e46e663b6, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -677,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4454115966102687085, guid: 323c2ea282c8a8840a4f902e46e663b6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.85
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 4454115966102687085, guid: 323c2ea282c8a8840a4f902e46e663b6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -710,10 +702,6 @@ PrefabInstance:
     - target: {fileID: 4454115966102917453, guid: 323c2ea282c8a8840a4f902e46e663b6, type: 3}
       propertyPath: m_Name
       value: Snake
-      objectReference: {fileID: 0}
-    - target: {fileID: 4454115966102917453, guid: 323c2ea282c8a8840a4f902e46e663b6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 323c2ea282c8a8840a4f902e46e663b6, type: 3}
