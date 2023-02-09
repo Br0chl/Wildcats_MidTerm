@@ -202,24 +202,24 @@ public class enemyAI : MonoBehaviour, isDamageable
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
     }
 
-    // public void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.CompareTag("Player"))
-    //     {
-    //         playerInRange = true;
-    //     }
-    // }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
 
-    // public void OnTriggerExit(Collider other)
-    // {
-    //     if (other.CompareTag("Player"))
-    //     {
-    //         if (enemyType == Enemies.Dragon)
-    //         {
-    //             part.Stop(true);
-    //         }
-    //     }
-    // }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (enemyType == Enemies.Dragon)
+            {
+                part.Stop(true);
+            }
+        }
+    }
 
     public void Heal(int amountToHeal)
     {
