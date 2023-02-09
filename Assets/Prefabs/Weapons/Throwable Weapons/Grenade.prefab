@@ -218,11 +218,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  icon: {fileID: 21300000, guid: e7b4f0d2c6cf05d4383e4749d5359939, type: 3}
   part: {fileID: 8527087439551211025}
   explodeTime: 2
   explodeRadius: 10
   damage: 20
-  currentAmount: -16
+  currentAmount: 0
   throwForce: 5
   throwUpwardForce: 3
   throwCooldown: 1

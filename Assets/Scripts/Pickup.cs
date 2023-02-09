@@ -9,8 +9,21 @@ public class Pickup : MonoBehaviour
     [SerializeField] int magazineAmount;
 
     [SerializeField] Throwable throwable;
+    [SerializeField] GameObject equipPopUp;
+    bool popUpActive;
 
     [SerializeField] float respawnTime = 0f;
+
+    private void Update()
+    {
+        if (popUpActive && Input.GetKeyDown(KeyCode.E))
+        {
+            gameManager.instance.playerScript.equipment = throwable;
+            gameManager.instance.playerScript.equipment.currentAmount = 1;
+            gameManager.instance.UpdateEquipmentUI();
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,10 +58,23 @@ public class Pickup : MonoBehaviour
 
         if (throwable != null)
         {
-            gameManager.instance.playerScript.equipment = throwable;
+            if (throwable == gameManager.instance.playerScript.equipment)
+                gameManager.instance.playerScript.equipment.currentAmount += 1;
+            else if (gameManager.instance.playerScript.equipment == null)
+            {
+                gameManager.instance.playerScript.equipment = throwable;
+                throwable.currentAmount = 1;
+            }
+            else
+            {
+                popUpActive = true;
+                equipPopUp.SetActive(true);
+            }
+
+            gameManager.instance.UpdateEquipmentUI();
         }
 
-        if (respawnTime == 0)
+        if (respawnTime == 0 && !popUpActive)
             Destroy(gameObject);
         else
             StartCoroutine(HideForSeconds(respawnTime));
@@ -67,6 +93,15 @@ public class Pickup : MonoBehaviour
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(shouldShow);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            equipPopUp.SetActive(false);
+            popUpActive = false;
         }
     }
 }

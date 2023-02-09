@@ -11,6 +11,7 @@ public enum ThrowType
 public class Throwable : MonoBehaviour
 {
     [SerializeField] public ThrowType type;
+    public Sprite icon;
     public ParticleSystem part;
     public int explodeTime;
     public int explodeRadius;
