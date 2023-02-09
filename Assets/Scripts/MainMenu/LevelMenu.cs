@@ -56,7 +56,9 @@ public class LevelMenu : MonoBehaviour
         foreach (LevelSlot level in slots)
         {
             if (level.isSelected)
+            {
                 SceneManager.LoadSceneAsync(level.level.buildIndex);
+            }
         }
     }
 }
