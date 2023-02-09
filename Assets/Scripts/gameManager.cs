@@ -16,13 +16,11 @@ public class gameManager : MonoBehaviour
     public AudioSource playerAudio;
 
     [Header("---Game Goal---")]
-    public int enemiesRemaining;
     public int maxWaves;
     public int currWave;
-    [SerializeField] TextMeshProUGUI enemiesRemainingText;
-    [SerializeField] TextMeshProUGUI wavesRemainingText;
+    [SerializeField] public TextMeshProUGUI enemiesRemainingText;
+    [SerializeField] public TextMeshProUGUI wavesRemainingText;
     public waveSpawner spawner;
-    bool GameWon() => currWave >= maxWaves && enemiesRemaining <= 0 && spawner.spawnerEmpty;
     [Header("---Level Unlocking---")]
     // Used to track level unlocks
     [SerializeField] GameObject levelUnlockUI;
@@ -113,13 +111,6 @@ public class gameManager : MonoBehaviour
             else
                 UnPause();
         }
-
-        if (GameWon())
-        {
-            Pause();
-            activeMenu = winMenu;
-            activeMenu.SetActive(true);
-        }
     }
 
     // Pause Game - Bring up Pause menu UI
@@ -140,12 +131,6 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
         activeMenu = null;
-    }
-
-    public void updateEnemyRemaining(int amount)
-    {
-        enemiesRemaining += amount;
-        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
     }
 
     public void updateWaves(int Wave)
@@ -170,6 +155,13 @@ public class gameManager : MonoBehaviour
     {
         Pause();
         activeMenu = playerDeadMenu;
+        activeMenu.SetActive(true);
+    }
+
+    public void PlayerWin()
+    {
+        Pause();
+        activeMenu = winMenu;
         activeMenu.SetActive(true);
     }
 
