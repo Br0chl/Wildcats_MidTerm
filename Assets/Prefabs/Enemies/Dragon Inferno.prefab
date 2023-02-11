@@ -1941,7 +1941,7 @@ MonoBehaviour:
   agent: {fileID: 8114458660801561628}
   anim: {fileID: 6813437104439382109}
   part: {fileID: 8240664978169952033}
-  model: {fileID: 0}
+  model: {fileID: 6813437104443535005}
   takeDamage:
     m_PersistentCalls:
       m_Calls:

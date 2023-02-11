@@ -283,7 +283,7 @@ public class playerController : MonoBehaviour
                         }
                         else
                         {
-                            if (!gunList[selectedGun].isOutOfAmmo)
+                            if (!gunList[selectedGun].isOutOfAmmo && hit.transform.tag != "Enemy")
                                 Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                         }
                     }
@@ -325,7 +325,7 @@ public class playerController : MonoBehaviour
                     }
                     else //if (hit.collider.CompareTag("Untagged"))
                     {
-                        if (!gunList[selectedGun].isOutOfAmmo)
+                        if (!gunList[selectedGun].isOutOfAmmo && hit.transform.tag != "Enemy")
                             Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                     }
                 }
