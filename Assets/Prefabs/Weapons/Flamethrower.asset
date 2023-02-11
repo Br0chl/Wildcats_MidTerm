@@ -26,13 +26,14 @@ MonoBehaviour:
   maxBulletSpread: 0
   timeToMaxSpread: 0
   gunModel: {fileID: 7348794808504256133, guid: ac6eb17592878a14db06e67d509aeb8c, type: 3}
-  gunShotAud: {fileID: 0}
-  gunShotAudVol: 0
-  gunReloadAud: {fileID: 0}
-  gunReloadAudVol: 0
-  gunAmmoOutAud: {fileID: 0}
-  gunAmmoOutAudVol: 0
-  currentAmmo: 100
+  gunShotAud: {fileID: 8300000, guid: 127818c7f0e32fb48b749e0b10e879a3, type: 3}
+  gunShotAudVol: 0.5
+  gunReloadAud: {fileID: 8300000, guid: 0966ef406dce1504b8b44ad9a99c1905, type: 3}
+  gunReloadAudVol: 0.5
+  gunAmmoOutAud: {fileID: 8300000, guid: 80e71b333e70dca4baf50d34b1f58bb4, type: 3}
+  gunAmmoOutAudVol: 0.5
+  anim: {fileID: 22100000, guid: c03cc72a7937e0b4bb95c782a0a319ad, type: 2}
+  currentAmmo: 99
   currentMaxAmmo: 100
   currentMagazines: 1
   magCapacity: 100
@@ -43,8 +44,8 @@ MonoBehaviour:
   isAmmoFull: 0
   iconUI: {fileID: 0}
   reticle: {fileID: 0}
-  gunLevel: 0
+  gunLevel: 1
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 0
+  isUnlocked: 1

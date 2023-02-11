@@ -92,6 +92,8 @@ public class CrabBoss : MonoBehaviour, isDamageable
         {
             inRange = true;
             anim.SetBool("inRange", true);
+            if (bothClawsDestroyed)
+                bossCollider.enabled = true;
             if (healPOS.childCount > 0)
                 Destroy(healPOS.GetChild(0).gameObject);
         }
@@ -102,6 +104,7 @@ public class CrabBoss : MonoBehaviour, isDamageable
         if (other.CompareTag("Player"))
         {
             inRange = false;
+            bossCollider.enabled = false;
             anim.SetBool("inRange", false);
             if (bothClawsDestroyed)
                 Instantiate(healPS, healPOS);
