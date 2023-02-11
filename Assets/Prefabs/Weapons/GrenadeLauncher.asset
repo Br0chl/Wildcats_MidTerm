@@ -32,6 +32,7 @@ MonoBehaviour:
   gunReloadAudVol: 0
   gunAmmoOutAud: {fileID: 0}
   gunAmmoOutAudVol: 0
+  anim: {fileID: 22100000, guid: b2cca4fd5317d6f4ea48b60b52f125a9, type: 2}
   currentAmmo: 0
   currentMaxAmmo: 0
   currentMagazines: 0

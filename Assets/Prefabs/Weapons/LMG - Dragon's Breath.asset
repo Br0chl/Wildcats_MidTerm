@@ -22,6 +22,7 @@ MonoBehaviour:
   reloadSpeed: 4
   shots: 0
   shotAngle: 0
+  ammoToInstantiate: {fileID: 0}
   maxBulletSpread: 50
   timeToMaxSpread: 0.99
   gunModel: {fileID: 7027732381446608144, guid: 02e1ba06b01f33844b7de06b9019f654, type: 3}
@@ -31,6 +32,7 @@ MonoBehaviour:
   gunReloadAudVol: 0.5
   gunAmmoOutAud: {fileID: 8300000, guid: bdfee84700d6f9446ac498f3443e33dc, type: 3}
   gunAmmoOutAudVol: 0.5
+  anim: {fileID: 22100000, guid: dcd0a984cd624e24989c23403f8b89c6, type: 2}
   currentAmmo: 0
   currentMaxAmmo: 0
   currentMagazines: 0

@@ -31,6 +31,7 @@ public class GunStats : ScriptableObject
     [Range(0, 1)] public float gunReloadAudVol;
     public AudioClip gunAmmoOutAud;
     [Range(0, 1)] public float gunAmmoOutAudVol;
+    public AnimatorOverrideController anim;
 
     [Header("---Ammo Tracking")]
     public int currentAmmo;

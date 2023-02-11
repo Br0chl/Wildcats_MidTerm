@@ -7,12 +7,17 @@ public class Flamethrower : MonoBehaviour
     public ParticleSystem part;
     public List<ParticleCollisionEvent> collisionEvents;
 
-    bool canAttack = true;
+    public bool canAttack = true;
 
     void Start()
     {
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
+    }
+
+    void OnDisable() 
+    {
+        canAttack = true;
     }
 
     void OnParticleCollision(GameObject other)
@@ -36,7 +41,7 @@ public class Flamethrower : MonoBehaviour
     IEnumerator FlameAttack()
     {
         canAttack = false;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.1f);
         canAttack = true;
     }
 }

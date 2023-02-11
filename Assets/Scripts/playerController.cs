@@ -29,6 +29,7 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject bullethole;
     public GameObject shootPos;
     public ParticleSystem flameThrowerPart;
+    public ParticleSystem flameThrowerOutofAmmo;
 
     [Header("---Equipment---")]
     [SerializeField] public Throwable equipment;
@@ -108,7 +109,12 @@ public class playerController : MonoBehaviour
             if (gunList.Count > 0)
             {
                 if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo == 0)
+                {
                     gunList[selectedGun].isOutOfAmmo = true;
+
+                    if (gunList[selectedGun].type == WeaponType.Flamethrower)
+                        flameThrowerPart.gameObject.SetActive(false);
+                }
             }
 
             pushBack = Vector3.Slerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
@@ -130,12 +136,34 @@ public class playerController : MonoBehaviour
 
                     StartCoroutine(Reload());
                 }
-
-                // Shoot
-                if (!isShooting && Input.GetButton("Shoot") && !isReloading && !isSwapping)
+                if (gunList[selectedGun].type == WeaponType.Flamethrower && !isReloading && !isSwapping)
                 {
-                    Debug.Log("SHOOT");
-                    StartCoroutine(Shoot());
+                    if (Input.GetKey(KeyCode.Mouse0))
+                    {
+                            if (!gunList[selectedGun].isOutOfAmmo)
+                                flameThrowerPart.gameObject.SetActive(true);
+                            //isShooting = true;
+                            if (!isShooting)
+                                StartCoroutine(Shoot());
+                            // else if (gunList[selectedGun].isOutOfAmmo)
+                            // {
+                            //     flameThrowerPart.gameObject.SetActive(false);
+                            // }
+                    }
+                    else
+                    {
+                        flameThrowerPart.gameObject.SetActive(false);
+                        isShooting = false;
+                    }
+                }
+                else
+                {
+                    // Shoot
+                    if (!isShooting && Input.GetButton("Shoot") && !isReloading && !isSwapping && gunList[selectedGun].type != WeaponType.Flamethrower)
+                    {
+                        Debug.Log("SHOOT");
+                        StartCoroutine(Shoot());
+                    }
                 }
             }
             if (timerActive)
@@ -240,9 +268,16 @@ public class playerController : MonoBehaviour
         // Play sound based on ammo
         if (gunList[selectedGun].isOutOfAmmo)
         {
-            aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            if (gunList[selectedGun].type == WeaponType.Flamethrower)
+            {
+                aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+                flameThrowerOutofAmmo.Play();
+                yield return new WaitForSeconds(2);
+            }
+            else
+                aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
         }
-        else
+        else if (gunList[selectedGun].type != WeaponType.Flamethrower)
             aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
 
         if (gunList[selectedGun].type != WeaponType.Flamethrower)
@@ -306,8 +341,7 @@ public class playerController : MonoBehaviour
             }
             if (gunList[selectedGun].type == WeaponType.Flamethrower)
             {
-                if (isShooting)
-                    flameThrowerPart.Play();
+                
             }
             else
             {
@@ -332,13 +366,14 @@ public class playerController : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(shootRate);
-        flameThrowerPart.Stop();
         isShooting = false;
     }
 
     public IEnumerator Reload()
     {
         isReloading = true;
+        if (gunList[selectedGun].type == WeaponType.Flamethrower)
+            flameThrowerPart.gameObject.SetActive(false);
 
         if (gunList[selectedGun].currentAmmo == gunList[selectedGun].magCapacity)
         {
@@ -365,7 +400,7 @@ public class playerController : MonoBehaviour
             Debug.Log("Reloading");
 
             gameManager.instance.playerAnim.SetTrigger("Reload");
-            aud.PlayOneShot(gunList[selectedGun].gunReloadAud, gunList[selectedGun].gunReloadAudVol);
+            //aud.PlayOneShot(gunList[selectedGun].gunReloadAud, gunList[selectedGun].gunReloadAudVol);
 
             yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
             // Decrease Current Max ammo by mag capacity-currentAmmo and update UI
@@ -547,6 +582,7 @@ public class playerController : MonoBehaviour
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        gameManager.instance.playerAnim.runtimeAnimatorController = gunList[selectedGun].anim;
     }
 
     void SelectGun()
@@ -579,6 +615,8 @@ public class playerController : MonoBehaviour
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
+        gameManager.instance.playerAnim.runtimeAnimatorController = gunList[selectedGun].anim;
 
         gameManager.instance.playerAnim.SetTrigger("SwapIn");
         yield return new WaitForSeconds(0.5f);
@@ -660,5 +698,10 @@ public class playerController : MonoBehaviour
     public void UpdateShootDamage()
     {
         shootDamage = gunList[selectedGun].shootDamage;
+    }
+
+    public void ReloadSound()
+    {
+        aud.PlayOneShot(gunList[selectedGun].gunReloadAud, gunList[selectedGun].gunReloadAudVol);
     }
 }

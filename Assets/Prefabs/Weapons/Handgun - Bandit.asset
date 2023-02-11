@@ -32,6 +32,7 @@ MonoBehaviour:
   gunReloadAudVol: 0.5
   gunAmmoOutAud: {fileID: 8300000, guid: bdfee84700d6f9446ac498f3443e33dc, type: 3}
   gunAmmoOutAudVol: 0.5
+  anim: {fileID: 22100000, guid: a3865f31dccecb8418a65f973c851cec, type: 2}
   currentAmmo: 12
   currentMaxAmmo: 60
   currentMagazines: 5
