@@ -8,4 +8,8 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: LMG
   m_Controller: {fileID: 9100000, guid: c834a69fd7dd0aa41b1f5be88af17919, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: aa90714a22e092941955a1316a7abf49, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 841ea25b4146e634f9a7d5959e7defea, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e752d737dc9fd66409ec9136621e725c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e7d92ad95e89bb04eb857ffb2dcd43b0, type: 2}
