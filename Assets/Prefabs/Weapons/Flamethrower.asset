@@ -42,7 +42,7 @@ MonoBehaviour:
   swapSpeed: 1
   isOutOfAmmo: 0
   isAmmoFull: 0
-  iconUI: {fileID: 0}
+  iconUI: {fileID: 21300000, guid: c172f8b9b03283f43b469dd81a411b53, type: 3}
   reticle: {fileID: 0}
   gunLevel: 1
   damageUpgradeLevel: 0
