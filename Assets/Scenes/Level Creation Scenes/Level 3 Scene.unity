@@ -373,6 +373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: World3(Ice)
       objectReference: {fileID: 0}
+    - target: {fileID: 5742557236056708166, guid: a520c2f362a15744fb3636a0c2701dcb, type: 3}
+      propertyPath: m_MaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: 0578c04b1421dea41b060f8227895b39, type: 2}
     - target: {fileID: 5742557236056708169, guid: a520c2f362a15744fb3636a0c2701dcb, type: 3}
       propertyPath: m_RootOrder
       value: 2
