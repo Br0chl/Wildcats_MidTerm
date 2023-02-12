@@ -140,15 +140,15 @@ public class playerController : MonoBehaviour
                 {
                     if (Input.GetKey(KeyCode.Mouse0))
                     {
-                            if (!gunList[selectedGun].isOutOfAmmo)
-                                flameThrowerPart.gameObject.SetActive(true);
-                            //isShooting = true;
-                            if (!isShooting)
-                                StartCoroutine(Shoot());
-                            // else if (gunList[selectedGun].isOutOfAmmo)
-                            // {
-                            //     flameThrowerPart.gameObject.SetActive(false);
-                            // }
+                        if (!gunList[selectedGun].isOutOfAmmo)
+                            flameThrowerPart.gameObject.SetActive(true);
+                        //isShooting = true;
+                        if (!isShooting)
+                            StartCoroutine(Shoot());
+                        // else if (gunList[selectedGun].isOutOfAmmo)
+                        // {
+                        //     flameThrowerPart.gameObject.SetActive(false);
+                        // }
                     }
                     else
                     {
@@ -278,7 +278,7 @@ public class playerController : MonoBehaviour
                 aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
         }
         else if (gunList[selectedGun].type != WeaponType.Flamethrower)
-            aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
+            //aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
 
         if (gunList[selectedGun].type != WeaponType.Flamethrower)
             gameManager.instance.playerAnim.SetTrigger("Shoot");
@@ -348,7 +348,7 @@ public class playerController : MonoBehaviour
                 // Bullet Spread
                 Quaternion shotRotation = Quaternion.LookRotation(Camera.main.transform.forward);
                 Quaternion randRotation = Random.rotation;
-                float currentSpread = Mathf.Lerp(0.0f, gunList[selectedGun].maxBulletSpread, shootRate / gunList[selectedGun].timeToMaxSpread);
+                float currentSpread = Mathf.Lerp(gunList[selectedGun].maxBulletSpread, 0.0f ,shootRate / gunList[selectedGun].timeToMaxSpread);
                 shotRotation = Quaternion.RotateTowards(shotRotation, randRotation, Random.Range(0.0f, currentSpread));
                 // if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
                 if (Physics.Raycast(Camera.main.transform.position, shotRotation * Vector3.forward, out hit, shootDist))
@@ -698,6 +698,11 @@ public class playerController : MonoBehaviour
     public void UpdateShootDamage()
     {
         shootDamage = gunList[selectedGun].shootDamage;
+    }
+
+    public void ShootSound()
+    {
+        aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
     }
 
     public void ReloadSound()

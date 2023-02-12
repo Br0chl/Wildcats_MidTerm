@@ -16,21 +16,21 @@ MonoBehaviour:
   iName: Dragon's Breath
   price: 10000
   costToUpgrade: 1000
-  shootRate: 0.1
+  shootRate: 0.3
   shootDist: 35
   shootDamage: 18
-  reloadSpeed: 4
+  reloadSpeed: 3.5
   shots: 0
   shotAngle: 0
   ammoToInstantiate: {fileID: 0}
-  maxBulletSpread: 50
-  timeToMaxSpread: 0.99
+  maxBulletSpread: 10
+  timeToMaxSpread: 0.5
   gunModel: {fileID: 7027732381446608144, guid: 02e1ba06b01f33844b7de06b9019f654, type: 3}
-  gunShotAud: {fileID: 8300000, guid: 2350afd4122435e45afe05f6861cf876, type: 3}
+  gunShotAud: {fileID: 8300000, guid: 31ea6c5495890634f8f47bfb95e7a8f7, type: 3}
   gunShotAudVol: 0.5
-  gunReloadAud: {fileID: 8300000, guid: ff481c53eebdbee4a9828bc258f2f603, type: 3}
+  gunReloadAud: {fileID: 8300000, guid: 0966ef406dce1504b8b44ad9a99c1905, type: 3}
   gunReloadAudVol: 0.5
-  gunAmmoOutAud: {fileID: 8300000, guid: bdfee84700d6f9446ac498f3443e33dc, type: 3}
+  gunAmmoOutAud: {fileID: 8300000, guid: 711fe679d81e63d4e9c7e0cd32652355, type: 3}
   gunAmmoOutAudVol: 0.5
   anim: {fileID: 22100000, guid: dcd0a984cd624e24989c23403f8b89c6, type: 2}
   currentAmmo: 0
@@ -38,14 +38,14 @@ MonoBehaviour:
   currentMagazines: 0
   magCapacity: 120
   maxMagazines: 1
-  startingMagazines: 0
+  startingMagazines: 1
   swapSpeed: 1
   isOutOfAmmo: 1
   isAmmoFull: 0
   iconUI: {fileID: 21300000, guid: f83e0bbf51607624c82e48a424b67bc0, type: 3}
   reticle: {fileID: 21300000, guid: fcd1b8a6bcc868c45b855536f6bc6c2d, type: 3}
-  gunLevel: 0
+  gunLevel: 1
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 0
+  isUnlocked: 1
