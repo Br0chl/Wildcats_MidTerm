@@ -9,7 +9,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] int magazineAmount;
 
     [SerializeField] Throwable throwable;
-    [SerializeField] GameObject equipPopUp;
+    [SerializeField] GameObject equipPopUp = null;
     bool popUpActive;
 
     [SerializeField] float respawnTime = 0f;
@@ -52,6 +52,7 @@ public class Pickup : MonoBehaviour
         if (magazineAmount > 0)
         {
             if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].isAmmoFull) return;
+            
             gameManager.instance.playerScript.gunPickup(gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun]);
             //gameManager.instance.UpdateUI();
         }
@@ -98,7 +99,7 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && equipPopUp != null)
         {
             equipPopUp.SetActive(false);
             popUpActive = false;
