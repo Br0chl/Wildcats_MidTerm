@@ -16,9 +16,9 @@ MonoBehaviour:
   iName: Assault Rifle
   price: 1000
   costToUpgrade: 300
-  shootRate: 0.4
+  shootRate: 0.5
   shootDist: 50
-  shootDamage: 20
+  shootDamage: 30
   reloadSpeed: 2
   shots: 0
   shotAngle: 0
@@ -26,26 +26,26 @@ MonoBehaviour:
   maxBulletSpread: 0
   timeToMaxSpread: 0
   gunModel: {fileID: 1417596521099799276, guid: 9ae9d1d8236f9c249906196e83b85892, type: 3}
-  gunShotAud: {fileID: 8300000, guid: 69dfa915776f6044582d60a855d7aea3, type: 3}
-  gunShotAudVol: 0.5
+  gunShotAud: {fileID: 8300000, guid: 7a9ac5ceb08cbc242bf7e1bf5ae6aba8, type: 3}
+  gunShotAudVol: 0.3
   gunReloadAud: {fileID: 8300000, guid: a9e6fbeeb336b224a890605972f7071e, type: 3}
   gunReloadAudVol: 0.5
   gunAmmoOutAud: {fileID: 8300000, guid: 5a4a85563830cf94aa079399a5f2492e, type: 3}
   gunAmmoOutAudVol: 0.5
   anim: {fileID: 22100000, guid: 0347a0bc22afc6d43a1370e719f5ad91, type: 2}
-  currentAmmo: 17
-  currentMaxAmmo: 54
-  currentMagazines: 3
+  currentAmmo: 13
+  currentMaxAmmo: 162
+  currentMagazines: 1
   magCapacity: 18
-  maxMagazines: 1
-  startingMagazines: 1
+  maxMagazines: 11
+  startingMagazines: 11
   swapSpeed: 1.5
   isOutOfAmmo: 0
   isAmmoFull: 0
   iconUI: {fileID: 21300000, guid: 890542b03189dc843b3957b9181dc7fd, type: 3}
   reticle: {fileID: 21300000, guid: 744a744d863d2f7429c712a8792ccb1e, type: 3}
   gunLevel: 1
-  damageUpgradeLevel: 0
-  maxAmmoUpgradeLevel: 0
-  startingMagsUpgradeLevel: 0
+  damageUpgradeLevel: 10
+  maxAmmoUpgradeLevel: 10
+  startingMagsUpgradeLevel: 10
   isUnlocked: 1

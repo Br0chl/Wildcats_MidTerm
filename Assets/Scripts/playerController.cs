@@ -56,7 +56,7 @@ public class playerController : MonoBehaviour
     bool isShooting;
     bool isPlayingSteps;
     bool isSprinting;
-    bool isReloading;
+    public bool isReloading;
     bool isSwapping;
     bool readyToThrow = true;
 
@@ -275,26 +275,30 @@ public class playerController : MonoBehaviour
                 yield return new WaitForSeconds(2);
             }
             else
+            {
                 aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
+            }
         }
-        else if (gunList[selectedGun].type != WeaponType.Flamethrower)
-            //aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
+        // else if (gunList[selectedGun].type != WeaponType.Flamethrower)
+        //     //aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
 
-        if (gunList[selectedGun].type != WeaponType.Flamethrower)
-            gameManager.instance.playerAnim.SetTrigger("Shoot");
+        // if (gunList[selectedGun].type != WeaponType.Flamethrower && !gunList[selectedGun].isOutOfAmmo)
+        //     gameManager.instance.playerAnim.SetTrigger("Shoot");
 
-        // Update current ammo or reload if needed
-        if (gunList[selectedGun].currentAmmo == 1 && gunList[selectedGun].currentMaxAmmo != 0)
-        {
-            gunList[selectedGun].currentAmmo--;
-            StartCoroutine(Reload());
-        }
-        else if (!gunList[selectedGun].isOutOfAmmo)
-        {
-            gunList[selectedGun].currentAmmo--;
-        }
+        // // Update current ammo or reload if needed
+        // if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo != 0)
+        // {
+        //     gunList[selectedGun].currentAmmo--;
+            
+        //     StartCoroutine(Reload());
+            
+        // }
+        // else if (!gunList[selectedGun].isOutOfAmmo)
+        // {
+        //     gunList[selectedGun].currentAmmo--;
+        // }
 
-        gameManager.instance.UpdateActiveAmmo();
+        // gameManager.instance.UpdateActiveAmmo();
 
         RaycastHit hit;
         if (!gunList[selectedGun].isOutOfAmmo)
@@ -365,7 +369,33 @@ public class playerController : MonoBehaviour
                 }
             }
         }
+
+        // Update current ammo or reload if needed
+        if (!gunList[selectedGun].isOutOfAmmo)
+        {
+            gunList[selectedGun].currentAmmo--;
+
+            if (gunList[selectedGun].type != WeaponType.Flamethrower && !gunList[selectedGun].isOutOfAmmo)
+                gameManager.instance.playerAnim.SetTrigger("Shoot");
+
+            gameManager.instance.UpdateActiveAmmo();
+            // if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo != 0)
+            // {
+            //     StartCoroutine(Reload());
+            //     isShooting = false;
+            //     yield break;
+            // }
+        }
+
         yield return new WaitForSeconds(shootRate);
+
+        if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo != 0)
+        {
+            StartCoroutine(Reload());
+            isShooting = false;
+            yield break;
+        }
+
         isShooting = false;
     }
 
@@ -702,7 +732,9 @@ public class playerController : MonoBehaviour
 
     public void ShootSound()
     {
-        aud.PlayOneShot(gunList[selectedGun].gunShotAud, gunList[selectedGun].gunShotAudVol);
+        Debug.Log("soundPlayed");
+        aud.clip = gunList[selectedGun].gunShotAud;
+        aud.Play();
     }
 
     public void ReloadSound()
