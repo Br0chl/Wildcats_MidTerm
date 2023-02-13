@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ade853965674e45b58ff9cb511ae04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 15
-  timer: 5
+  bulletDamage: 10
+  timer: 2
 --- !u!33 &9148115988338542488
 MeshFilter:
   m_ObjectHideFlags: 0
