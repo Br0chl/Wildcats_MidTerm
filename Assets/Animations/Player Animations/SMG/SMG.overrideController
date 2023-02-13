@@ -8,4 +8,8 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: SMG
   m_Controller: {fileID: 9100000, guid: c834a69fd7dd0aa41b1f5be88af17919, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: aa90714a22e092941955a1316a7abf49, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e9bd3c5c26246ac4388a1ee375ecebc8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e752d737dc9fd66409ec9136621e725c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fac2b33ab6e713f41a5cab941dee0c67, type: 2}

@@ -27,13 +27,13 @@ MonoBehaviour:
   timeToMaxSpread: 0.5
   gunModel: {fileID: 7027732381446608144, guid: 02e1ba06b01f33844b7de06b9019f654, type: 3}
   gunShotAud: {fileID: 8300000, guid: 31ea6c5495890634f8f47bfb95e7a8f7, type: 3}
-  gunShotAudVol: 0.5
+  gunShotAudVol: 0.4
   gunReloadAud: {fileID: 8300000, guid: 0966ef406dce1504b8b44ad9a99c1905, type: 3}
   gunReloadAudVol: 0.5
   gunAmmoOutAud: {fileID: 8300000, guid: 711fe679d81e63d4e9c7e0cd32652355, type: 3}
   gunAmmoOutAudVol: 0.5
   anim: {fileID: 22100000, guid: dcd0a984cd624e24989c23403f8b89c6, type: 2}
-  currentAmmo: 112
+  currentAmmo: 119
   currentMaxAmmo: 120
   currentMagazines: 1
   magCapacity: 120

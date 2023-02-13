@@ -28,7 +28,7 @@ public class gunPickup : MonoBehaviour
                 gameManager.instance.playerScript.gunPickup(gun);
                 Destroy(gameObject);
             }
-            else if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].isAmmoFull)
+            else if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun] == gun && gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].isAmmoFull)
             {
                 return;
             }

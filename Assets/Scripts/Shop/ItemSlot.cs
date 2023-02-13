@@ -58,12 +58,25 @@ public class ItemSlot : MonoBehaviour
         {
             if (item.price > gameManager.instance.playerScript.totalCurrency)
                 return;
-            if (gameManager.instance.playerScript.gunList.Count > 1)
+            if (gameManager.instance.playerScript.gunList.Count < 2)
             {
                 gameManager.instance.playerScript.gunList.Add(item.gunStats);
                 gameManager.instance.playerScript.InitialzeGun(gameManager.instance.playerScript.gunList[1]);
+                gameManager.instance.playerScript.totalCurrency -= item.price;
+                gameManager.instance.UpdateUI();
                 return;
             }
+            else if (gameManager.instance.playerScript.gunList.Count == 2 && !gameManager.instance.playerScript.gunList.Contains(item.gunStats))
+            {
+                //gameManager.instance.playerScript.gunList.Add(item.gunStats);
+                gameManager.instance.playerScript.gunPickup(item.gunStats);
+                gameManager.instance.playerScript.totalCurrency -= item.price;
+                gameManager.instance.UpdateUI();
+                return;
+                // gameManager.instance.playerScript.InitialzeGun(gameManager.instance.playerScript.gunList[1]);
+                //break;
+            }
+
             foreach (GunStats gs in gameManager.instance.playerScript.gunList)
             {
                 if (gs == item.gunStats)
@@ -74,14 +87,16 @@ public class ItemSlot : MonoBehaviour
 
                     gameManager.instance.playerScript.gunPickup(item.gunStats);
                 }
-                else if (gameManager.instance.playerScript.gunList.Count < 2 && gs != item.gunStats)
-                {
-                    //gameManager.instance.playerScript.gunList.Add(item.gunStats);
-                    gameManager.instance.playerScript.gunPickup(item.gunStats);
-                   // gameManager.instance.playerScript.InitialzeGun(gameManager.instance.playerScript.gunList[1]);
-                    break;
-                }
+                // else if (gameManager.instance.playerScript.gunList.Count == 2 && gs != item.gunStats)
+                // {
+                //     //gameManager.instance.playerScript.gunList.Add(item.gunStats);
+                //     gameManager.instance.playerScript.gunPickup(item.gunStats);
+                //     gameManager.instance.playerScript.totalCurrency -= item.price;
+                //    // gameManager.instance.playerScript.InitialzeGun(gameManager.instance.playerScript.gunList[1]);
+                //     //break;
+                // }
             }
+            gameManager.instance.UpdateUI();
         }
 
         if (item.isUpgrade)

@@ -8,4 +8,8 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Handgun
   m_Controller: {fileID: 9100000, guid: c834a69fd7dd0aa41b1f5be88af17919, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: aa90714a22e092941955a1316a7abf49, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e541278cbcff7334bb17f16748946628, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e752d737dc9fd66409ec9136621e725c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cde5d0b5d46476d49a13f04b50e189db, type: 2}
