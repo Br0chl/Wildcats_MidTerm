@@ -165,7 +165,7 @@ public class enemyAI : MonoBehaviour, isDamageable
             case Enemies.Dragon:
                 if (playerInRange)
                 {
-                    part.Play(true);
+                    //part.Play(true);
                 }
                 break;
 
@@ -207,6 +207,7 @@ public class enemyAI : MonoBehaviour, isDamageable
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            part.Play(true);
         }
     }
 

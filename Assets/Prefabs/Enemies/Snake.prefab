@@ -1780,7 +1780,7 @@ MonoBehaviour:
   shootAngle: 30
   shootPos: {fileID: 3554961536908179211}
   bullet: {fileID: 6029060459799580692, guid: 4b167486f3c83b94ba2acd7906a954a1, type: 3}
-  bulletSpeed: 20
+  bulletSpeed: 30
   shootRate: 2
   shootDist: 10
   shootDamage: 5

@@ -1992,7 +1992,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 2
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!95 &6813437104439382109
@@ -2040,7 +2040,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 40
+  m_Radius: 30
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3319832262477089340
 MonoBehaviour:
@@ -3414,7 +3414,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1983889772942597727, guid: ef4d31ab810a39b499877583c1f6a865, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef4d31ab810a39b499877583c1f6a865, type: 3}
 --- !u!4 &8110013588057615061 stripped
 Transform:

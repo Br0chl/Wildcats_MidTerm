@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDamage: 5
   timer: 3
-  tickDamage: 10
+  tickDamage: 2
   burnTick: 0.5
   burnTime: 3
 --- !u!114 &432066468650249064
