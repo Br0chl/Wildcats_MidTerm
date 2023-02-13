@@ -129,7 +129,7 @@ public class playerController : MonoBehaviour
             if (gunList.Count > 0)
             {
                 // Reload
-                if (Input.GetKeyDown(KeyCode.R))
+                if (Input.GetKeyDown(KeyCode.R) && gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].type != WeaponType.GrenadeLauncher)
                 {
                     if (isReloading || isSwapping)
                         return;
@@ -378,7 +378,7 @@ public class playerController : MonoBehaviour
             if (gunList[selectedGun].type != WeaponType.Flamethrower && !gunList[selectedGun].isOutOfAmmo)
                 gameManager.instance.playerAnim.SetTrigger("Shoot");
 
-            gameManager.instance.UpdateActiveAmmo();
+            // gameManager.instance.UpdateActiveAmmo();
             // if (gunList[selectedGun].currentAmmo == 0 && gunList[selectedGun].currentMaxAmmo != 0)
             // {
             //     StartCoroutine(Reload());
@@ -393,7 +393,7 @@ public class playerController : MonoBehaviour
         {
             StartCoroutine(Reload());
             isShooting = false;
-            yield break;
+            //yield break;
         }
 
         isShooting = false;
@@ -432,14 +432,14 @@ public class playerController : MonoBehaviour
             gameManager.instance.playerAnim.SetTrigger("Reload");
             //aud.PlayOneShot(gunList[selectedGun].gunReloadAud, gunList[selectedGun].gunReloadAudVol);
 
-            yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
+            //yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
             // Decrease Current Max ammo by mag capacity-currentAmmo and update UI
             if (gunList[selectedGun].currentMaxAmmo >= gunList[selectedGun].magCapacity)
             {
                 gunList[selectedGun].currentMaxAmmo -= gunList[selectedGun].magCapacity - gunList[selectedGun].currentAmmo;
-                gameManager.instance.activeMaxAmmo.text = gunList[selectedGun].currentMaxAmmo.ToString();
+               // gameManager.instance.activeMaxAmmo.text = gunList[selectedGun].currentMaxAmmo.ToString();
                 gunList[selectedGun].currentAmmo = gunList[selectedGun].magCapacity;
-                gameManager.instance.activeCurrentAmmo.text = gunList[selectedGun].magCapacity.ToString();
+                //gameManager.instance.activeCurrentAmmo.text = gunList[selectedGun].magCapacity.ToString();
                 if (gunList[selectedGun].currentMagazines > 0)
                     gunList[selectedGun].currentMagazines--;
             }
@@ -447,12 +447,12 @@ public class playerController : MonoBehaviour
             {
                 int temp = gunList[selectedGun].magCapacity - gunList[selectedGun].currentAmmo;
                 gunList[selectedGun].currentAmmo += temp;
-                gameManager.instance.activeCurrentAmmo.text = gunList[selectedGun].currentAmmo.ToString();
+                //gameManager.instance.activeCurrentAmmo.text = gunList[selectedGun].currentAmmo.ToString();
                 if (gunList[selectedGun].currentMaxAmmo - temp < 0)
                     gunList[selectedGun].currentMaxAmmo = 0;
                 else
                     gunList[selectedGun].currentMaxAmmo = gunList[selectedGun].currentMaxAmmo - temp;
-                gameManager.instance.activeMaxAmmo.text = gunList[selectedGun].currentMaxAmmo.ToString();
+                //gameManager.instance.activeMaxAmmo.text = gunList[selectedGun].currentMaxAmmo.ToString();
                 if (gunList[selectedGun].currentMagazines > 0)
                     gunList[selectedGun].currentMagazines--;
             }
@@ -461,6 +461,8 @@ public class playerController : MonoBehaviour
             gunList[selectedGun].isAmmoFull = true;
         else
             gunList[selectedGun].isAmmoFull = false;
+
+        yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
 
         isReloading = false;
     }
@@ -732,13 +734,17 @@ public class playerController : MonoBehaviour
 
     public void ShootSound()
     {
-        Debug.Log("soundPlayed");
         aud.clip = gunList[selectedGun].gunShotAud;
+        aud.volume = gunList[selectedGun].gunShotAudVol;
         aud.Play();
+        gameManager.instance.UpdateActiveAmmo();
     }
 
     public void ReloadSound()
     {
-        aud.PlayOneShot(gunList[selectedGun].gunReloadAud, gunList[selectedGun].gunReloadAudVol);
+        aud.clip = gunList[selectedGun].gunReloadAud;
+        aud.volume = gunList[selectedGun].gunReloadAudVol;
+        aud.Play();
+        gameManager.instance.UpdateActiveAmmo();
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   iName: Shotgun - Pump
   price: 5000
   costToUpgrade: 1000
-  shootRate: 2
+  shootRate: 0.2
   shootDist: 15
   shootDamage: 25
   reloadSpeed: 3
@@ -26,26 +26,26 @@ MonoBehaviour:
   maxBulletSpread: 0
   timeToMaxSpread: 0
   gunModel: {fileID: 6585716302517592328, guid: 47f66c24ec5aa8847b90a864db773f43, type: 3}
-  gunShotAud: {fileID: 8300000, guid: 2350afd4122435e45afe05f6861cf876, type: 3}
+  gunShotAud: {fileID: 8300000, guid: 12a547b6555bffb4ca23ecfb461350b8, type: 3}
   gunShotAudVol: 0.5
-  gunReloadAud: {fileID: 8300000, guid: ff481c53eebdbee4a9828bc258f2f603, type: 3}
+  gunReloadAud: {fileID: 8300000, guid: def6edcbb43979241aa0fcaed28b7b2b, type: 3}
   gunReloadAudVol: 0.5
-  gunAmmoOutAud: {fileID: 8300000, guid: bdfee84700d6f9446ac498f3443e33dc, type: 3}
+  gunAmmoOutAud: {fileID: 8300000, guid: b2f0263a10d1dd64e9f568cca206b913, type: 3}
   gunAmmoOutAudVol: 0.5
   anim: {fileID: 22100000, guid: 591b8c45e0de3e249bca82fa4c8479c6, type: 2}
-  currentAmmo: 0
+  currentAmmo: 1
   currentMaxAmmo: 0
   currentMagazines: 0
   magCapacity: 1
   maxMagazines: 20
   startingMagazines: 10
   swapSpeed: 1.5
-  isOutOfAmmo: 1
+  isOutOfAmmo: 0
   isAmmoFull: 0
   iconUI: {fileID: 21300000, guid: 0bd286faf67a0ff4aad4517013b6719a, type: 3}
   reticle: {fileID: 21300000, guid: fcd1b8a6bcc868c45b855536f6bc6c2d, type: 3}
-  gunLevel: 0
+  gunLevel: 1
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 0
+  isUnlocked: 1

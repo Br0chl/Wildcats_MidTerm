@@ -31,6 +31,7 @@ public class glAmmo : MonoBehaviour
     void Explode()
     {
         gameObject.transform.parent = null;
+        projectileRb.useGravity = false;
         projectileRb.isKinematic = true;
         part.Play(true);
 
@@ -56,6 +57,7 @@ public class glAmmo : MonoBehaviour
 
         if (other.CompareTag("Enemy") && other.GetType() == typeof(CapsuleCollider) || other.CompareTag("Untagged"))
         {
+
             Explode();
         }
     }
