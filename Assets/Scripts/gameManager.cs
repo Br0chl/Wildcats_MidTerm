@@ -261,6 +261,7 @@ public class gameManager : MonoBehaviour
 
     public void UpdateEquipmentUI()
     {
+        if (playerScript.equipment == null) return;
         equipmentUI.SetActive(true);
         equipmentIcon.sprite = playerScript.equipment.icon;
         currentEquipmentAmmo.text = playerScript.equipment.currentAmount.ToString();

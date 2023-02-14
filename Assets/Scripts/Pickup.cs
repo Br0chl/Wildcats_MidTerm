@@ -60,13 +60,16 @@ public class Pickup : MonoBehaviour
         if (throwable != null)
         {
             if (throwable == gameManager.instance.playerScript.equipment)
+            {
                 gameManager.instance.playerScript.equipment.currentAmount += 1;
+                Destroy(gameObject);
+            }
             else if (gameManager.instance.playerScript.equipment == null)
             {
                 gameManager.instance.playerScript.equipment = throwable;
                 throwable.currentAmount = 1;
             }
-            else
+            else if (gameManager.instance.playerScript.equipment != null)
             {
                 popUpActive = true;
                 equipPopUp.SetActive(true);
