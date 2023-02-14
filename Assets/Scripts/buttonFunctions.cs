@@ -33,6 +33,7 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.UnPause();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = gameManager.instance.timeScaleOrig;
         SceneManager.LoadSceneAsync(0);
     }
 
