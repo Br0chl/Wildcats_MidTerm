@@ -34,6 +34,8 @@ public class playerController : MonoBehaviour
     [Header("---Equipment---")]
     [SerializeField] public Throwable equipment;
     [SerializeField] GameObject throwPos;
+    public GameObject grenadeScreenItem;
+    public GameObject knifeScreenItem;
 
     [Header("---Audio---")]
     [SerializeField] AudioClip[] audPlayerDamage;
@@ -99,12 +101,30 @@ public class playerController : MonoBehaviour
     {
         if (!gameManager.instance.isPaused)
         {
-            if (Input.GetKeyUp(KeyCode.G) && readyToThrow)
+            if (Input.GetKeyDown(KeyCode.G) && readyToThrow && gameManager.instance.playerScript.equipment != null)
             {
+                if (equipment.type == ThrowType.Grenade)
+                    grenadeScreenItem.SetActive(true);
+                else if (equipment.type == ThrowType.Knife)
+                    knifeScreenItem.SetActive(true);
                 //if (equipment.type == ThrowType.Grenade)
-                Throw();
+                // if (Input.GetKeyUp(KeyCode.G))
+                // {
+                //     Throw();
+                //     grenadeScreenItem.SetActive(false);
+                // }
+                // Throw();
+                // grenadeScreenItem.SetActive(false);
                 
             }
+
+            if (Input.GetKeyUp(KeyCode.G))
+            {
+                Throw();
+                grenadeScreenItem.SetActive(false);
+                knifeScreenItem.SetActive(false);
+            }
+
             // Check if Gun has any ammo
             if (gunList.Count > 0)
             {
@@ -322,7 +342,7 @@ public class playerController : MonoBehaviour
                         }
                         else
                         {
-                            if (!gunList[selectedGun].isOutOfAmmo && hit.transform.tag != "Enemy")
+                            if (!gunList[selectedGun].isOutOfAmmo && hit.transform.tag != "Enemy" && hit.transform.tag != "Player")
                                 Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                         }
                     }
@@ -340,6 +360,7 @@ public class playerController : MonoBehaviour
             }
             if (gunList[selectedGun].type == WeaponType.GrenadeLauncher)
             {
+                gameManager.instance.playerAnim.SetTrigger("Shoot");
                 //if (!gunList[selectedGun].isOutOfAmmo)
                     Instantiate(gunList[selectedGun].ammoToInstantiate, shootPos.transform);
             }
@@ -363,7 +384,7 @@ public class playerController : MonoBehaviour
                     }
                     else //if (hit.collider.CompareTag("Untagged"))
                     {
-                        if (!gunList[selectedGun].isOutOfAmmo && hit.transform.tag != "Enemy")
+                        if (!gunList[selectedGun].isOutOfAmmo && hit.transform.tag != "Enemy" && hit.transform.tag != "Player")
                             Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                     }
                 }
@@ -375,7 +396,7 @@ public class playerController : MonoBehaviour
         {
             gunList[selectedGun].currentAmmo--;
 
-            if (gunList[selectedGun].type != WeaponType.Flamethrower && !gunList[selectedGun].isOutOfAmmo)
+            if (gunList[selectedGun].type != WeaponType.Flamethrower && !gunList[selectedGun].isOutOfAmmo && gunList[selectedGun].type != WeaponType.GrenadeLauncher)
                 gameManager.instance.playerAnim.SetTrigger("Shoot");
 
             // gameManager.instance.UpdateActiveAmmo();
@@ -677,7 +698,7 @@ public class playerController : MonoBehaviour
         // Calculate the direction from throw position to aim position
         Vector3 forceDirection = Camera.main.transform.forward;
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 500f))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 25f))
         {
             forceDirection = (hit.point - throwPos.transform.position).normalized;
         }

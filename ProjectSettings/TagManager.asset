@@ -8,6 +8,7 @@ TagManager:
   - MiniCrab
   - Enemy
   - Spawner
+  - Level
   layers:
   - Default
   - TransparentFX

@@ -207,7 +207,8 @@ public class enemyAI : MonoBehaviour, isDamageable
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            part.Play(true);
+            if (part != null)
+                part.Play(true);
         }
     }
 
