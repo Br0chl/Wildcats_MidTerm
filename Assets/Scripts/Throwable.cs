@@ -47,13 +47,13 @@ public class Throwable : MonoBehaviour
             {
                 hit.GetComponent<enemyAI>().TakeDamage(damage);
             }
-            else
+            else if (hit.CompareTag("Player"))
             {
-
+                gameManager.instance.playerScript.takeDamage(damage);
             }
         }
 
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 3f);
     }
 
     private void OnTriggerEnter(Collider other)

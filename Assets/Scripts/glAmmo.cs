@@ -7,6 +7,7 @@ public class glAmmo : MonoBehaviour
     public Rigidbody projectileRb;
     public ParticleSystem part;
     int damage;
+    public float ammoSpeed;
 
     
     void Start()
@@ -23,16 +24,16 @@ public class glAmmo : MonoBehaviour
 
         Rigidbody projectileRb = GetComponent<Rigidbody>();
         // Add force
-        Vector3 forceToAdd = forceDirection * 100f;
+        Vector3 forceToAdd = forceDirection * ammoSpeed;
 
         projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
     }
 
     void Explode()
     {
-        gameObject.transform.parent = null;
-        projectileRb.useGravity = false;
-        projectileRb.isKinematic = true;
+        // gameObject.transform.parent = null;
+        // projectileRb.useGravity = false;
+        // projectileRb.isKinematic = true;
         part.Play(true);
 
         Collider[] hits = Physics.OverlapSphere(transform.position, 10f);
@@ -57,7 +58,9 @@ public class glAmmo : MonoBehaviour
 
         if (other.CompareTag("Enemy") && other.GetType() == typeof(CapsuleCollider) || other.CompareTag("Untagged"))
         {
-
+            gameObject.transform.parent = null;
+            projectileRb.useGravity = false;
+            projectileRb.isKinematic = true;
             Explode();
         }
     }

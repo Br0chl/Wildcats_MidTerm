@@ -99,7 +99,7 @@ public class gameManager : MonoBehaviour
         if (playerScript.equipment == null)
             equipmentUI.SetActive(false);
 
-       UpdateCurrencyUI();
+       UpdateUI();
     }
 
     void Update()
@@ -201,6 +201,7 @@ public class gameManager : MonoBehaviour
 
         playerScript.UpdatePlayerHP();
         UpdateCurrencyUI();
+        UpdateEquipmentUI();
     }
 
     public void UpdateActiveUI(GunStats active)
