@@ -66,7 +66,7 @@ public class gameManager : MonoBehaviour
     
     // For Pauseing Game
     public bool isPaused = false;
-    float timeScaleOrig;
+    public float timeScaleOrig;
 
     // Keep pause menu from activating in shop
     public bool isShopping = false;
