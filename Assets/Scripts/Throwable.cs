@@ -11,6 +11,9 @@ public enum ThrowType
 public class Throwable : MonoBehaviour
 {
     [SerializeField] public ThrowType type;
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip audExplosion;
+    [Range(0, 1)][SerializeField] float audExplosionVol;
     public Sprite icon;
     public ParticleSystem part;
     public int explodeTime;
@@ -29,7 +32,10 @@ public class Throwable : MonoBehaviour
         if (type == ThrowType.Grenade)
             StartCoroutine(Explode());
         if (type == ThrowType.Knife)
+        {
+            aud.PlayOneShot(audExplosion, audExplosionVol);
             Destroy(gameObject, 3f);
+        }
     }
 
     IEnumerator Explode()
@@ -37,6 +43,7 @@ public class Throwable : MonoBehaviour
         yield return new WaitForSeconds(explodeTime);
         
         transform.GetComponent<Rigidbody>().isKinematic = true;
+        aud.PlayOneShot(audExplosion, audExplosionVol);
         part.Play(true);
 
         Collider[] hits = Physics.OverlapSphere(transform.position, explodeRadius);

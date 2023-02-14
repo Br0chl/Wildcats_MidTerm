@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class glAmmo : MonoBehaviour
 {
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip explosionSound;
+    [Range(0, 1)][SerializeField] float explosionVol;
+
     public Rigidbody projectileRb;
     public ParticleSystem part;
     int damage;
@@ -34,6 +38,7 @@ public class glAmmo : MonoBehaviour
         // gameObject.transform.parent = null;
         // projectileRb.useGravity = false;
         // projectileRb.isKinematic = true;
+        aud.PlayOneShot(explosionSound, explosionVol);
         part.Play(true);
 
         Collider[] hits = Physics.OverlapSphere(transform.position, 10f);
