@@ -8,6 +8,7 @@ public class waveSpawner : MonoBehaviour
     [SerializeField] List<Transform> spawnLocations = new List<Transform>(); // stores all the spawn locations
     [SerializeField] List<SpawnableEnemy> enemies = new List<SpawnableEnemy>(); // a list of enemies and their cost
     [SerializeField] List<SpawnableEnemy> bosses = new List<SpawnableEnemy>(); // a list of bosses
+    [SerializeField] int maxEnemiesInstantiated; // max amount of enemies that can be spawned at one time
     [SerializeField] int waveValueMultiplier; // the value you multiply the current wave by to get the value of the wave
     [SerializeField] int waveDuration; // the time between waves
     [SerializeField] int maxWaves; // when waves stop
@@ -38,18 +39,24 @@ public class waveSpawner : MonoBehaviour
             if (spawnTimer <= 0) // if its time to spawn an enemy
             { HandleSpawning(); } // spawn the enemy
 
-            else // otherwise adjust spawnTimer
-            { spawnTimer -= Time.fixedDeltaTime; }
+            else
+            {
+                if (enemiesRemaining <= maxEnemiesInstantiated)
+                { spawnTimer -= Time.fixedDeltaTime; } 
+            }
 
-            if (waveTimer <= 0) // if its time for the next wave
+            if (waveTimer <= 0 && enemiesRemaining <= 0) // if its time for the next wave
             { GenerateWave(); } // generate the wave
 
             else // otherwise adjust waveTimer
-            { waveTimer -= Time.fixedDeltaTime; }
+            {
+                if (enemiesRemaining <= maxEnemiesInstantiated)
+                { waveTimer -= Time.fixedDeltaTime; } 
+            }
         }
         else
         {
-            if (enemiesToSpawn.Count == 0 && enemiesRemaining <= 0 && currWave > 1)
+            if (enemiesToSpawn.Count == 0 && enemiesRemaining <= 0 && currWave > 1 && currWave == maxWaves)
             { gameManager.instance.PlayerWin(); }
         }
     }
