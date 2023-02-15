@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1237,18 +1237,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 5271345155728007923, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5271345157578288433, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5271345157578288433, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 56.733643
-      objectReference: {fileID: 0}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyShop
       value: 
@@ -1257,14 +1245,6 @@ PrefabInstance:
       propertyPath: currencyWBench
       value: 
       objectReference: {fileID: 374170938}
-    - target: {fileID: 8945777653342517528, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8945777653342517528, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 56.733643
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
 --- !u!1001 &6272015390118865503
