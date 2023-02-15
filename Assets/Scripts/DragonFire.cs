@@ -24,7 +24,6 @@ public class DragonFire : MonoBehaviour
         {
             if (canAttack)
                 StartCoroutine(BreathAttack());
-            Debug.Log("Player");
         }
     }
 
