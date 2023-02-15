@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class IcePhysics : MonoBehaviour
 {
-    bool isIn;
-    [SerializeField] int speed; // = player speed
+    [SerializeField] int speed; // = player speed 
     [SerializeField] int sliding; 
+    bool isIn;
 
     void Update()
     {

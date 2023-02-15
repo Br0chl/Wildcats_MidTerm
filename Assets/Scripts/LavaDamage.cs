@@ -6,14 +6,14 @@ public class LavaDamage : MonoBehaviour
 {
 
     [SerializeField] int lavaDmg;
-    [SerializeField] int Health; // = player hp
+    [SerializeField] int Health; // = player hp 
     bool isIn;
 
     private void Update()
     {
         if(isIn == true)
         {
-            Health--;
+            Health -= lavaDmg;
         }
     }
 

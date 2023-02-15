@@ -234,15 +234,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2730369528522040811, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 171.9
+      value: 146.2506
       objectReference: {fileID: 0}
     - target: {fileID: 2730369528522040811, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: 5.00002
       objectReference: {fileID: 0}
     - target: {fileID: 2730369528522040811, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.42
+      value: 114.750465
       objectReference: {fileID: 0}
     - target: {fileID: 2730369528522040811, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14213198de69bb4ab43972499b80f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lavaDmg: 0
+  lavaDmg: 1
   Health: 100
 --- !u!1 &705507993
 GameObject:
