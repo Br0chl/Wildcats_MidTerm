@@ -24,7 +24,6 @@ public class CrabRoll : MonoBehaviour
         {
             if (canAttack)
                 StartCoroutine(RollAttack());
-            Debug.Log("Player");
         }
     }
 
