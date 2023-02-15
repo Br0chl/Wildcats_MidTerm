@@ -181,7 +181,6 @@ public class playerController : MonoBehaviour
                     // Shoot
                     if (!isShooting && Input.GetButton("Shoot") && !isReloading && !isSwapping && gunList[selectedGun].type != WeaponType.Flamethrower)
                     {
-                        Debug.Log("SHOOT");
                         StartCoroutine(Shoot());
                     }
                 }
@@ -346,16 +345,6 @@ public class playerController : MonoBehaviour
                                 Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                         }
                     }
-
-                    // Debug Draw Rays
-                    if (Physics.Raycast(Camera.main.transform.position, direction, out hit, shootDist))
-                    {
-                        Debug.DrawLine(Camera.main.transform.position, hit.point, Color.green, 1f);
-                    }
-                    else
-                    {
-                        Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.position + direction * shootDist, Color.red, 1f);
-                    }
                 }
             }
             if (gunList[selectedGun].type == WeaponType.GrenadeLauncher)
@@ -428,27 +417,23 @@ public class playerController : MonoBehaviour
 
         if (gunList[selectedGun].currentAmmo == gunList[selectedGun].magCapacity)
         {
-            Debug.Log("Ammo Full");
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
             isReloading = false;
             yield break;
         }
         else if (gunList[selectedGun].currentAmmo > 0 && gunList[selectedGun].currentMaxAmmo == 0)
         {
-            Debug.Log("Out of Magazines");
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
             isReloading = false;
         }
         else if (gunList[selectedGun].isOutOfAmmo)
         {
-            Debug.Log("Out of Ammo");
             aud.PlayOneShot(gunList[selectedGun].gunAmmoOutAud, gunList[selectedGun].gunAmmoOutAudVol);
             isReloading = false;
             yield break;
         }
         else
         {
-            Debug.Log("Reloading");
 
             gameManager.instance.playerAnim.SetTrigger("Reload");
             //aud.PlayOneShot(gunList[selectedGun].gunReloadAud, gunList[selectedGun].gunReloadAudVol);
