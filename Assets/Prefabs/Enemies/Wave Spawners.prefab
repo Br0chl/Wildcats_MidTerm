@@ -459,9 +459,10 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 4454115966102917453, guid: 323c2ea282c8a8840a4f902e46e663b6, type: 3}
     cost: 3
   bosses: []
+  maxEnemiesInstantiated: 60
   waveValueMultiplier: 25
-  waveDuration: 60
-  maxWaves: 1
+  waveDuration: 30
+  maxWaves: 0
   bossWaves: 0
   infiniteWaves: 0
   enemiesToSpawn: []
