@@ -551,6 +551,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 489245718217332035, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 489332742812740793, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 489564613722837979, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 490407351660434565, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 490407351850007900, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067767412935792908, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067767412935792910, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1746474668905920073, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7906761430492007848, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
       propertyPath: m_Name
       value: World2(Water)

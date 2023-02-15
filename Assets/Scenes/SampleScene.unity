@@ -285,9 +285,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2795574057997718262, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469494029351927217, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469494029351927219, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3491610339642472966, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.75000304
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051304924975165498, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4051304925104806566, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
       propertyPath: m_Name
@@ -340,6 +356,22 @@ PrefabInstance:
     - target: {fileID: 4051304925104806617, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051304925300840931, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052165244617209700, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052416368782903302, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052466559734723068, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044b56f1ee6262746b526066d9ed14f5, type: 3}
