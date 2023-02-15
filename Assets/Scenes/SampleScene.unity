@@ -1122,18 +1122,6 @@ PrefabInstance:
       value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: sfx
-      value: 
-      objectReference: {fileID: 24100000, guid: 99ec728adf59583409c6199d1a01a07f, type: 2}
-    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: music
-      value: 
-      objectReference: {fileID: 24100000, guid: 99ec728adf59583409c6199d1a01a07f, type: 2}
-    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: master
-      value: 
-      objectReference: {fileID: 24100000, guid: 99ec728adf59583409c6199d1a01a07f, type: 2}
-    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyShop
       value: 
       objectReference: {fileID: 1374716453}
