@@ -252,7 +252,7 @@ MonoBehaviour:
   shootPos: {fileID: 666593308}
   bullet: {fileID: 9148115988335451032, guid: 98067b88b25c11742a0ec4d0b93d0fe5, type: 3}
   bulletSpeed: 15
-  shootRate: 0.779
+  shootRate: 0.934
   shootDist: 5
   shootDamage: 7
   isBoss: 0
