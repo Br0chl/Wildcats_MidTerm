@@ -775,6 +775,10 @@ PrefabInstance:
       propertyPath: m_MaterialTemplate
       value: 
       objectReference: {fileID: 2100000, guid: 0578c04b1421dea41b060f8227895b39, type: 2}
+    - target: {fileID: 7825619190188086417, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
 --- !u!1001 &1918124405
