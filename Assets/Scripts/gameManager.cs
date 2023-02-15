@@ -35,6 +35,7 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject playerDeadMenu;
     public GameObject difficultyMenu;
+
     [Header("---Player UI---")]
     public Image playerHPBar;
     [SerializeField] TextMeshProUGUI currencyTextUI;
