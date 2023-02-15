@@ -56,5 +56,7 @@ public class buttonFunctions : MonoBehaviour
     {
         gameManager.instance.spawner.StartSpawner(10, 24);
     }
+
+
 }
 
