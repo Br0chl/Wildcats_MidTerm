@@ -24,7 +24,6 @@ public class MiniCrabRoll : MonoBehaviour
             {
                 if(canAttack)
                     StartCoroutine(RollAttack());
-                Debug.Log("Player");
             }
     }
 

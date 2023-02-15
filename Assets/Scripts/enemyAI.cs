@@ -77,9 +77,6 @@ public class enemyAI : MonoBehaviour, isDamageable
         playerDir = gameManager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
 
-        Debug.Log(angleToPlayer);
-        Debug.DrawRay(headPos.position, playerDir);
-
         agent.SetDestination(gameManager.instance.player.transform.position);
 
         RaycastHit hit;
