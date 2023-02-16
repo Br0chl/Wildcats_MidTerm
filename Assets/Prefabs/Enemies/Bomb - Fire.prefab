@@ -363,6 +363,7 @@ MonoBehaviour:
   - {fileID: 753454422133287123, guid: 9b863e7dd072681479d94a9d0ff0888d, type: 3}
   - {fileID: 9139615897270490401, guid: dc988f58fefde4f4dbc6eeae4c315e6c, type: 3}
   - {fileID: 2149377966008345986, guid: c8d4d6db99ece8545b4972c667a3446b, type: 3}
+  - {fileID: 169645697241291649, guid: ed6659dda03921945b76dd880336fd5b, type: 3}
 --- !u!195 &99507895056945243
 NavMeshAgent:
   m_ObjectHideFlags: 0
