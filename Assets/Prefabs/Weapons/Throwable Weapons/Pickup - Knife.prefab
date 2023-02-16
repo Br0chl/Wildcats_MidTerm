@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6697374410045627984}
   - component: {fileID: 10799734078112592}
+  - component: {fileID: -1249595168926951413}
   - component: {fileID: 8369647261108250394}
   - component: {fileID: 4972906339632055182}
   - component: {fileID: 4445846523863526565}
@@ -55,6 +56,20 @@ MonoBehaviour:
   throwable: {fileID: 7429940161669882947, guid: c4ba2d2e174d10c499288ccf05cb9ae2, type: 3}
   equipPopUp: {fileID: 3654640262128815051, guid: 14aec0de92fea8746ab63c99f31b79a9, type: 3}
   respawnTime: 0
+--- !u!114 &-1249595168926951413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2470213352367951211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ccc4602ad9fe534aa8b3b0d966abba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropChance: 50
+  itemToInstantiate: {fileID: 4325336463148825230, guid: c4ba2d2e174d10c499288ccf05cb9ae2, type: 3}
 --- !u!33 &8369647261108250394
 MeshFilter:
   m_ObjectHideFlags: 0
