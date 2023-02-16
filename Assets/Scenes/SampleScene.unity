@@ -1007,6 +1007,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5acfa924d092244da1a11d977e2b036, type: 3}
+--- !u!1 &1992240061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5378065550292586900, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+  m_PrefabInstance: {fileID: 5271345157281350944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &23860797185622761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1281,10 +1286,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4718690246831845344, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyShop
       value: 
       objectReference: {fileID: 1374716453}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: weaponReticle
+      value: 
+      objectReference: {fileID: 1992240061}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyWBench
       value: 
@@ -1352,6 +1365,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6272015389978710680, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
       propertyPath: gunList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a8bd1de4f3c93e408bb430c5742a36e, type: 2}
+    - target: {fileID: 6272015389978710680, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
+      propertyPath: gunList.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 0a8bd1de4f3c93e408bb430c5742a36e, type: 2}
     - target: {fileID: 6272015389978710684, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}

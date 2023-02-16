@@ -33,17 +33,17 @@ MonoBehaviour:
   gunAmmoOutAud: {fileID: 8300000, guid: b2f0263a10d1dd64e9f568cca206b913, type: 3}
   gunAmmoOutAudVol: 0.5
   anim: {fileID: 22100000, guid: 591b8c45e0de3e249bca82fa4c8479c6, type: 2}
-  currentAmmo: 1
+  currentAmmo: 0
   currentMaxAmmo: 0
   currentMagazines: 0
   magCapacity: 1
   maxMagazines: 20
   startingMagazines: 10
   swapSpeed: 1.5
-  isOutOfAmmo: 0
+  isOutOfAmmo: 1
   isAmmoFull: 0
   iconUI: {fileID: 21300000, guid: 0bd286faf67a0ff4aad4517013b6719a, type: 3}
-  reticle: {fileID: 21300000, guid: fcd1b8a6bcc868c45b855536f6bc6c2d, type: 3}
+  reticle: {fileID: 21300000, guid: 0bcd0f0280d657a4f85a4fbfb4c807a6, type: 3}
   gunLevel: 1
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
