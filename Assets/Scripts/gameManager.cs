@@ -210,12 +210,14 @@ public class gameManager : MonoBehaviour
         // Set Active UI
         activeUI.SetActive(true);
         activeWeaponIcon.sprite = active.iconUI;
+
+        reticleBorder = active.reticle;
+        weaponReticle.GetComponent<Image>().sprite = reticleBorder;
+
         if (active.reticle != null)
             weaponReticle.SetActive(true);
         else
-            weaponReticle.SetActive(false);
-            
-        reticleBorder = active.reticle;
+            weaponReticle.SetActive(false);        
 
         activeCurrentAmmo.text = active.currentAmmo.ToString();
         activeMaxAmmo.text = active.currentMaxAmmo.ToString();
