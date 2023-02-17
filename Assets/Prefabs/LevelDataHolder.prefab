@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2546886362207416105}
   - component: {fileID: 9160511439353865963}
-  - component: {fileID: 1695436246}
   m_Layer: 0
   m_Name: LevelDataHolder
   m_TagString: Untagged
@@ -46,19 +45,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 11400000, guid: 8d9fd3264a27266428af9374c593af53, type: 2}
---- !u!114 &1695436246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4640733812920812418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19b6020c2c7b84449d9940d94186225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  main: {fileID: 24100000, guid: 99ec728adf59583409c6199d1a01a07f, type: 2}
-  master: 0
-  music: 0
-  sfx: 0
