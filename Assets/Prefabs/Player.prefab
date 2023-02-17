@@ -497,7 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6272015389978710681}
   aud: {fileID: 1483951538}
-  totalCurrency: 100000
+  totalCurrency: 0
   currentHP: 300
   maxHP: 300
   walkSpeed: 8
@@ -506,7 +506,7 @@ MonoBehaviour:
   gravity: 25
   jumpsAllowed: 2
   gunList:
-  - {fileID: 11400000, guid: b34866ac7d831484f8f0247b6d8f8739, type: 2}
+  - {fileID: 11400000, guid: 0a8bd1de4f3c93e408bb430c5742a36e, type: 2}
   selectedGun: 0
   shootRate: 0
   shootDist: 0
