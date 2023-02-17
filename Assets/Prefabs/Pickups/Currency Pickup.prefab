@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7735587999335743381}
   m_Layer: 0
   m_Name: Currency Pickup
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +137,8 @@ MonoBehaviour:
   healthToRestore: 0
   currencyAmount: 100
   magazineAmount: 0
+  throwable: {fileID: 0}
+  popUpActive: 0
   respawnTime: 0
 --- !u!114 &9139615897270490401
 MonoBehaviour:

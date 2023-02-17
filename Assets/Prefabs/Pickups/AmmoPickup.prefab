@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2149377966008345984}
   m_Layer: 0
   m_Name: AmmoPickup
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,8 @@ MonoBehaviour:
   healthToRestore: 0
   currencyAmount: 0
   magazineAmount: 1
+  throwable: {fileID: 0}
+  popUpActive: 0
   respawnTime: 0
 --- !u!114 &2149377966008345986
 MonoBehaviour:
@@ -143,8 +145,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.24273105
-  m_Center: {x: -0.033464592, y: 0.0098841395, z: -0.02078275}
+  m_Radius: 0.5395179
+  m_Center: {x: -0.033464592, y: 0.009884159, z: 0.025111994}
 --- !u!54 &2149377966008345984
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,8 +189,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4453743232764975157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.83, z: 0}
-  m_LocalScale: {x: 2.1877682, y: 2.1877682, z: 2.1877682}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
+  m_LocalScale: {x: 1.1435465, y: 1.1435465, z: 1.1435465}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 981559335725653740}
