@@ -16,12 +16,13 @@ public class glAmmo : MonoBehaviour
     
     void Start()
     {
+        transform.SetParent(null, true);
         damage = gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].shootDamage;
 
         // Calculate the direction from throw position to aim position
-        Vector3 forceDirection = Camera.main.transform.forward;
+        Vector3 forceDirection = transform.forward;
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 500f))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 500f))
         {
             forceDirection = (hit.point - transform.position).normalized;
         }
