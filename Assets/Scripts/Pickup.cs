@@ -9,8 +9,8 @@ public class Pickup : MonoBehaviour
     [SerializeField] int magazineAmount;
 
     [SerializeField] Throwable throwable;
-    [SerializeField] GameObject equipPopUp = null;
-    bool popUpActive;
+    //[SerializeField] GameObject equipPopUp = null;
+    public bool popUpActive = false;
 
     [SerializeField] float respawnTime = 0f;
 
@@ -21,6 +21,7 @@ public class Pickup : MonoBehaviour
             gameManager.instance.playerScript.equipment = throwable;
             gameManager.instance.playerScript.equipment.currentAmount = 1;
             gameManager.instance.UpdateEquipmentUI();
+            gameManager.instance.pickUpPopup.SetActive(false);
             Destroy(gameObject);
         }
     }
@@ -68,11 +69,14 @@ public class Pickup : MonoBehaviour
             {
                 gameManager.instance.playerScript.equipment = throwable;
                 throwable.currentAmount = 1;
+                Destroy(gameObject);
             }
             else if (gameManager.instance.playerScript.equipment != null)
             {
                 popUpActive = true;
-                equipPopUp.SetActive(true);
+               // equipPopUp.SetActive(true);
+               gameManager.instance.popupWeaponName.text = throwable.iName;
+               gameManager.instance.pickUpPopup.SetActive(true);
             }
 
             gameManager.instance.UpdateEquipmentUI();
@@ -80,9 +84,9 @@ public class Pickup : MonoBehaviour
 
         if (respawnTime == 0 && !popUpActive)
             Destroy(gameObject);
-        else
-            StartCoroutine(HideForSeconds(respawnTime));
-    }
+    //     else
+    //         StartCoroutine(HideForSeconds(respawnTime));
+        }
 
     private IEnumerator HideForSeconds(float seconds)
     {
@@ -102,10 +106,13 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && equipPopUp != null)
+        //popUpActive = false;
+        if (other.CompareTag("Player"))// && popUpActive == false)
         {
-            equipPopUp.SetActive(false);
             popUpActive = false;
+            //equipPopUp.SetActive(false);
+            gameManager.instance.pickUpPopup.SetActive(false);
+            
         }
     }
 }

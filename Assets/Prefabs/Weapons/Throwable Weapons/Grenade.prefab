@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  iName: Grenade
   aud: {fileID: 2428994115856488375}
   audExplosion: {fileID: 8300000, guid: ee2a313486fc0184ab6659788251b52f, type: 3}
   audExplosionVol: 0.5
