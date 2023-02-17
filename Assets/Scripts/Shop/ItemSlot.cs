@@ -12,10 +12,13 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] TextMeshProUGUI iName;
     [SerializeField] TextMeshProUGUI price;
     [SerializeField] GameObject buyButton;
+    [SerializeField] GameObject ammoCover;
 
     private void Update()
     {
         PriceCheck(item);
+        GunCheck(item);
+        HealthCheck(item);
     }
 
     public void AddItem(StoreItem newItem)
@@ -27,6 +30,54 @@ public class ItemSlot : MonoBehaviour
         iName.text = newItem.iName;
         PriceCheck(item);
         price.text = newItem.price.ToString();
+    }
+
+    public void GunCheck(StoreItem item)
+    {
+        if (item == null) return;
+        if (item.isGun)
+        {
+            if (gameManager.instance.playerScript.gunList.Contains(item.gunStats))
+            {
+                ammoCover.SetActive(true);
+                if (item.gunStats.currentMagazines == item.gunStats.maxMagazines)
+                {
+                    buyButton.SetActive(false);
+                    price.faceColor = Color.red;
+                    price.text = "MAX";
+                }
+                else
+                {
+                    buyButton.SetActive(true);
+                    price.faceColor = Color.white;
+                    price.text = item.price.ToString();
+                }
+            }
+            else
+            {
+                ammoCover.SetActive(false);
+            }
+        }
+    }
+
+    public void HealthCheck(StoreItem item)
+    {
+        if (item == null) return;
+        if (item.isHP)
+        {
+            if (gameManager.instance.playerScript.currentHP == gameManager.instance.playerScript.maxHP)
+            {
+                buyButton.SetActive(false);
+                price.faceColor = Color.red;
+                price.text = "FULL";
+            }
+            else
+            {
+                    buyButton.SetActive(true);
+                    price.color = Color.white;
+                    price.text = item.price.ToString();
+            }
+        }
     }
 
     public void PriceCheck(StoreItem item)
