@@ -624,18 +624,26 @@ public class playerController : MonoBehaviour
 
     void SelectGun()
     {
-        if (isReloading || isShooting)
+        if (isReloading || isShooting || isSwapping || gunList.Count < 2)
             return;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)// && selectedGun < gunList.Count - 1)
         {
-            selectedGun++;
+            isSwapping = true;
+            if (selectedGun == 1)
+                selectedGun = 0;
+            else
+                selectedGun++;
 
             StartCoroutine(ChangeGun());
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)// && selectedGun > 0)
         {
-            selectedGun--;
+            isSwapping = true;
+            if (selectedGun == 0)
+                selectedGun = 1;
+            else
+                selectedGun--;
 
             StartCoroutine(ChangeGun());
         }
@@ -669,6 +677,7 @@ public class playerController : MonoBehaviour
         }
 
         gameManager.instance.UpdateUI();
+        isSwapping = false;
     }
 
     void Throw()
@@ -716,9 +725,9 @@ public class playerController : MonoBehaviour
 
     IEnumerator SwapTime()
     {
-        isSwapping = true;
+       // isSwapping = true;
         yield return new WaitForSeconds(gunList[selectedGun].swapSpeed);
-        isSwapping = false;
+        //isSwapping = false;
     }
 
     public void AddCurrency(int amount)
