@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 4972906339632055182}
   - component: {fileID: 4445846523863526565}
   - component: {fileID: 8682074958842630363}
+  - component: {fileID: 29500787}
   m_Layer: 0
   m_Name: Pickup - Knife
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,9 +30,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2470213352367951211}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.213, y: 1.837, z: 0.57}
-  m_LocalScale: {x: 0.009251218, y: 0.009251218, z: 0.009251218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.037126, y: 1.1544, z: 0.56907}
+  m_LocalScale: {x: 0.028766057, y: 0.028766057, z: 0.028766057}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7452088067179586607}
@@ -54,7 +55,7 @@ MonoBehaviour:
   currencyAmount: 0
   magazineAmount: 0
   throwable: {fileID: 7429940161669882947, guid: c4ba2d2e174d10c499288ccf05cb9ae2, type: 3}
-  equipPopUp: {fileID: 3654640262128815051, guid: 14aec0de92fea8746ab63c99f31b79a9, type: 3}
+  popUpActive: 0
   respawnTime: 0
 --- !u!114 &-1249595168926951413
 MonoBehaviour:
@@ -147,8 +148,21 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 65.03845
-  m_Center: {x: -15.639178, y: 12.54345, z: 0.048025355}
+  m_Radius: 129.6347
+  m_Center: {x: 1.0651664, y: 12.543457, z: 0.04802236}
+--- !u!114 &29500787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2470213352367951211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ccbc2da63842d458c1ef9d914998a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
 --- !u!1 &6952057695656695907
 GameObject:
   m_ObjectHideFlags: 0

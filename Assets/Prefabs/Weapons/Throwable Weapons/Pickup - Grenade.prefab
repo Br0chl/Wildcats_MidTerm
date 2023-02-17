@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 830434958039901778}
   - component: {fileID: 6782386018359199744}
   - component: {fileID: 225791557562103644}
+  - component: {fileID: 1913641560}
   m_Layer: 0
   m_Name: Pickup - Grenade
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,9 +30,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190832948961036167}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.87, y: 0.639, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.87, y: 0.59798, z: -0.0048952}
+  m_LocalScale: {x: 4.1337876, y: 4.1337876, z: 4.1337876}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8353002630821857250}
@@ -56,7 +57,7 @@ MonoBehaviour:
   currencyAmount: 0
   magazineAmount: 0
   throwable: {fileID: -8412995640972663384, guid: cd528d8442a6a1641af53382fb488fea, type: 3}
-  equipPopUp: {fileID: 3654640262128815051, guid: 14aec0de92fea8746ab63c99f31b79a9, type: 3}
+  popUpActive: 0
   respawnTime: 0
 --- !u!114 &-6708791239992319610
 MonoBehaviour:
@@ -149,8 +150,21 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.16912073
-  m_Center: {x: -0.000000029802322, y: 0.013090253, z: 0}
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.013090193, z: 0.0015621781}
+--- !u!114 &1913641560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190832948961036167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ccbc2da63842d458c1ef9d914998a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
 --- !u!1 &5437317085069585430
 GameObject:
   m_ObjectHideFlags: 0

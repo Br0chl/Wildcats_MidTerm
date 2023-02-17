@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  iName: Throwing Knife
   aud: {fileID: -1292142049848176510}
   audExplosion: {fileID: 8300000, guid: 027a1ba1fbce0394bb93f4bc283f880c, type: 3}
   audExplosionVol: 0.3

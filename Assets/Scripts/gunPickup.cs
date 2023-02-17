@@ -5,7 +5,7 @@ using UnityEngine;
 public class gunPickup : MonoBehaviour
 {
     [SerializeField] public GunStats gun;
-    [SerializeField] GameObject equipPopUp;
+    //[SerializeField] GameObject equipPopUp;
 
     bool popUpActive = false;
     bool newGun;
@@ -15,6 +15,7 @@ public class gunPickup : MonoBehaviour
         if (popUpActive && Input.GetKeyDown(KeyCode.E))
         {
             gameManager.instance.playerScript.gunPickup(gun);
+            gameManager.instance.pickUpPopup.SetActive(false);
             Destroy(gameObject);
         }
     }
@@ -41,8 +42,10 @@ public class gunPickup : MonoBehaviour
                 }
                 else
                 {
-                    equipPopUp.SetActive(true);
+                    //equipPopUp.SetActive(true);
                     popUpActive = true;
+                    gameManager.instance.popupWeaponName.text = gun.iName;
+                    gameManager.instance.pickUpPopup.SetActive(true);
                 }
                     
             }
@@ -53,7 +56,8 @@ public class gunPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            equipPopUp.SetActive(false);
+            //equipPopUp.SetActive(false);
+            gameManager.instance.pickUpPopup.SetActive(false);
             popUpActive = false;
         }
     }

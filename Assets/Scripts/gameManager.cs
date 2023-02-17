@@ -40,6 +40,9 @@ public class gameManager : MonoBehaviour
     public Image playerHPBar;
     [SerializeField] TextMeshProUGUI currencyTextUI;
     public GameObject screenFlash;  // ScreenFlash On TakeDamage
+    public GameObject pickUpPopup;
+    public TextMeshProUGUI popupWeaponName;
+
     [Header("---Active Weapon UI---")]
     public GameObject activeUI;
     public Image activeWeaponIcon;

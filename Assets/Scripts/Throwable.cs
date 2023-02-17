@@ -11,6 +11,7 @@ public enum ThrowType
 public class Throwable : MonoBehaviour
 {
     [SerializeField] public ThrowType type;
+    [SerializeField] public string iName;
     [SerializeField] AudioSource aud;
     [SerializeField] AudioClip audExplosion;
     [Range(0, 1)][SerializeField] float audExplosionVol;
