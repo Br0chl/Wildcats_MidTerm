@@ -48,6 +48,8 @@ public class ShopKeeper : MonoBehaviour
             shopCam.SetActive(true);
             gameManager.instance.playerScript.enabled = false;
             gameManager.instance.currencyShop.text = gameManager.instance.playerScript.totalCurrency.ToString();
+            gameManager.instance.curHPShop.text = gameManager.instance.playerScript.currentHP.ToString();
+            gameManager.instance.maxHPShop.text = gameManager.instance.playerScript.maxHP.ToString();
             gameManager.instance.hudUI.SetActive(false);
             Time.timeScale = 0f;
             Cursor.visible = true;

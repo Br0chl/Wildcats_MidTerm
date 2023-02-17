@@ -61,9 +61,11 @@ public class gameManager : MonoBehaviour
     public GameObject equipmentUI;
     public Image equipmentIcon;
     public TextMeshProUGUI currentEquipmentAmmo;
-    [Header("---Shop Currency UI---")]
+    [Header("---Shop UI---")]
     public TextMeshProUGUI currencyShop;
     public TextMeshProUGUI currencyWBench;
+    public TextMeshProUGUI curHPShop;
+    public TextMeshProUGUI maxHPShop;
     [Header("---PowerUps---")]
     public bool isInvinvcible;
     public bool isDoubleCurrency;
@@ -264,6 +266,9 @@ public class gameManager : MonoBehaviour
         {
             currencyShop.text = playerScript.totalCurrency.ToString();
             currencyWBench.text = playerScript.totalCurrency.ToString();
+
+            curHPShop.text = playerScript.currentHP.ToString();
+            maxHPShop.text = playerScript.maxHP.ToString();
         }
     }
 

@@ -2599,6 +2599,8 @@ MonoBehaviour:
   currentEquipmentAmmo: {fileID: 5271345155895660005}
   currencyShop: {fileID: 0}
   currencyWBench: {fileID: 0}
+  curHPShop: {fileID: 0}
+  maxHPShop: {fileID: 0}
   isInvinvcible: 0
   isDoubleCurrency: 0
   isDamageUp: 0
