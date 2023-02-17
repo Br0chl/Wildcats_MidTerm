@@ -1171,30 +1171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 6792423549876949855, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7128969109877709368, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.52274
-      objectReference: {fileID: 0}
-    - target: {fileID: 7128969109877709368, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.52274
-      objectReference: {fileID: 0}
-    - target: {fileID: 7128969109877709368, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.52274
-      objectReference: {fileID: 0}
-    - target: {fileID: 7128969109877709368, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 770
-      objectReference: {fileID: 0}
-    - target: {fileID: 7128969109877709368, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -127
-      objectReference: {fileID: 0}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyShop
       value: 

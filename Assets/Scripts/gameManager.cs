@@ -50,6 +50,8 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI activeMaxAmmo;
     public GameObject weaponReticle;
     public Sprite reticleBorder;
+    public GameObject activeMaxAmmoPopup;
+    public GameObject inactiveMaxAmmoPopup;
     [Header("---Inactive Weapon UI---")]
     public GameObject inactiveUI;
     public Image inactiveWeaponIcon;
@@ -285,5 +287,21 @@ public class gameManager : MonoBehaviour
         levelUnlockUI.SetActive(true);
         yield return new WaitForSeconds(3f);
         levelUnlockUI.SetActive(false);
+    }
+
+    public IEnumerator MaxAmmoPopUp(int selectedGun)
+    {
+        if (selectedGun == 0)
+        {
+            activeMaxAmmoPopup.SetActive(true);
+            yield return new WaitForSeconds(1);
+            activeMaxAmmoPopup.SetActive(false);
+        }
+        else if (selectedGun == 1)
+        {
+            inactiveMaxAmmoPopup.SetActive(true);
+            yield return new WaitForSeconds(1);
+            inactiveMaxAmmoPopup.SetActive(false);
+        }
     }
 }

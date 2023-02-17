@@ -31,6 +31,7 @@ public class gunPickup : MonoBehaviour
             }
             else if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun] == gun && gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].isAmmoFull)
             {
+                StartCoroutine(gameManager.instance.MaxAmmoPopUp(0));
                 return;
             }
             else
