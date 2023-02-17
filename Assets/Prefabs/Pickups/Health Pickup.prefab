@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5865080358035547323}
   m_Layer: 0
   m_Name: Health Pickup
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +137,8 @@ MonoBehaviour:
   healthToRestore: 20
   currencyAmount: 0
   magazineAmount: 0
+  throwable: {fileID: 0}
+  popUpActive: 0
   respawnTime: 0
 --- !u!114 &8384295781560059274
 MonoBehaviour:
@@ -226,8 +228,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.56134623
+  m_Center: {x: -0.004488468, y: 0, z: 0}
 --- !u!54 &5865080358035547323
 Rigidbody:
   m_ObjectHideFlags: 0
