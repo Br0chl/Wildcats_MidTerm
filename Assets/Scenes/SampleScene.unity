@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 43d2d50b3894a3c4599f3855a24c8783, type: 2}
+--- !u!1 &44072263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2481063258868002704, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 106492325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &98043766
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +403,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+--- !u!1 &311738142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2481063259537619500, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 106492325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &374170938 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 374170938, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
@@ -919,6 +929,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5acfa924d092244da1a11d977e2b036, type: 3}
+--- !u!1 &1924990216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7572144912672449369, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 106492325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &23860797185622761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1193,6 +1208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4718690246831845344, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: curHPShop
       value: 
@@ -1201,6 +1220,18 @@ PrefabInstance:
       propertyPath: maxHPShop
       value: 
       objectReference: {fileID: 895261070}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: wbStatsUI
+      value: 
+      objectReference: {fileID: 311738142}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: wbUpradeUI
+      value: 
+      objectReference: {fileID: 44072263}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: shopPanelUI
+      value: 
+      objectReference: {fileID: 1924990216}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyShop
       value: 

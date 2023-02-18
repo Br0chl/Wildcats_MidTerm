@@ -62,6 +62,9 @@ public class gameManager : MonoBehaviour
     public Image equipmentIcon;
     public TextMeshProUGUI currentEquipmentAmmo;
     [Header("---Shop UI---")]
+    [SerializeField] GameObject shopPanelUI;
+    [SerializeField] GameObject wbStatsUI;
+    [SerializeField] GameObject wbUpradeUI;
     public TextMeshProUGUI currencyShop;
     public TextMeshProUGUI currencyWBench;
     public TextMeshProUGUI curHPShop;
@@ -106,6 +109,10 @@ public class gameManager : MonoBehaviour
         }
         if (playerScript.equipment == null)
             equipmentUI.SetActive(false);
+
+        shopPanelUI.SetActive(false);
+        wbStatsUI.SetActive(false);
+        wbUpradeUI.SetActive(false);
 
        UpdateUI();
     }
