@@ -9,6 +9,9 @@ public class MainMenu : MonoBehaviour
     public GameObject levelSelectMenu;
     public GameObject mainMenuDisplay;
 
+    public AudioSource audSample;
+    public AudioClip sample;
+
     private void Start() 
     {
         optionsMenu.SetActive(false);
@@ -42,5 +45,10 @@ public class MainMenu : MonoBehaviour
         creditsPanel.SetActive(false);
 
         mainMenuDisplay.SetActive(true);
+    }
+
+    public void PlaySample()
+    {
+        audSample.PlayOneShot(sample);
     }
 }
