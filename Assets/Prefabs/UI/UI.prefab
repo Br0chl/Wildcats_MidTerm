@@ -2570,7 +2570,7 @@ MonoBehaviour:
   wavesRemainingText: {fileID: 102362676182398697}
   spawner: {fileID: 0}
   levelUnlockUI: {fileID: 3780428416400932574}
-  currentLevel: {fileID: 0}
+  currentLevel: {fileID: 11400000, guid: c0b755511057b0445899cb0cc002779a, type: 2}
   hudUI: {fileID: 4727760245532150676}
   activeMenu: {fileID: 0}
   pauseMenu: {fileID: 5271345155728007922}
