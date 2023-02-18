@@ -289,6 +289,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+--- !u!1 &106492326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7572144912672449369, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 106492325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &106492327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2481063259537619500, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 106492325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &106492328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2481063258868002704, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 106492325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &374170938 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 374170938, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
@@ -1076,6 +1091,18 @@ PrefabInstance:
       propertyPath: maxHPShop
       value: 
       objectReference: {fileID: 81768634}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: wbStatsUI
+      value: 
+      objectReference: {fileID: 106492327}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: wbUpradeUI
+      value: 
+      objectReference: {fileID: 106492328}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: shopPanelUI
+      value: 
+      objectReference: {fileID: 106492326}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyShop
       value: 

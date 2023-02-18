@@ -368,6 +368,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &452478360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7572144912672449369, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 106492325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &700362336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4018515672574632876, guid: a520c2f362a15744fb3636a0c2701dcb, type: 3}
@@ -481,6 +486,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &765761780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2481063259537619500, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 106492325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &781867735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4018515672802591494, guid: a520c2f362a15744fb3636a0c2701dcb, type: 3}
@@ -637,6 +647,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+--- !u!1 &1040078105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2481063258868002704, guid: bf0256ef57b50e740a0adc9622bf445a, type: 3}
+  m_PrefabInstance: {fileID: 106492325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1093477041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4018515674342647131, guid: a520c2f362a15744fb3636a0c2701dcb, type: 3}
@@ -1354,6 +1369,18 @@ PrefabInstance:
       propertyPath: maxHPShop
       value: 
       objectReference: {fileID: 303563845}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: wbStatsUI
+      value: 
+      objectReference: {fileID: 765761780}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: wbUpradeUI
+      value: 
+      objectReference: {fileID: 1040078105}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: shopPanelUI
+      value: 
+      objectReference: {fileID: 452478360}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: currencyShop
       value: 
