@@ -945,10 +945,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrabBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 8581832023864913945, guid: 2810c4d70f4264c46a625b0cc28d6f1e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8958533140334930595, guid: 2810c4d70f4264c46a625b0cc28d6f1e, type: 3}
       propertyPath: m_RootOrder
       value: 11
