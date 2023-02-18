@@ -139,6 +139,7 @@ public class Workbench : MonoBehaviour
             upgradeUI.SetActive(false);
             activatePopUp.SetActive(true);
             gameManager.instance.playerScript.UpdateShootDamage();
+            gameManager.instance.UpdateUI();
             gameManager.instance.isShopping = false;
         }
     }
@@ -246,6 +247,13 @@ public class Workbench : MonoBehaviour
             UpdateUpgradePanel();
             UpdateStatsPanel();
             gameManager.instance.UpdateCurrencyUI();
+            if (gameManager.instance.playerScript.gunList.Contains(guns[gunToShow]))
+            {
+                guns[gunToShow].currentMagazines = guns[gunToShow].maxMagazines;
+                guns[gunToShow].currentMaxAmmo = guns[gunToShow].currentMagazines * guns[gunToShow].magCapacity;
+                gameManager.instance.UpdateActiveAmmo();
+                gameManager.instance.UpdateInactiveAmmo();
+            }
         }
     }
 
@@ -292,6 +300,14 @@ public class Workbench : MonoBehaviour
             UpdateUpgradePanel();
             UpdateStatsPanel();
             gameManager.instance.UpdateCurrencyUI();
+
+            if (gameManager.instance.playerScript.gunList.Contains(guns[gunToShow]) && guns[gunToShow].currentMagazines <= guns[gunToShow].startingMagazines)
+            {
+                guns[gunToShow].currentMagazines = guns[gunToShow].startingMagazines;
+                guns[gunToShow].currentMaxAmmo = guns[gunToShow].startingMagazines * guns[gunToShow].magCapacity;
+                gameManager.instance.UpdateActiveAmmo();
+                gameManager.instance.UpdateInactiveAmmo();
+            }
         }
     }
 
