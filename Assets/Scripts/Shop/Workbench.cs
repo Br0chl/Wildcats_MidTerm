@@ -65,6 +65,12 @@ public class Workbench : MonoBehaviour
     {
         gunModel.GetComponent<MeshFilter>().sharedMesh = guns[gunToShow].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = guns[gunToShow].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
+        // Check lock status
+        if (!guns[gunToShow].isUnlocked)
+            lockedUI.SetActive(true);
+        else
+            lockedUI.SetActive(false);
         UpdateStatsPanel();
 
         UpdateUpgradePanel();
@@ -135,6 +141,7 @@ public class Workbench : MonoBehaviour
             wbCamera.SetActive(false);
             gameManager.instance.hudUI.SetActive(true);
             gunModel.SetActive(false);
+            lockedUI.SetActive(false);
             statsUI.SetActive(false);
             upgradeUI.SetActive(false);
             activatePopUp.SetActive(true);

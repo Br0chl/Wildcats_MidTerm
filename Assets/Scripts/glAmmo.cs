@@ -22,7 +22,7 @@ public class glAmmo : MonoBehaviour
         // Calculate the direction from throw position to aim position
         Vector3 forceDirection = transform.forward;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 500f))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 50f))
         {
             forceDirection = (hit.point - transform.position).normalized;
         }

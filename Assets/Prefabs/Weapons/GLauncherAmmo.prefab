@@ -55,7 +55,7 @@ MonoBehaviour:
   explosionVol: 0.3
   projectileRb: {fileID: 7608633421981857432}
   part: {fileID: 233270090770763625}
-  ammoSpeed: 100
+  ammoSpeed: 40
 --- !u!33 &4935731015199867421
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ MeshRenderer:
   m_GameObject: {fileID: 3993834669635103773}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
