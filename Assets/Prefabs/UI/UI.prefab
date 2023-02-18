@@ -2564,6 +2564,14 @@ MonoBehaviour:
   playerSpawnPos: {fileID: 0}
   playerAnim: {fileID: 0}
   playerAudio: {fileID: 0}
+  guns:
+  - {fileID: 11400000, guid: d509cc948780fbe4d8f04cc6f3b2f3ee, type: 2}
+  - {fileID: 11400000, guid: 7f3a2699ccfa33e4abfd0079bf0a188e, type: 2}
+  - {fileID: 11400000, guid: 0a8bd1de4f3c93e408bb430c5742a36e, type: 2}
+  - {fileID: 11400000, guid: 587219d207fd6bd43813fb5ba000c99d, type: 2}
+  - {fileID: 11400000, guid: b34866ac7d831484f8f0247b6d8f8739, type: 2}
+  - {fileID: 11400000, guid: 58bfbea34c2a63146bd3d7790be3f40c, type: 2}
+  - {fileID: 11400000, guid: 1d970f17628cc344d9a7342f6b1a1df6, type: 2}
   maxWaves: 0
   currWave: 0
   enemiesRemainingText: {fileID: 5271345156498914433}

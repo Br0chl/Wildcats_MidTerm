@@ -5,6 +5,14 @@ using UnityEngine;
 [CreateAssetMenu]
 public class GunStats : ScriptableObject
 {
+    //******************************************
+    [Header("DEFAULT SETTINGS")]
+    [SerializeField] public int defaultDamage;
+    [SerializeField] public int defaultMaxMags;
+    [SerializeField] public int defaultStartMags;
+    //******************************************
+    [Header("---------------------")]
+    
     [Header("---Base Stats---")]
     [SerializeField] public WeaponType type;
     public string iName;

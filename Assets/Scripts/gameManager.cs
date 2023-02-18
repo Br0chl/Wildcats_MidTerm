@@ -16,6 +16,8 @@ public class gameManager : MonoBehaviour
     public Animator playerAnim;
     public AudioSource playerAudio;
 
+    [SerializeField] List<GunStats> guns = new List<GunStats>();
+
     [Header("---Game Goal---")]
     public int maxWaves;
     public int currWave;
@@ -100,6 +102,7 @@ public class gameManager : MonoBehaviour
         // Set UI Inactive if weapons null
         if (playerScript.gunList.Count == 1)
         {
+            playerScript.gunList[playerScript.selectedGun].isUnlocked = true;
             inactiveUI.SetActive(false);
         }
         if (playerScript.gunList.Count == 0)
@@ -110,6 +113,7 @@ public class gameManager : MonoBehaviour
         if (playerScript.equipment == null)
             equipmentUI.SetActive(false);
 
+        // Make sure shop panels are turned off
         shopPanelUI.SetActive(false);
         wbStatsUI.SetActive(false);
         wbUpradeUI.SetActive(false);
@@ -314,6 +318,25 @@ public class gameManager : MonoBehaviour
             inactiveMaxAmmoPopup.SetActive(true);
             yield return new WaitForSeconds(1);
             inactiveMaxAmmoPopup.SetActive(false);
+        }
+    }
+
+    // For resetting guns on reset
+    public void ResetGunStats()
+    {
+        foreach (GunStats gun in guns)
+        {
+            // Reset Upgrade Levels
+            gun.gunLevel = 0;
+            gun.damageUpgradeLevel = 0;
+            gun.maxAmmoUpgradeLevel = 0;
+            gun.startingMagsUpgradeLevel = 0;
+            gun.isUnlocked = false;
+
+            // Reset Base Stats
+            gun.shootDamage = gun.defaultDamage;
+            gun.maxMagazines = gun.defaultMaxMags;
+            gun.startingMagazines = gun.defaultStartMags;
         }
     }
 }
