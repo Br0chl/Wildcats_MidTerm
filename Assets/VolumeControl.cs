@@ -26,7 +26,7 @@ public class VolumeControl : MonoBehaviour
             return;
 
         if (enableSound)
-            _slider.value = _slider.maxValue;
+            _slider.value = PlayerPrefs.GetFloat(_volumeParameter, .5f);
         else
             _slider.value = _slider.minValue;
     }
