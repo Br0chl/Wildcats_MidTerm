@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15d6cf92ae64d74a989f4179dc20308, type: 3}
   m_Name: GrenadeLauncher
   m_EditorClassIdentifier: 
+  defaultDamage: 25
+  defaultMaxMags: 1
+  defaultStartMags: 1
   type: 5
   iName: Bomb's Away
   price: 5000
   costToUpgrade: 1000
   shootRate: 0.5
   shootDist: 20
-  shootDamage: 25
+  shootDamage: 0
   reloadSpeed: 3
   shots: 0
   shotAngle: 0
@@ -33,19 +36,19 @@ MonoBehaviour:
   gunAmmoOutAud: {fileID: 8300000, guid: 0c7aa6b61c4e00346adbc0a3736009a8, type: 3}
   gunAmmoOutAudVol: 0.5
   anim: {fileID: 22100000, guid: b2cca4fd5317d6f4ea48b60b52f125a9, type: 2}
-  currentAmmo: 0
+  currentAmmo: 5
   currentMaxAmmo: 0
   currentMagazines: 0
   magCapacity: 6
-  maxMagazines: 1
-  startingMagazines: 1
+  maxMagazines: 0
+  startingMagazines: 0
   swapSpeed: 1
-  isOutOfAmmo: 1
-  isAmmoFull: 0
+  isOutOfAmmo: 0
+  isAmmoFull: 1
   iconUI: {fileID: 21300000, guid: 3a8d347f817a2eb45afe2b0b01224277, type: 3}
   reticle: {fileID: 21300000, guid: e8f87019f4938d94da18e6a6c722d7aa, type: 3}
-  gunLevel: 1
+  gunLevel: 0
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 1
+  isUnlocked: 0

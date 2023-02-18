@@ -13,6 +13,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void Restart()
     {
+        gameManager.instance.ResetGunStats();
         gameManager.instance.UnPause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -34,6 +35,7 @@ public class buttonFunctions : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         Time.timeScale = gameManager.instance.timeScaleOrig;
+        gameManager.instance.ResetGunStats();
         SceneManager.LoadSceneAsync(0);
     }
 

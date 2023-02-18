@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15d6cf92ae64d74a989f4179dc20308, type: 3}
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
+  defaultDamage: 25
+  defaultMaxMags: 1
+  defaultStartMags: 1
   type: 6
   iName: Flamethrower
   price: 8000
   costToUpgrade: 2000
   shootRate: 0.05
   shootDist: 0
-  shootDamage: 20
+  shootDamage: 0
   reloadSpeed: 5
   shots: 0
   shotAngle: 0
@@ -37,15 +40,15 @@ MonoBehaviour:
   currentMaxAmmo: 100
   currentMagazines: 1
   magCapacity: 100
-  maxMagazines: 2
-  startingMagazines: 1
+  maxMagazines: 0
+  startingMagazines: 0
   swapSpeed: 1
   isOutOfAmmo: 0
   isAmmoFull: 0
   iconUI: {fileID: 21300000, guid: c172f8b9b03283f43b469dd81a411b53, type: 3}
   reticle: {fileID: 0}
-  gunLevel: 1
+  gunLevel: 0
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 1
+  isUnlocked: 0

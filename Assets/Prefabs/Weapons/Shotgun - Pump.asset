@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15d6cf92ae64d74a989f4179dc20308, type: 3}
   m_Name: Shotgun - Pump
   m_EditorClassIdentifier: 
+  defaultDamage: 30
+  defaultMaxMags: 12
+  defaultStartMags: 12
   type: 3
   iName: Shotgun - Pump
   price: 5000
   costToUpgrade: 1000
   shootRate: 0.2
   shootDist: 15
-  shootDamage: 25
+  shootDamage: 0
   reloadSpeed: 3
   shots: 12
   shotAngle: 0.09
@@ -37,15 +40,15 @@ MonoBehaviour:
   currentMaxAmmo: 0
   currentMagazines: 0
   magCapacity: 1
-  maxMagazines: 20
-  startingMagazines: 10
+  maxMagazines: 0
+  startingMagazines: 0
   swapSpeed: 1.5
   isOutOfAmmo: 1
   isAmmoFull: 0
   iconUI: {fileID: 21300000, guid: 0bd286faf67a0ff4aad4517013b6719a, type: 3}
   reticle: {fileID: 21300000, guid: 0bcd0f0280d657a4f85a4fbfb4c807a6, type: 3}
-  gunLevel: 1
+  gunLevel: 0
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 1
+  isUnlocked: 0
