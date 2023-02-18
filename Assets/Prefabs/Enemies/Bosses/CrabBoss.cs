@@ -22,6 +22,7 @@ public class CrabBoss : MonoBehaviour, isDamageable
     public bool canHeal = true;
     public bool isDead = false;
     public bool bothClawsDestroyed = false;
+    public bool isHealing;
 
     // BigClaw
     [SerializeField] GameObject bigClaw;
@@ -48,9 +49,16 @@ public class CrabBoss : MonoBehaviour, isDamageable
     public float slashRange;
     public int slashDamage;
 
-    //Combo Attack BigClaw required
+    // Combo Attack BigClaw required
     public bool canCombo = true;
     public int stabDamage;
+
+    // Spin Attack
+    public bool isSpinning = false;
+    public float spinTime;
+    public bool onCoolDown = false;
+    public int spinDamage;
+    public ParticleSystem spinPart;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +68,8 @@ public class CrabBoss : MonoBehaviour, isDamageable
         littleClawCollider.enabled = false;
         bigClawCollider.enabled = true;
         bossHp = bossMaxHP;
+        bigClawRenderer.sharedMaterial.SetColor("_Emission", new Color(0.2F, 0.2F, 0.2416F, 0.42F));
+        bigClawRenderer.sharedMaterial.EnableKeyword("_EMISSION");
     }
 
     // Update is called once per frame
@@ -76,11 +86,17 @@ public class CrabBoss : MonoBehaviour, isDamageable
                 StartCoroutine(SlashAttack());
             if (agent.remainingDistance < slashRange && canCombo && !bigClawDestroyed)
                 StartCoroutine(Combo());
+
+            // Spin Attack
+            if (bothClawsDestroyed && !isSpinning && !onCoolDown) 
+            {
+                StartCoroutine(SpinAttack());
+            }
         }
-        else if (!inRange && !isDead)
+        else if (!inRange && !isDead && !isSpinning)
         {
             //healPS.Play(true);
-            if (canHeal && bothClawsDestroyed)
+            if (canHeal && bothClawsDestroyed && !isSpinning)
                 StartCoroutine(HealSelf());
             agent.SetDestination(transform.position);
         }
@@ -106,7 +122,7 @@ public class CrabBoss : MonoBehaviour, isDamageable
             inRange = false;
             bossCollider.enabled = false;
             anim.SetBool("inRange", false);
-            if (bothClawsDestroyed)
+            if (bothClawsDestroyed && !isSpinning)
                 Instantiate(healPS, healPOS);
         }
     }
@@ -214,9 +230,11 @@ public class CrabBoss : MonoBehaviour, isDamageable
     IEnumerator HealSelf()
     {
         if (bossHp == bossMaxHP) yield break;
+        isHealing = true;
         canHeal = false;
         bossHp += bossHeal;
         yield return new WaitForSeconds(bossHealTimer);
+        isHealing = false;
         canHeal = true;
     }
 
@@ -228,5 +246,26 @@ public class CrabBoss : MonoBehaviour, isDamageable
     public void AttackColliderOff()
     {
         attackCollider.SetActive(false);
+    }
+
+    IEnumerator SpinAttack()
+    {
+        isSpinning = true;
+        bossCollider.enabled = false;
+        anim.SetBool("isSpinning", true); 
+        spinPart.Play(true);       
+        yield return new WaitForSeconds(spinTime);
+        anim.SetBool("isSpinning", false);
+        bossCollider.enabled = true;
+        spinPart.Stop(true);
+        isSpinning = false;
+        StartCoroutine(CoolDown());
+    }
+
+    IEnumerator CoolDown()
+    {
+        onCoolDown = true;
+        yield return new WaitForSeconds(3f);
+        onCoolDown = false;
     }
 }

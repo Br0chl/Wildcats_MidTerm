@@ -31,6 +31,7 @@ public class CrabRoll : MonoBehaviour
     {
         canAttack = false;
         gameManager.instance.playerScript.takeDamage(rollDamage);
+        Debug.Log("bubble hit");
         yield return new WaitForSeconds(2f);
         canAttack = true;
     }
