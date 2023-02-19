@@ -59,6 +59,7 @@ public class playerController : MonoBehaviour
     bool isPlayingSteps;
     bool isSprinting;
     public bool isReloading;
+    public bool gameStarted;
     bool isSwapping;
     bool readyToThrow = true;
 
@@ -99,7 +100,7 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.instance.isPaused)
+        if (!gameManager.instance.isPaused && gameStarted)
         {
             if (Input.GetKeyDown(KeyCode.G) && readyToThrow && gameManager.instance.playerScript.equipment != null)
             {
