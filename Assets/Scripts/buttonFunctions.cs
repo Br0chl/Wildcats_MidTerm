@@ -47,16 +47,19 @@ public class buttonFunctions : MonoBehaviour
     public void EasyMode()
     {
         gameManager.instance.spawner.StartSpawner(5, 12);
+        gameManager.instance.playerScript.gameStarted = true;
     }
 
     public void MediumMode()
     {
         gameManager.instance.spawner.StartSpawner(7, 18);
+        gameManager.instance.playerScript.gameStarted = true;
     }
 
     public void HardMode()
     {
         gameManager.instance.spawner.StartSpawner(10, 24);
+        gameManager.instance.playerScript.gameStarted = true;
     }
 
 
