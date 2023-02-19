@@ -2734,6 +2734,7 @@ MonoBehaviour:
   playerFaceSpeed: 10
   viewAngle: 90
   shootAngle: 45
+  shootDistance: 20
   shootPos: {fileID: 3354158878470741414}
   bullet: {fileID: 6029060459799580692, guid: 69c0a7f01c6c23441a0c7e5b12fff02d, type: 3}
   bulletSpeed: 30

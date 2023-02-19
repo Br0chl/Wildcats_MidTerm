@@ -20,6 +20,7 @@ public class enemyAI : MonoBehaviour, isDamageable
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int viewAngle;
     [SerializeField] int shootAngle;
+    [SerializeField] int shootDistance;
 
     [Header("-----Gun Stats-----")]
     [SerializeField] Transform shootPos;
@@ -89,7 +90,7 @@ public class enemyAI : MonoBehaviour, isDamageable
                     facePlayer();
                 }
 
-                if (!isShooting && angleToPlayer <= shootAngle && !isDead)
+                if (!isShooting && angleToPlayer <= shootAngle && !isDead && Vector3.Distance(gameManager.instance.player.transform.position, transform.position) <= shootDistance)
                 {
                     StartCoroutine(shoot());
                 }
