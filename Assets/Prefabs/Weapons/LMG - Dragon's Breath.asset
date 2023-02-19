@@ -21,7 +21,7 @@ MonoBehaviour:
   costToUpgrade: 1000
   shootRate: 0.3
   shootDist: 35
-  shootDamage: 0
+  shootDamage: 18
   reloadSpeed: 3.5
   shots: 0
   shotAngle: 0
