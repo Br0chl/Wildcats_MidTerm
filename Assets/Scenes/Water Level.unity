@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.34595454, g: 0.5081604, b: 0.6467421, a: 1}
+  m_IndirectSpecularColor: {r: 0.34621793, g: 0.5075995, b: 0.64650756, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -612,10 +612,6 @@ PrefabInstance:
     - target: {fileID: 7906761430492007848, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
       propertyPath: m_Name
       value: World2(Water)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7906761430492007849, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
-      propertyPath: m_EnableTreeColliders
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7906761430492007851, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
       propertyPath: m_RootOrder
