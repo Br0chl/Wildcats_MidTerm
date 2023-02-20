@@ -40,8 +40,8 @@ MonoBehaviour:
   currentMaxAmmo: 100
   currentMagazines: 1
   magCapacity: 100
-  maxMagazines: 0
-  startingMagazines: 0
+  maxMagazines: 1
+  startingMagazines: 1
   swapSpeed: 1
   isOutOfAmmo: 0
   isAmmoFull: 0

@@ -128,7 +128,7 @@ public class enemyAI : MonoBehaviour, isDamageable
                 part.Stop();
             agent.SetDestination(transform.position);
             agent.speed = 0;
-            transform.LookAt(null);
+            transform.GetComponent<enemyAI>().enabled = false;
             anim.SetTrigger("Die");
             isDead = true;
             agent.baseOffset = 0;

@@ -40,10 +40,10 @@ MonoBehaviour:
   currentMaxAmmo: 0
   currentMagazines: 0
   magCapacity: 1
-  maxMagazines: 0
-  startingMagazines: 0
+  maxMagazines: 8
+  startingMagazines: 8
   swapSpeed: 1.5
-  isOutOfAmmo: 1
+  isOutOfAmmo: 0
   isAmmoFull: 0
   iconUI: {fileID: 21300000, guid: 0bd286faf67a0ff4aad4517013b6719a, type: 3}
   reticle: {fileID: 21300000, guid: 0bcd0f0280d657a4f85a4fbfb4c807a6, type: 3}

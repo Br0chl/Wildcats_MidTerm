@@ -37,11 +37,11 @@ MonoBehaviour:
   gunAmmoOutAudVol: 0.5
   anim: {fileID: 22100000, guid: 8479d59cee26d2a4ebc3dd1136c8fe0f, type: 2}
   currentAmmo: 30
-  currentMaxAmmo: 0
-  currentMagazines: 0
+  currentMaxAmmo: 30
+  currentMagazines: 1
   magCapacity: 30
-  maxMagazines: 0
-  startingMagazines: 0
+  maxMagazines: 1
+  startingMagazines: 1
   swapSpeed: 1
   isOutOfAmmo: 0
   isAmmoFull: 1

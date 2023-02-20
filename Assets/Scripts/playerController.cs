@@ -575,10 +575,13 @@ public class playerController : MonoBehaviour
 
                 if (gs.currentMagazines == gs.maxMagazines)
                 {
-                    if (gs == gunList[0])
-                        StartCoroutine(gameManager.instance.MaxAmmoPopUp(0));
-                    else if (gs == gunList[1])
-                        StartCoroutine(gameManager.instance.MaxAmmoPopUp(1));
+                    if (gs.currentAmmo != 0)
+                        if (gs == gunList[0] && gs == gunList[selectedGun])
+                            StartCoroutine(gameManager.instance.MaxAmmoPopUp(0));
+                        else if (gs == gunList[1] && gs == gunList[selectedGun])
+                            StartCoroutine(gameManager.instance.MaxAmmoPopUp(0));
+                        else
+                            StartCoroutine(gameManager.instance.MaxAmmoPopUp(1));
                     gs.isAmmoFull = true;
                 }
                 else
