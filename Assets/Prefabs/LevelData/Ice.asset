@@ -16,7 +16,7 @@ MonoBehaviour:
   strName: Ice Level
   buildIndex: 2
   levelToUnlock: {fileID: 11400000, guid: d69ca1ff99a26df4f9e1deecc800c791, type: 2}
-  wavesToUnlock: 4
+  wavesToUnlock: 0
   levelImage: {fileID: 21300000, guid: 3d1ea09d39c14df45b3702a168f2aae8, type: 3}
   highestWaveCompleted: 0
   isUnlocked: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultDamage: 12
   defaultMaxMags: 5
-  defaultStartMags: 5
+  defaultStartMags: 10
   type: 0
   iName: Handgun
   price: 100
