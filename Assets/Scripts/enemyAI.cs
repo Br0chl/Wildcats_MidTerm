@@ -12,6 +12,7 @@ public class enemyAI : MonoBehaviour, isDamageable
     [SerializeField] protected ParticleSystem part;
     [SerializeField] SkinnedMeshRenderer model;
     [SerializeField] protected UnityEvent<int> takeDamage;
+    [SerializeField] protected AudioSource aud;
 
     [Header("-----Enemy Stats-----")]
     [SerializeField] Enemies enemyType;
@@ -37,6 +38,11 @@ public class enemyAI : MonoBehaviour, isDamageable
     [Header("----- Bomb Only -----")]
     [SerializeField] BombExplosion bombHandler;
     [Range(1, 5)] [SerializeField] int selfDestructStartRange;
+
+    [Header("----- Audio -----")]
+    [SerializeField] AudioClip audEnemySound;
+    [Range(0, 1)] [SerializeField] float audEnemySoundVol;
+
 
     float angleToPlayer;
 
@@ -122,6 +128,7 @@ public class enemyAI : MonoBehaviour, isDamageable
                 part.Stop();
             agent.SetDestination(transform.position);
             agent.speed = 0;
+            transform.LookAt(null);
             anim.SetTrigger("Die");
             isDead = true;
             agent.baseOffset = 0;
@@ -205,6 +212,7 @@ public class enemyAI : MonoBehaviour, isDamageable
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            aud.PlayOneShot(audEnemySound, audEnemySoundVol);
             if (part != null)
                 part.Play(true);
         }
