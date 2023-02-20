@@ -11,6 +11,7 @@ public class BombExplosion : MonoBehaviour
     [SerializeField] ParticleSystem ignitionParticles;
     [SerializeField] ParticleSystem explosionParticles;
     [SerializeField] Animator anim;
+    [SerializeField] AudioSource aud;
 
     [Header("----- Self Destruct Stats ----")]
     [Range(1, 30)][SerializeField] float explosionRadius;
@@ -27,6 +28,10 @@ public class BombExplosion : MonoBehaviour
     [Header("----- Ice Explosion -----")]
     [Range(1, 10)][SerializeField] int slowDuration;
     [Range(1, 10)][SerializeField] int overrideSpeed;
+
+    [Header("----- Audio -----")]
+    [SerializeField] AudioClip audExplosionSound;
+    [Range(0, 1)] [SerializeField] float audExplosionVol;
 
     float detonationTimer;
     bool exploding;
@@ -49,6 +54,7 @@ public class BombExplosion : MonoBehaviour
         ignitionParticles.Play();       
         yield return new WaitForSeconds(timeTillDetonation);
         ignitionParticles.Stop();
+        aud.PlayOneShot(audExplosionSound, audExplosionVol);
         HandleExplosion();
     }
 
