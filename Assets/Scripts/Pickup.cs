@@ -54,7 +54,8 @@ public class Pickup : MonoBehaviour
         {
             if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].isAmmoFull) 
             {
-                StartCoroutine(gameManager.instance.MaxAmmoPopUp(0));
+                if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].currentAmmo != 0)
+                    StartCoroutine(gameManager.instance.MaxAmmoPopUp(0));
                 return;
             }
             

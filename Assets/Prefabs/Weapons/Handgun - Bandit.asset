@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Handgun - Bandit
   m_EditorClassIdentifier: 
   defaultDamage: 12
-  defaultMaxMags: 5
+  defaultMaxMags: 10
   defaultStartMags: 10
   type: 0
   iName: Handgun
@@ -36,19 +36,19 @@ MonoBehaviour:
   gunAmmoOutAud: {fileID: 8300000, guid: 2ef1036f2988dd5419c35ab6f0145e22, type: 3}
   gunAmmoOutAudVol: 0.5
   anim: {fileID: 22100000, guid: a3865f31dccecb8418a65f973c851cec, type: 2}
-  currentAmmo: 11
-  currentMaxAmmo: 36
-  currentMagazines: 3
+  currentAmmo: 12
+  currentMaxAmmo: 120
+  currentMagazines: 10
   magCapacity: 12
-  maxMagazines: 0
-  startingMagazines: 0
+  maxMagazines: 10
+  startingMagazines: 10
   swapSpeed: 1.8
   isOutOfAmmo: 0
-  isAmmoFull: 0
+  isAmmoFull: 1
   iconUI: {fileID: 21300000, guid: c756018099452ee448b12fd9bda8883b, type: 3}
   reticle: {fileID: 0}
   gunLevel: 0
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 0
+  isUnlocked: 1
