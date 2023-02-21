@@ -47,6 +47,7 @@ public class ShopKeeper : MonoBehaviour
             gameManager.instance.isShopping = true;
             //gameManager.instance.playerScript.enabled = false;
             shopCam.SetActive(true);
+            gameManager.instance.weaponCam.SetActive(false);
             tentLight.SetActive(true);
             gameManager.instance.playerScript.enabled = false;
             gameManager.instance.currencyShop.text = gameManager.instance.playerScript.totalCurrency.ToString();
@@ -66,6 +67,7 @@ public class ShopKeeper : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             shopCam.SetActive(false);
             tentLight.SetActive(false);
+            gameManager.instance.weaponCam.SetActive(true);
             gameManager.instance.playerScript.enabled = true;
             //gameManager.instance.playerScript.enabled = true;
             gameManager.instance.hudUI.SetActive(true);

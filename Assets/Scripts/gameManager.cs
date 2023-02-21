@@ -46,6 +46,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI popupWeaponName;
 
     [Header("---Active Weapon UI---")]
+    public GameObject weaponCam;
     public GameObject activeUI;
     public Image activeWeaponIcon;
     public TextMeshProUGUI activeCurrentAmmo;
@@ -139,6 +140,7 @@ public class gameManager : MonoBehaviour
     // Pause Game - Bring up Pause menu UI
     public void Pause()
     {
+        weaponCam.SetActive(false);
         Time.timeScale = 0f;
         AudioListener.pause = true;
         Cursor.visible = true;
@@ -149,6 +151,7 @@ public class gameManager : MonoBehaviour
     public void UnPause()
     {
         Time.timeScale = 1f;
+        weaponCam.SetActive(true);
         AudioListener.pause = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

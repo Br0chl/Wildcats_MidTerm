@@ -124,6 +124,7 @@ public class Workbench : MonoBehaviour
             gunModel.SetActive(true);
             gameManager.instance.playerScript.enabled = false;
             gameManager.instance.hudUI.SetActive(false);
+            gameManager.instance.weaponCam.SetActive(false);
             wbCamera.SetActive(true);
             Time.timeScale = 0f;
             Cursor.visible = true;
@@ -140,6 +141,7 @@ public class Workbench : MonoBehaviour
             gameManager.instance.playerScript.enabled = true;
             wbCamera.SetActive(false);
             gameManager.instance.hudUI.SetActive(true);
+            gameManager.instance.weaponCam.SetActive(true);
             gunModel.SetActive(false);
             lockedUI.SetActive(false);
             statsUI.SetActive(false);

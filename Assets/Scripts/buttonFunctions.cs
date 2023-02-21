@@ -32,6 +32,7 @@ public class buttonFunctions : MonoBehaviour
     public void ReturnToMain()
     {
         gameManager.instance.UnPause();
+        gameManager.instance.weaponCam.SetActive(false);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         Time.timeScale = gameManager.instance.timeScaleOrig;
