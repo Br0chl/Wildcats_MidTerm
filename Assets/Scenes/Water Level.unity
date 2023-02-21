@@ -123,6 +123,76 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 083defd2d79d51c458889060c75a901b, type: 2}
+--- !u!1 &54247149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6303751861237762573, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
+  m_PrefabInstance: {fileID: 140320116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &54247151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54247149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 54247153}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 544
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!4 &54247153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6303751861237762570, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
+  m_PrefabInstance: {fileID: 140320116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &98043766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,7 +1380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6303751861237762573, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6303751861394676521, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_Type
@@ -2594,6 +2664,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e01095ec9d30d441bf10732d5d637c5, type: 3}
+--- !u!1 &1593562123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1269101579213548057, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
+  m_PrefabInstance: {fileID: 6272015390118865503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1609418263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6272015390771529518, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
@@ -2998,6 +3073,10 @@ PrefabInstance:
       propertyPath: wbStatsUI
       value: 
       objectReference: {fileID: 512310523}
+    - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: weaponCam
+      value: 
+      objectReference: {fileID: 1593562123}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: wbUpradeUI
       value: 
