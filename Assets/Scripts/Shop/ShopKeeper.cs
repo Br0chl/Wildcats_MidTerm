@@ -7,6 +7,7 @@ public class ShopKeeper : MonoBehaviour
     [SerializeField] GameObject activatePopUp;
     [SerializeField] GameObject shopUI;
     [SerializeField] GameObject shopCam;
+    [SerializeField] GameObject tentLight;
 
     bool isActivated;
     bool playerInTrigger;
@@ -46,6 +47,7 @@ public class ShopKeeper : MonoBehaviour
             gameManager.instance.isShopping = true;
             //gameManager.instance.playerScript.enabled = false;
             shopCam.SetActive(true);
+            tentLight.SetActive(true);
             gameManager.instance.playerScript.enabled = false;
             gameManager.instance.currencyShop.text = gameManager.instance.playerScript.totalCurrency.ToString();
             gameManager.instance.curHPShop.text = gameManager.instance.playerScript.currentHP.ToString();
@@ -63,6 +65,7 @@ public class ShopKeeper : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             shopCam.SetActive(false);
+            tentLight.SetActive(false);
             gameManager.instance.playerScript.enabled = true;
             //gameManager.instance.playerScript.enabled = true;
             gameManager.instance.hudUI.SetActive(true);
