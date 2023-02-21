@@ -2344,6 +2344,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 45001675, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7906761430492007848, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
       propertyPath: m_Name
       value: World2(Water)
@@ -2853,6 +2857,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5016844766553462225, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
   m_PrefabInstance: {fileID: 140320116}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2067386334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7906761430735931840, guid: 830d171aa99e14d429e30afa71a8a46c, type: 3}
+  m_PrefabInstance: {fileID: 900353626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2067386338
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067386334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 6c5d0853a8153ed4686e4f2bb0116b8e, type: 3}
 --- !u!114 &2118718854 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3838563776528317729, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
