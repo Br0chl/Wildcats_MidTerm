@@ -7,6 +7,7 @@ public class LavaDamage : MonoBehaviour
     [SerializeField] int burnAmount;
     [SerializeField] int burnCooldown;
     bool canBurn = true;
+    int burnCount = 1;
 
     private void OnTriggerStay(Collider other)
     {
@@ -17,11 +18,18 @@ public class LavaDamage : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other) 
+    {
+        if (other.CompareTag("Player"))
+            burnCount = 1;
+    }
+
     IEnumerator LavaDmg()
     {
         if (canBurn)
         {
-            gameManager.instance.playerScript.takeDamage(burnAmount);
+            gameManager.instance.playerScript.takeDamage(burnAmount * burnCount);
+            burnCount++;
             canBurn = false;
         }
         yield return new WaitForSeconds(burnCooldown);
