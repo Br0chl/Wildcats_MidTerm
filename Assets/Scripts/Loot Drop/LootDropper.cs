@@ -65,17 +65,17 @@ public class LootDropper : MonoBehaviour
 
         foreach (Loot lootDrop in itemsToDrop)
         {
-            Vector3 randomDir = Random.insideUnitSphere;
-            randomDir += new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
+            // Vector3 randomDir = Random.insideUnitSphere;
+            // randomDir += new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
 
-            // Check that destination is on the navMesh
-            NavMeshHit hit;
-            NavMesh.SamplePosition(new Vector3(randomDir.x, 0, randomDir.z), out hit, 1, 1);
+            // // Check that destination is on the navMesh
+            // NavMeshHit hit;
+            // NavMesh.SamplePosition(new Vector3(randomDir.x, 0, randomDir.z), out hit, 1, 1);
 
-            if (hit.position != null)
-            {
-                GameObject drop = Instantiate(lootDrop.gameObject, lootSpawn + hit.position, Quaternion.identity);
-            }
+            //if (hit.position != null)
+            //{
+                GameObject drop = Instantiate(lootDrop.gameObject, lootSpawn, Quaternion.identity); //lootspawn +hit.position
+            //}
         }
     }
 }
