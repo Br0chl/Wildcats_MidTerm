@@ -907,6 +907,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2834942409099339153, guid: a520c2f362a15744fb3636a0c2701dcb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5742557236056708164, guid: a520c2f362a15744fb3636a0c2701dcb, type: 3}
       propertyPath: m_Name
       value: World3(Ice)
