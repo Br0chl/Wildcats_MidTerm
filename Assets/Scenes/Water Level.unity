@@ -2349,6 +2349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wave Spawners
       objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: maxWaves
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3599848792014023527, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: m_RootOrder
       value: 7
