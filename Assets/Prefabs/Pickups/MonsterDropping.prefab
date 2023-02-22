@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthToRestore: 0
-  currencyAmount: 100
+  currencyAmount: 1
   magazineAmount: 0
   throwable: {fileID: 0}
   popUpActive: 0

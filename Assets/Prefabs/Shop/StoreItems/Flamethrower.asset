@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   iName: Flamethrower
-  price: 1000
+  price: 30
   icon: {fileID: 21300000, guid: f3e6aa40737b6814f8c9cd259f6711e2, type: 3}
   gunStats: {fileID: 11400000, guid: 7f3a2699ccfa33e4abfd0079bf0a188e, type: 2}
   hpToAdd: 0

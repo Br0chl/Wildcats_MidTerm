@@ -17,8 +17,8 @@ MonoBehaviour:
   defaultStartMags: 12
   type: 3
   iName: Shotgun - Pump
-  price: 5000
-  costToUpgrade: 1000
+  price: 8
+  costToUpgrade: 2
   shootRate: 0.2
   shootDist: 15
   shootDamage: 30
@@ -40,8 +40,8 @@ MonoBehaviour:
   currentMaxAmmo: 0
   currentMagazines: 0
   magCapacity: 1
-  maxMagazines: 8
-  startingMagazines: 8
+  maxMagazines: 12
+  startingMagazines: 12
   swapSpeed: 1.5
   isOutOfAmmo: 0
   isAmmoFull: 0

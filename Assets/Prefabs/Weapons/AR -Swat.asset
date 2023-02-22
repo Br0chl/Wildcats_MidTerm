@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AR -Swat
   m_EditorClassIdentifier: 
   defaultDamage: 20
-  defaultMaxMags: 1
-  defaultStartMags: 1
+  defaultMaxMags: 2
+  defaultStartMags: 2
   type: 2
   iName: Assault Rifle
-  price: 1000
-  costToUpgrade: 300
+  price: 3
+  costToUpgrade: 1
   shootRate: 0.5
   shootDist: 50
   shootDamage: 20
@@ -37,11 +37,11 @@ MonoBehaviour:
   gunAmmoOutAudVol: 0.5
   anim: {fileID: 22100000, guid: 0347a0bc22afc6d43a1370e719f5ad91, type: 2}
   currentAmmo: 13
-  currentMaxAmmo: 162
-  currentMagazines: 1
+  currentMaxAmmo: 198
+  currentMagazines: 11
   magCapacity: 18
-  maxMagazines: 1
-  startingMagazines: 1
+  maxMagazines: 2
+  startingMagazines: 2
   swapSpeed: 1.5
   isOutOfAmmo: 0
   isAmmoFull: 0
