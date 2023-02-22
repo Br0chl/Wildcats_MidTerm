@@ -2611,6 +2611,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 185118222, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655396295, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839799731, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1177371432, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861170280, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2584812125829661141, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
       propertyPath: m_Name
       value: World4(Fire)

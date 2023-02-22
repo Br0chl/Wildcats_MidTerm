@@ -3171,7 +3171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8745255098338658383, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
       propertyPath: m_DrawInstanced
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8745255098338658383, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
       propertyPath: m_ShadowCastingMode
@@ -3188,6 +3188,10 @@ PrefabInstance:
     - target: {fileID: 8745255098338658383, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
       propertyPath: m_TreeBillboardDistance
       value: 16.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745255098338658383, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
+      propertyPath: m_PreserveTreePrototypeLayers
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
@@ -3383,6 +3387,14 @@ PrefabInstance:
       propertyPath: gunList.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 1d970f17628cc344d9a7342f6b1a1df6, type: 2}
+    - target: {fileID: 6272015389978710683, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272015389978710683, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6272015389978710684, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
       propertyPath: m_Name
       value: Player
