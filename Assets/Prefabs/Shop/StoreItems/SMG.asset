@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SMG
   m_EditorClassIdentifier: 
   iName: SMG
-  price: 300
+  price: 2
   icon: {fileID: 21300000, guid: f3e6aa40737b6814f8c9cd259f6711e2, type: 3}
   gunStats: {fileID: 11400000, guid: 1d970f17628cc344d9a7342f6b1a1df6, type: 2}
   hpToAdd: 0

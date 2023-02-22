@@ -17,8 +17,8 @@ MonoBehaviour:
   defaultStartMags: 10
   type: 0
   iName: Handgun
-  price: 100
-  costToUpgrade: 100
+  price: 1
+  costToUpgrade: 1
   shootRate: 1
   shootDist: 25
   shootDamage: 12
@@ -51,4 +51,4 @@ MonoBehaviour:
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 1
+  isUnlocked: 0

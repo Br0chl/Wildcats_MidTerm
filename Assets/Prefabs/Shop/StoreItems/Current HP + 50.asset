@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Current HP + 50
   m_EditorClassIdentifier: 
   iName: Current HP + 50
-  price: 100
+  price: 5
   icon: {fileID: 21300000, guid: 390c0e8953d3bd542b5563b6f00ec9e6, type: 3}
   gunStats: {fileID: 0}
   hpToAdd: 50

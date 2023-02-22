@@ -17,8 +17,8 @@ MonoBehaviour:
   defaultStartMags: 1
   type: 6
   iName: Flamethrower
-  price: 8000
-  costToUpgrade: 2000
+  price: 20
+  costToUpgrade: 5
   shootRate: 0.05
   shootDist: 0
   shootDamage: 25

@@ -3375,18 +3375,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6272015389978710680, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
-      propertyPath: totalCurrency
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6272015389978710680, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
-      propertyPath: gunList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6272015389978710680, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
-      propertyPath: gunList.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1d970f17628cc344d9a7342f6b1a1df6, type: 2}
     - target: {fileID: 6272015389978710683, guid: f863cb9ae0c55ad4e9f71a2fae735550, type: 3}
       propertyPath: m_CastShadows
       value: 0
