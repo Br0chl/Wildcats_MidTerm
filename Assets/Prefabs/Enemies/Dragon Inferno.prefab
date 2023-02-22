@@ -2067,8 +2067,8 @@ MonoBehaviour:
   - {fileID: 6763614599651540900, guid: 703da7688b78f1a4fb36a0d20217f83b, type: 3}
   - {fileID: 2149377966008345986, guid: c8d4d6db99ece8545b4972c667a3446b, type: 3}
   - {fileID: 2149377966008345986, guid: c8d4d6db99ece8545b4972c667a3446b, type: 3}
-  - {fileID: 9139615897270490401, guid: dc988f58fefde4f4dbc6eeae4c315e6c, type: 3}
-  - {fileID: 9139615897270490401, guid: dc988f58fefde4f4dbc6eeae4c315e6c, type: 3}
+  - {fileID: -3898317308709587540, guid: e2a91fb2ed1a30f4a9d47d3b43f136f9, type: 3}
+  - {fileID: -3898317308709587540, guid: e2a91fb2ed1a30f4a9d47d3b43f136f9, type: 3}
 --- !u!82 &4112038749216727535
 AudioSource:
   m_ObjectHideFlags: 0
