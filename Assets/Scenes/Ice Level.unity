@@ -920,6 +920,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: World3(Ice)
       objectReference: {fileID: 0}
+    - target: {fileID: 5742557236056708166, guid: a520c2f362a15744fb3636a0c2701dcb, type: 3}
+      propertyPath: m_PreserveTreePrototypeLayers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5742557236056708169, guid: a520c2f362a15744fb3636a0c2701dcb, type: 3}
       propertyPath: m_RootOrder
       value: 8
