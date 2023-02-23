@@ -45,10 +45,10 @@ MonoBehaviour:
   swapSpeed: 1.8
   isOutOfAmmo: 0
   isAmmoFull: 1
-  iconUI: {fileID: 21300000, guid: c756018099452ee448b12fd9bda8883b, type: 3}
+  iconUI: {fileID: 21300000, guid: 912bac3facb764a4e838e36aa525cd48, type: 3}
   reticle: {fileID: 0}
-  gunLevel: 0
+  gunLevel: 1
   damageUpgradeLevel: 0
   maxAmmoUpgradeLevel: 0
   startingMagsUpgradeLevel: 0
-  isUnlocked: 0
+  isUnlocked: 1
