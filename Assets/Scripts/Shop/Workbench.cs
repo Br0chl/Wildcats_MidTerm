@@ -156,6 +156,8 @@ public class Workbench : MonoBehaviour
             gameManager.instance.playerScript.UpdateShootDamage();
             gameManager.instance.UpdateUI();
             gameManager.instance.isShopping = false;
+            if (gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun].currentAmmo == 0)
+                StartCoroutine(gameManager.instance.playerScript.Reload());
         }
     }
 
@@ -270,6 +272,7 @@ public class Workbench : MonoBehaviour
             {
                 guns[gunToShow].currentMagazines = guns[gunToShow].maxMagazines;
                 guns[gunToShow].currentMaxAmmo = guns[gunToShow].currentMagazines * guns[gunToShow].magCapacity;
+                guns[gunToShow].isOutOfAmmo = false;
                 gameManager.instance.UpdateActiveAmmo();
                 gameManager.instance.UpdateInactiveAmmo();
             }
