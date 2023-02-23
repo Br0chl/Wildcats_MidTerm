@@ -356,7 +356,13 @@ public class playerController : MonoBehaviour
             }
             if (gunList[selectedGun].type == WeaponType.Flamethrower)
             {
-                
+                if (gunList[selectedGun].currentAmmo == 1 && gunList[selectedGun].currentMagazines == 0)
+                {
+                    gunList[selectedGun].currentAmmo = 0;
+                    flameThrowerPart.gameObject.SetActive(false);
+                    gunList[selectedGun].isOutOfAmmo = true;
+                }
+                gameManager.instance.UpdateActiveAmmo();
             }
             else
             {
@@ -414,7 +420,9 @@ public class playerController : MonoBehaviour
     {
         isReloading = true;
         if (gunList[selectedGun].type == WeaponType.Flamethrower)
+        {
             flameThrowerPart.gameObject.SetActive(false);
+        }
 
         if (gunList[selectedGun].currentAmmo == gunList[selectedGun].magCapacity)
         {

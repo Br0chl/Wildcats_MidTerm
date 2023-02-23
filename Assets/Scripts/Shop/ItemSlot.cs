@@ -13,6 +13,7 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] TextMeshProUGUI price;
     [SerializeField] GameObject buyButton;
     [SerializeField] GameObject ammoCover;
+    [SerializeField] GameObject currencyIcon;
 
     private void Update()
     {
@@ -27,6 +28,7 @@ public class ItemSlot : MonoBehaviour
 
         icon.sprite = newItem.icon;
         icon.enabled = true;
+        currencyIcon.SetActive(true);
         iName.text = newItem.iName;
         PriceCheck(item);
         price.text = newItem.price.ToString();
@@ -43,12 +45,14 @@ public class ItemSlot : MonoBehaviour
                 if (item.gunStats.currentMagazines == item.gunStats.maxMagazines)
                 {
                     buyButton.SetActive(false);
+                    currencyIcon.SetActive(false);
                     price.faceColor = Color.red;
                     price.text = "MAX";
                 }
                 else
                 {
                     buyButton.SetActive(true);
+                    currencyIcon.SetActive(true);
                     price.faceColor = Color.white;
                     price.text = item.price.ToString();
                 }
@@ -68,14 +72,16 @@ public class ItemSlot : MonoBehaviour
             if (gameManager.instance.playerScript.currentHP == gameManager.instance.playerScript.maxHP)
             {
                 buyButton.SetActive(false);
+                currencyIcon.SetActive(false);
                 price.faceColor = Color.red;
                 price.text = "FULL";
             }
             else
             {
-                    buyButton.SetActive(true);
-                    price.color = Color.white;
-                    price.text = item.price.ToString();
+                buyButton.SetActive(true);
+                currencyIcon.SetActive(true);
+                price.color = Color.white;
+                price.text = item.price.ToString();
             }
         }
     }
@@ -98,6 +104,7 @@ public class ItemSlot : MonoBehaviour
     public void ClearSlot()
     {
         icon.enabled = false;
+        currencyIcon.SetActive(false);
         iName.text = "";
         price.text = "";
         buyButton.SetActive(false);
