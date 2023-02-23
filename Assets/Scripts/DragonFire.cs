@@ -31,7 +31,7 @@ public class DragonFire : MonoBehaviour
     {
         canAttack = false;
         gameManager.instance.playerScript.takeDamage(breathDamage);
-        yield return new WaitForSeconds(.05f);
+        yield return new WaitForSeconds(.08f);
         canAttack = true;
     }
 }

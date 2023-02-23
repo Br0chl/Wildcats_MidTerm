@@ -45,7 +45,6 @@ public class enemyAI : MonoBehaviour, isDamageable
 
 
     float angleToPlayer;
-
     bool isShooting;
     bool playerInRange;
     Vector3 playerDir;
@@ -118,14 +117,16 @@ public class enemyAI : MonoBehaviour, isDamageable
         if (gameManager.instance.isDamageUp)
             dmg = dmg * 2;
 
-        HP -= dmg;
+            HP -= dmg;
+
         anim.SetTrigger("Damage");
+
         agent.SetDestination(gameManager.instance.player.transform.position);
         takeDamage.Invoke(dmg);
         if (HP <= 0)
         {
             if (part != null)
-                part.Stop();
+                part.gameObject.SetActive(false);
             agent.SetDestination(transform.position);
             agent.speed = 0;
             transform.GetComponent<enemyAI>().enabled = false;
@@ -156,8 +157,8 @@ public class enemyAI : MonoBehaviour, isDamageable
     {
         isShooting = true;
 
-
-        anim.SetTrigger("Shoot");
+        if (enemyType != Enemies.Dragon)
+            anim.SetTrigger("Shoot");
         switch (enemyType)
         {
             case Enemies.Crab:
@@ -214,7 +215,9 @@ public class enemyAI : MonoBehaviour, isDamageable
             playerInRange = true;
             aud.PlayOneShot(audEnemySound, audEnemySoundVol);
             if (part != null)
+            {
                 part.Play(true);
+            }
         }
     }
 
@@ -232,5 +235,19 @@ public class enemyAI : MonoBehaviour, isDamageable
     public void Heal(int amountToHeal)
     {
         HP += amountToHeal;
+    }
+
+    public void FireOff()
+    {
+            StartCoroutine(FirePause());
+    }
+
+    IEnumerator FirePause()
+    {
+        //part.gameObject.SetActive(false);
+        part.Stop(true);
+        yield return new WaitForSeconds(.3f);
+        //part.gameObject.SetActive(true);
+        part.Play(true);
     }
 }
