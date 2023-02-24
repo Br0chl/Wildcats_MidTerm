@@ -1227,6 +1227,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6008401600063052199, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
+      propertyPath: m_TagString
+      value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008401600063052199, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1971,6 +1975,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7620400134221997681, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
+      propertyPath: m_TagString
+      value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620400134221997681, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1997,6 +2005,10 @@ PrefabInstance:
     - target: {fileID: 7695439341715587357, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695439341715587357, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
+      propertyPath: m_TagString
+      value: Level
       objectReference: {fileID: 0}
     - target: {fileID: 7758579627443831744, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_Layer
@@ -2673,6 +2685,10 @@ PrefabInstance:
     - target: {fileID: 2584812125829661141, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
       propertyPath: m_Name
       value: World4(Fire)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584812125829661141, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2584812125829661162, guid: d9a3b97144323f240bd5bef6c44a4c18, type: 3}
       propertyPath: m_RootOrder

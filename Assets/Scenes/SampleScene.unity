@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -863,6 +863,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6008401600063052199, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
+      propertyPath: m_TagString
+      value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008401600063052199, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1667,6 +1671,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7620400134221997681, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
+      propertyPath: m_TagString
+      value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620400134221997681, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1689,6 +1697,10 @@ PrefabInstance:
     - target: {fileID: 7695439341715587357, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695439341715587357, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
+      propertyPath: m_TagString
+      value: Level
       objectReference: {fileID: 0}
     - target: {fileID: 7758579627443831744, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
       propertyPath: m_Layer
@@ -3539,6 +3551,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3447463822443164246, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447463823182522120, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467650929039265015, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
+      propertyPath: m_TagString
+      value: Level
+      objectReference: {fileID: 0}
     - target: {fileID: 8147278266944170129, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.872294
@@ -3566,6 +3590,10 @@ PrefabInstance:
     - target: {fileID: 8745255098338658353, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
       propertyPath: m_Name
       value: World(GrasslandU)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745255098338658353, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8745255098338658382, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
       propertyPath: m_RootOrder
@@ -3634,6 +3662,10 @@ PrefabInstance:
     - target: {fileID: 8745255098338658383, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
       propertyPath: m_PreserveTreePrototypeLayers
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180264700328080326, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}
+      propertyPath: m_TagString
+      value: Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fb03108fd6689f4d9d9410c2bf8472d, type: 3}

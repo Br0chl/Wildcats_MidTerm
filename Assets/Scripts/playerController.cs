@@ -385,7 +385,7 @@ public class playerController : MonoBehaviour
                     }
                     else //if (hit.collider.CompareTag("Untagged"))
                     {
-                        if (!gunList[selectedGun].isOutOfAmmo && hit.transform.tag != "Enemy" && hit.transform.tag != "Player")
+                        if (!gunList[selectedGun].isOutOfAmmo && hit.transform.tag != "Enemy" && hit.transform.tag != "Player" && hit.transform.tag != "Untagged")
                             Instantiate(bullethole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                     }
                 }
