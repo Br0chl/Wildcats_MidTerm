@@ -14,6 +14,8 @@ public class Pickup : MonoBehaviour
 
     [SerializeField] float respawnTime = 0f;
 
+    [SerializeField] GameObject soundPrefab;
+
     private void Update()
     {
         if (popUpActive && Input.GetKeyDown(KeyCode.E))
@@ -42,12 +44,17 @@ public class Pickup : MonoBehaviour
             if (gameManager.instance.playerScript.currentHP == gameManager.instance.playerScript.maxHP)
                 return;
             else
+            {
                 gameManager.instance.playerScript.Heal(healthToRestore);
+                GameObject sound = Instantiate(soundPrefab);
+            }
         }
 
         if (currencyAmount > 0)
         {
             gameManager.instance.playerScript.AddCurrency(currencyAmount);
+            GameObject sound = Instantiate(soundPrefab);
+            
         }
 
         if (magazineAmount > 0)
@@ -60,6 +67,7 @@ public class Pickup : MonoBehaviour
             }
             
             gameManager.instance.playerScript.gunPickup(gameManager.instance.playerScript.gunList[gameManager.instance.playerScript.selectedGun]);
+            GameObject sound = Instantiate(soundPrefab);
             //gameManager.instance.UpdateUI();
         }
 
