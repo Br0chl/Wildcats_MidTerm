@@ -3769,6 +3769,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4718690246831845344, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877756936696489739, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b4c92648cfd2d1643834aeb6b2fc4918, type: 3}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: curHPShop
       value: 
