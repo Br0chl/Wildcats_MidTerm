@@ -140,6 +140,7 @@ MonoBehaviour:
   throwable: {fileID: 0}
   popUpActive: 0
   respawnTime: 0
+  soundPrefab: {fileID: 7279153879441882300, guid: ab08df9c554bd1548a4d90e058a1b19e, type: 3}
 --- !u!114 &8384295781560059274
 MonoBehaviour:
   m_ObjectHideFlags: 0
