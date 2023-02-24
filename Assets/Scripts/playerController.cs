@@ -30,6 +30,11 @@ public class playerController : MonoBehaviour
     public GameObject shootPos;
     public ParticleSystem flameThrowerPart;
     public ParticleSystem flameThrowerOutofAmmo;
+    public ParticleSystem handgunMuzzleFlash;
+    public ParticleSystem smgMuzzleFlash;
+    public ParticleSystem arMuzzleFlash;
+    public ParticleSystem shotgunMuzzleFlash;
+    public ParticleSystem lmgMuzzleFlash;
 
     [Header("---Equipment---")]
     [SerializeField] public Throwable equipment;
@@ -766,6 +771,26 @@ public class playerController : MonoBehaviour
 
     public void ShootSound()
     {
+        switch (gunList[selectedGun].type)
+        {
+            case WeaponType.Handgun:
+                handgunMuzzleFlash.Play(true);
+                break;
+            case WeaponType.SMG:
+                smgMuzzleFlash.Play(true);
+                break;
+            case WeaponType.AssaultRifle:
+                arMuzzleFlash.Play(true);
+                break;
+            case WeaponType.Shotgun:
+                shotgunMuzzleFlash.Play(true);
+                break;
+            case WeaponType.LMG:
+                lmgMuzzleFlash.Play(true);
+                break;
+            default:
+                break;
+        }
         aud.clip = gunList[selectedGun].gunShotAud;
         aud.volume = gunList[selectedGun].gunShotAudVol;
         aud.Play();
