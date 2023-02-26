@@ -2540,6 +2540,10 @@ PrefabInstance:
       propertyPath: maxWaves
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: waveComplete
+      value: 
+      objectReference: {fileID: 1668156569}
     - target: {fileID: 3599848792014023527, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2987,6 +2991,11 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1848271321291520128, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
   m_PrefabInstance: {fileID: 140320116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1668156569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4416289550103557778, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+  m_PrefabInstance: {fileID: 5271345157281350944}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1750723048
 GameObject:

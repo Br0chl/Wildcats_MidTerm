@@ -25,6 +25,8 @@ public class waveSpawner : MonoBehaviour
     [SerializeField] float spawnTimer;
     [SerializeField] bool stopWaves = true;
 
+    [SerializeField] GameObject waveComplete;
+
     public bool spawnerEmpty = false;
 
     void Start()
@@ -54,6 +56,8 @@ public class waveSpawner : MonoBehaviour
                 { waveTimer -= Time.fixedDeltaTime; } 
             }
         }
+        else if (stopWaves && enemiesRemaining == 0 && spawnerEmpty)
+            StartCoroutine(WaveBreak());
         else
         {
             if (enemiesToSpawn.Count == 0 && enemiesRemaining <= 0 && currWave > 1 && currWave == maxWaves)
@@ -135,7 +139,10 @@ public class waveSpawner : MonoBehaviour
         }
         else // otherwise
         {
+            spawnerEmpty = true;
+            stopWaves = true;
             waveTimer = 0; // end the wave
+            
         }
     }
 
@@ -153,5 +160,16 @@ public class waveSpawner : MonoBehaviour
     {
         enemiesRemaining += amount;
         gameManager.instance.enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+    }
+
+    IEnumerator WaveBreak()
+    {
+        Debug.Log("Wave Complete");
+        waveComplete.SetActive(true);
+        yield return new WaitForSeconds(5);
+        waveComplete.SetActive(false);
+        Debug.Log("starting next wave");
+        spawnerEmpty = false;
+        stopWaves = false;
     }
 }
