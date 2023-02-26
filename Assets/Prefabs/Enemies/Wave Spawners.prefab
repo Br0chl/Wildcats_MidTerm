@@ -473,4 +473,5 @@ MonoBehaviour:
   spawnInterval: 0
   spawnTimer: 0
   stopWaves: 1
+  waveComplete: {fileID: 0}
   spawnerEmpty: 0
