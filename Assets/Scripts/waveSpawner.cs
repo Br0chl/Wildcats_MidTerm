@@ -56,7 +56,7 @@ public class waveSpawner : MonoBehaviour
                 { waveTimer -= Time.fixedDeltaTime; } 
             }
         }
-        else if (stopWaves && enemiesRemaining == 0 && spawnerEmpty)
+        else if (stopWaves && enemiesRemaining == 0 && spawnerEmpty && currWave != maxWaves)
             StartCoroutine(WaveBreak());
         else
         {
