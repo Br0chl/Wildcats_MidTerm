@@ -2297,6 +2297,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &770696233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7698756255588501030, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+  m_PrefabInstance: {fileID: 5271345157281350944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &770696234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2523264274378806115, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
+  m_PrefabInstance: {fileID: 5271345157281350944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770696233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b53e18e4055dc3041bf372078fab2a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &781701689 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8436910098902143361, guid: 3432d9d4319b1c841a44cc82073458ce, type: 3}
@@ -2407,6 +2423,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wave Spawners
       objectReference: {fileID: 0}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 770696234}
+    - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
+      propertyPath: timerUI
+      value: 
+      objectReference: {fileID: 770696233}
     - target: {fileID: 3599848792014023526, guid: c0a62f243cd435640af9c358f52c32e0, type: 3}
       propertyPath: waveComplete
       value: 
@@ -3930,18 +3954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 2187188104873572063, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4718690246831845344, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4877756936696489739, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b4c92648cfd2d1643834aeb6b2fc4918, type: 3}
     - target: {fileID: 7370360638296165880, guid: aaccd3bca37eed345aaef173f37ab071, type: 3}
       propertyPath: curHPShop
       value: 

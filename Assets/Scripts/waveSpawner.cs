@@ -23,9 +23,12 @@ public class waveSpawner : MonoBehaviour
     [SerializeField] float waveTimer;
     [SerializeField] float spawnInterval;
     [SerializeField] float spawnTimer;
-    [SerializeField] bool stopWaves = true;
+    [SerializeField] public bool stopWaves = true;
 
     [SerializeField] GameObject waveComplete;
+    [SerializeField] public  GameObject timerUI;
+    [SerializeField] Timer timer;
+    public bool waveBreak;
 
     public bool spawnerEmpty = false;
 
@@ -56,8 +59,10 @@ public class waveSpawner : MonoBehaviour
                 { waveTimer -= Time.fixedDeltaTime; } 
             }
         }
-        else if (stopWaves && enemiesRemaining == 0 && spawnerEmpty && currWave != maxWaves)
+        else if (stopWaves && enemiesRemaining == 0 && spawnerEmpty && currWave != maxWaves && !waveBreak)
+        {
             StartCoroutine(WaveBreak());
+        }
         else
         {
             if (enemiesToSpawn.Count == 0 && enemiesRemaining <= 0 && currWave > 1 && currWave == maxWaves)
@@ -136,12 +141,16 @@ public class waveSpawner : MonoBehaviour
             enemiesRemaining++;
             gameManager.instance.enemiesRemainingText.text = enemiesRemaining.ToString("F0");
             spawnTimer = spawnInterval; // reset the spawnTimer
+            waveBreak = false;
         }
         else // otherwise
         {
+            if (waveBreak == false)
+            {
             spawnerEmpty = true;
             stopWaves = true;
             waveTimer = 0; // end the wave
+            }
             
         }
     }
@@ -164,12 +173,19 @@ public class waveSpawner : MonoBehaviour
 
     IEnumerator WaveBreak()
     {
+        waveBreak = true;
         Debug.Log("Wave Complete");
         waveComplete.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         waveComplete.SetActive(false);
+        timer.timeRemaining = 10;
+        timer.timerIsRunning = true;
+        timerUI.SetActive(true);
+        yield return new WaitForSeconds(10);
+        
         Debug.Log("starting next wave");
         spawnerEmpty = false;
         stopWaves = false;
+        timerUI.SetActive(false);
     }
 }
